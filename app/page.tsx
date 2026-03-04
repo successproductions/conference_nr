@@ -71,9 +71,9 @@ export default function HomePage() {
 
         {/* Event meta */}
         <div className="relative z-10 mt-16 flex flex-wrap justify-center gap-8 text-sm text-white/40">
-          <span>📅 Coming Soon — 2026</span>
-          <span>📍 Location TBA</span>
-          <span>🎟 Limited Seats</span>
+          <span>Coming Soon — 2026</span>
+          <span>Location TBA</span>
+          <span>Limited Seats</span>
         </div>
       </section>
 
