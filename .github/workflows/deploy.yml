@@ -66,5 +66,5 @@ jobs:
             fi
 
             # 4. Restart the standalone server or start it for the first time
-            pm2 restart conference-conference || PORT=3004 pm2 start server.js --name "conference-conference"
+            pm2 restart conference-app || PORT=3004 pm2 start server.js --name "conference-app"
             pm2 save || true
