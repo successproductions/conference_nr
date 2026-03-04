@@ -89,7 +89,7 @@ export default function ListeAttentePage() {
             {/* ── CTA intro ──────── */}
             <p className="font-semibold text-white">
               Si tu veux être informée avant l'annonce officielle et avoir accès
-              avant tout le monde 
+              avant tout le monde.
             </p>
 
             {/* ── Divider ────────── */}
