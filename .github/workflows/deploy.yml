@@ -37,13 +37,15 @@ jobs:
           rsync -avz --delete \
             --exclude='.git' \
             --exclude='node_modules' \
-            .next/standalone/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/conference/
+            .next/standalone/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/nahedrachad-conference/htdocs/conference.nahedrachad.com/
+          
           rsync -avz \
-            .next/static/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/conference/.next/static/
+            .next/static/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/nahedrachad-conference/htdocs/conference.nahedrachad.com/.next/static/
+          
           rsync -avz \
-            public/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/conference/public/
+            public/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/nahedrachad-conference/htdocs/conference.nahedrachad.com/public/
 
       - name: Restart app with PM2
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} \
-            "cd /var/www/conference && pm2 restart conference-app || pm2 start npm --name 'conference-app' -- start"
+            "cd /home/nahedrachad-conference/htdocs/conference.nahedrachad.com && pm2 restart conference-app || PORT=3000 pm2 start server.js --name 'conference-app'"
