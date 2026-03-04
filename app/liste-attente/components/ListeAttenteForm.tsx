@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-
-type State = 'idle' | 'loading' | 'success' | 'error';
+import Swal from 'sweetalert2';
 
 export default function ListeAttenteForm() {
-  const [state, setState] = useState<State>('idle');
+  const [state, setState] = useState<'idle' | 'loading'>('idle');
   const [form, setForm] = useState({ prenom: '', email: '', telNumber: '', countryCode: '+212' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -15,21 +14,44 @@ export default function ListeAttenteForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState('loading');
-    await new Promise((r) => setTimeout(r, 900)); 
-    setState('success');
-  };
+    try {
+      await new Promise((r) => setTimeout(r, 900));
+      // TODO: replace the line above with your real API call
 
-  if (state === 'success') {
-    return (
-      <div className="text-center py-8 space-y-3">
-        <div className="text-4xl">✅</div>
-        <p className="text-xl font-bold text-white">Tu es sur la liste !</p>
-        <p className="text-white/50 text-sm">
-          Tu seras prévenue en priorité, avant l'annonce officielle.
-        </p>
-      </div>
-    );
-  }
+      setState('idle');
+      setForm({ prenom: '', email: '', telNumber: '', countryCode: form.countryCode });
+
+      await Swal.fire({
+        icon: 'success',
+        title: 'Tu es sur la liste ! 🎉',
+        text: 'Tu seras prévenue en priorité, avant l\'annonce officielle.',
+        confirmButtonText: 'Super !',
+        background: '#111118',
+        color: '#ffffff',
+        confirmButtonColor: '#ff8bcc',
+        customClass: {
+          popup: 'rounded-xl',
+          title: 'text-white',
+          confirmButton: 'font-bold tracking-wide rounded-full px-8',
+        },
+      });
+    } catch {
+      setState('idle');
+      await Swal.fire({
+        icon: 'error',
+        title: 'Oups !',
+        text: 'Une erreur est survenue. Réessaie dans quelques instants.',
+        confirmButtonText: 'Réessayer',
+        background: '#111118',
+        color: '#ffffff',
+        confirmButtonColor: '#d4a853',
+        customClass: {
+          popup: 'rounded-2xl',
+          confirmButton: 'font-bold tracking-wide rounded-full px-8',
+        },
+      });
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md mx-auto">
@@ -37,7 +59,7 @@ export default function ListeAttenteForm() {
       <div className="group">
         <label
           htmlFor="prenom"
-          className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2"
+          className="block text-xs md:text-sm font-semibold tracking-widest uppercase text-white/40 mb-2"
         >
           Prénom
         </label>
@@ -58,7 +80,7 @@ export default function ListeAttenteForm() {
       <div className="group">
         <label
           htmlFor="email"
-          className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2"
+          className="block text-xs md:text-sm font-semibold tracking-widest uppercase text-white/40 mb-2"
         >
           Email
         </label>
@@ -79,7 +101,7 @@ export default function ListeAttenteForm() {
       <div className="group">
         <label
           htmlFor="telNumber"
-          className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2"
+          className="block text-xs md:text-sm font-semibold tracking-widest uppercase text-white/40 mb-2"
         >
           Téléphone
         </label>
@@ -117,13 +139,13 @@ export default function ListeAttenteForm() {
         type="submit"
         disabled={state === 'loading'}
         id="liste-attente-submit"
-        className="w-full mt-2 py-4 rounded-sm bg-gold text-[#0a0a0f] font-extrabold text-sm tracking-wide shadow-lg shadow-gold/30 transition-all hover:scale-[1.02] hover:shadow-gold/50 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full mt-2 py-4 rounded-sm bg-[#ff8bcc] text-white font-semibold text-sm md:text-lg tracking-wide shadow-lg shadow-[#ff8bcc]/30 transition-all hover:scale-[1.02] hover:shadow-[#ff8bcc]/50 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {state === 'loading' ? 'Inscription en cours…' : 'Je veux être prévenue en priorité'}
       </button>
 
       <p className="text-center text-xs text-white/20 pt-1">
-        Aucun spam. Tu peux te désinscrire à tout moment.
+        Aucune publicité. Aucun spam. Uniquement l’accès prioritaire à l’annonce.
       </p>
     </form>
   );

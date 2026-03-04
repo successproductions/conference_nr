@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+
 /* ─── Custom theme (Tailwind v4 inline config) ─────────── */
 @theme {
   --color-gold: #d4a853;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
 
   --animate-shimmer: shimmer 4s linear infinite;
 
@@ -13,12 +15,40 @@
   }
 }
 
+
+
+
+
 /* ─── Base resets ───────────────────────────────────────── */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bebas-neue-regular {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oswald-regular {
+  font-family: var(--font-oswald);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat-regular {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -27,6 +57,7 @@ html {
 body {
   background-color: #0a0a0f;
   color: #ffffff;
+  font-family: var(--font-montserrat);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
