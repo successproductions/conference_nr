@@ -62,10 +62,12 @@ export default function ListeAttentePage() {
 
             {/* ── Hook copy ─────── */}
             <div className="space-y-1">
-              {lines.map((line) => (
+              {lines.map((line, idx) => (
                 <p
                   key={line}
-                  className="oswald-regular text-xl  md:text-3xl font-semibold text-white leading-snug"
+                  className={`${
+                    idx === 0 ? 'bebas-neue-regular tracking-wide' : ''
+                  } text-xl md:text-3xl font-medium text-white leading-snug`}
                 >
                   {line}
                 </p>
@@ -93,14 +95,14 @@ export default function ListeAttentePage() {
               avant tout le monde.
             </p>
 
-            {/* ── Divider ────────── */}
+            {/* ── Divider ──────────
             <div className="flex items-center gap-2">
               <div className="flex-1 h-px bg-[#ff8bcc]/8" />
               <span className="tracking-widest text-[#ff8bcc] uppercase text-sm md:text-2xl font-semibold">
                 Je veux accèder à la liste privée
               </span>
               <div className="flex-1 h-px bg-[#ff8bcc]/8" />
-            </div>
+            </div> */}
 
             {/* ── Form card ─────── */}
             <div className="rounded-sm border border-white/8 bg-white/3 backdrop-blur-sm p-7 sm:p-9">

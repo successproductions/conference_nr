@@ -141,10 +141,10 @@ export default function ListeAttenteForm() {
         id="liste-attente-submit"
         className="w-full mt-2 py-4 rounded-sm bg-[#ff8bcc] text-white font-semibold text-sm md:text-lg tracking-wide shadow-lg shadow-[#ff8bcc]/30 transition-all hover:scale-[1.02] hover:shadow-[#ff8bcc]/50 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {state === 'loading' ? 'Inscription en cours…' : 'Je veux être prévenue en priorité'}
+        {state === 'loading' ? 'Inscription en cours…' : 'Je veux accèder à la liste privée'}
       </button>
 
-      <p className="text-center text-xs text-white/20 pt-1">
+      <p className="text-center text-xs text-white pt-1">
         Aucune publicité. Aucun spam. Uniquement l’accès prioritaire à l’annonce.
       </p>
     </form>
