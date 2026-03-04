@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue, Montserrat, Oswald } from "next/font/google";
+import { Inter, Bebas_Neue, Montserrat, Oswald, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,6 +27,12 @@ const oswald = Oswald({
   display: "swap",
 });
 
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "CEO OF MY LIFE — The Conference",
   description:
@@ -39,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${montserrat.variable} ${oswald.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${montserrat.variable} ${oswald.variable} ${playfairDisplay.variable}`}>
       <body>{children}</body>
     </html>
   );

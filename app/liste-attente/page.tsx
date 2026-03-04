@@ -66,7 +66,7 @@ export default function ListeAttentePage() {
                 <p
                   key={line}
                   className={`${
-                    idx === 0 ? 'bebas-neue-regular tracking-wide' : ''
+                    idx === 0 ? 'playfair-display-regular tracking-wide' : ''
                   } text-xl md:text-3xl font-medium text-white leading-snug`}
                 >
                   {line}

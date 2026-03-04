@@ -26,11 +26,7 @@
   box-sizing: border-box;
 }
 
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+
 .bebas-neue-regular {
   font-family: var(--font-display);
   font-weight: 400;
@@ -49,6 +45,11 @@
   font-style: normal;
 }
 
+.playfair-display-regular {
+  font-family: var(--font-playfair);
+  font-weight: 400;
+  font-style: normal;
+}
 
 html {
   scroll-behavior: smooth;
