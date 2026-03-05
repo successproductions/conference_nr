@@ -66,8 +66,8 @@ export default function ListeAttentePage() {
                 <p
                   key={line}
                   className={`${
-                    idx === 0 ? 'playfair-display-regular tracking-wide' : ''
-                  } text-xl md:text-3xl font-medium text-white leading-snug`}
+                    idx === 0 ? 'playfair-display-regular uppercase tracking-wide text-[28px] md:text-4xl' : 'text-lg md:text-2xl font-extralight'
+                  } font-medium text-white leading-snug`}
                 >
                   {line}
                 </p>
@@ -75,11 +75,11 @@ export default function ListeAttentePage() {
             </div>
 
             {/* ── Teaser ─────────── */}
-            <div className="space-y-0 md:space-y-2 md:text-2xl ">
-              <p className="font-semibold text-white">
+            <div className="space-y-0 md:space-y-2 text-lg md:text-2xl ">
+              <p className="font-medium text-white">
                 La prochaine étape arrive.
               </p>
-              <p className="font-semibold text-white">
+              <p className="font-medium text-white">
                 Mais cette fois-ci, ce sera différent.
               </p>
               <p className="font-medium text-white">Les premières places passeront par cette liste privée.</p>
@@ -90,7 +90,7 @@ export default function ListeAttentePage() {
             </div>
 
             {/* ── CTA intro ──────── */}
-            <p className="font-medium md:text-2xl text-white">
+            <p className="font-medium text-lg md:text-2xl text-white">
               Si tu veux être informée avant l'annonce officielle et avoir accès
               avant tout le monde.
             </p>
@@ -113,7 +113,7 @@ export default function ListeAttentePage() {
       </section>
 
       {/* ─── FOOTER ───────────────────────────────────────────── */}
-      <footer className="border-t border-white/5 py-6 px-6 text-center text-xs text-white/20 tracking-wide">
+      <footer className="border-t border-white/5 py-6 px-6 text-center text-xs text-white tracking-wide">
         © {new Date().getFullYear()} CEO OF MY LIFE. Tous droits réservés.
       </footer>
     </main>
