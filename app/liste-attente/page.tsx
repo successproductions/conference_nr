@@ -34,6 +34,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nahedrachad.com/conference/liste-attente',
   },
+  other: {
+    // Content freshness signal for SEO crawlers
+    'og:updated_time': new Date().toISOString(),
+  },
 };
 
 const jsonLd = {
@@ -154,6 +158,10 @@ export default function ListeAttentePage() {
 
             {/* ── Form card ─────── */}
             <div className="rounded-sm border border-white/8 bg-white/3 backdrop-blur-sm p-7 sm:p-9">
+              {/* H2 for SEO — visually matches the divider style */}
+              <h2 className="tracking-widest text-[#ff8bcc] uppercase text-sm md:text-base font-semibold mb-6">
+                Je veux accèder à la liste privée
+              </h2>
               <ListeAttenteForm />
             </div>
           </div>
@@ -164,8 +172,13 @@ export default function ListeAttentePage() {
       <footer className="border-t border-white/5 py-6 px-6 text-center text-xs text-white tracking-wide">
         © {new Date().getFullYear()} CEO OF MY LIFE. Tous droits réservés.
         {' — '}
-        <Link href="/conference" className="underline underline-offset-2 hover:text-[#ff8bcc] transition-colors">
+        {/* Internal link — uses '/' because Next.js basePath '/conference' is prepended automatically */}
+        <Link href="/" className="underline underline-offset-2 hover:text-[#ff8bcc] transition-colors">
           Retour à l&apos;accueil
+        </Link>
+        {' — '}
+        <Link href="/liste-attente" className="underline underline-offset-2 hover:text-[#ff8bcc] transition-colors">
+          Liste d&apos;attente
         </Link>
       </footer>
     </main>
