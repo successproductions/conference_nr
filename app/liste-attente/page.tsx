@@ -149,19 +149,11 @@ export default function ListeAttentePage() {
                 et accéder aux inscriptions avant tout le monde :
               </p>
             </div>
-
-            {/* ── CTA intro ──────── */}
             <p className="font-light text-lg md:text-2xl text-white">
               Si tu veux être informée avant l&apos;annonce officielle et avoir accès
               avant tout le monde.
             </p>
-
-            {/* ── Form card ─────── */}
             <div className="rounded-sm border border-white/8 bg-white/3 backdrop-blur-sm p-7 sm:p-9">
-              {/* H2 for SEO — visually matches the divider style */}
-              <h2 className="tracking-widest text-[#ff8bcc] uppercase text-sm md:text-base font-semibold mb-6">
-                Je veux accèder à la liste privée
-              </h2>
               <ListeAttenteForm />
             </div>
           </div>
