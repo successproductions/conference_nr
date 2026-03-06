@@ -186,10 +186,8 @@ export default function ListeAttenteForm() {
           </div>
         </div>
         <span className="text-xs text-white/50 leading-relaxed group-hover/consent:text-white/70 transition-colors">
-          J'accepte que mes données personnelles (prénom, email, téléphone) soient enregistrées
+          J'accepte que mes données personnelles soient enregistrées
           et utilisées pour me contacter dans le cadre de cette liste d'attente.
-          Je peux me désinscrire à tout moment.{' '}
-          <span className="text-[#ff8bcc] font-medium">Champ obligatoire.</span>
         </span>
       </label>
 

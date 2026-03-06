@@ -1,193 +1,338 @@
-import type { Metadata } from "next";
-import RegisterForm from "./components/RegisterForm";
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import FaqAccordion from './components/FaqAccordion';
+import ConferenceForm from './components/ConferenceForm';
 
 export const metadata: Metadata = {
-  title: "CEO OF MY LIFE — The Conference",
+  title: 'MONEY RESET — Conférence avec Nahed Rachad · Casablanca 10 Mai',
   description:
-    "Join the most transformative leadership conference of the year. CEO OF MY LIFE empowers you to take full ownership of your story, your decisions, and your future.",
+    "Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières. Conférence présentielle à Casablanca le 10 mai.",
+  openGraph: {
+    title: 'MONEY RESET — Conférence Nahed Rachad',
+    description:
+      "Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières.",
+    url: 'https://nahedrachad.com/conference',
+    siteName: 'MONEY RESET',
+    locale: 'fr_FR',
+    type: 'website',
+  },
 };
+
+/* ─── CTA button shared style ───────────────────────────────── */
+const CTA = ({ href = '#register', label = 'JE RÉSERVE MA PLACE' }) => (
+  <a
+    href={href}
+    className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-[#cfab4a] text-white
+               font-bold text-sm md:text-base tracking-widest uppercase
+               shadow-xl shadow-[#cfab4a]/30 hover:shadow-[#cfab4a]/50
+               hover:scale-[1.03] active:scale-95 transition-all"
+  >
+    👉 {label}
+  </a>
+);
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0f] text-white font-[var(--font-sans)] overflow-x-hidden">
-      {/* ─── NAV ─────────────────────────────────────────────── */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-16 py-5 bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/5">
-        <span className="text-sm font-semibold tracking-[0.25em] uppercase text-gold">
-          CEO OF MY LIFE
-        </span>
-        <a
-          href="#register"
-          className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold text-[#0a0a0f] text-sm font-bold tracking-wide transition-transform hover:scale-105 active:scale-95"
-        >
-          Reserve Your Seat
-        </a>
-      </nav>
+    <main className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
 
-      {/* ─── HERO ────────────────────────────────────────────── */}
+      {/* ══════════════════════════════════════════════════════
+          1 · HERO
+      ══════════════════════════════════════════════════════ */}
       <section
         id="hero"
-        className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 pt-24 pb-20 overflow-hidden"
-        aria-label="Hero banner"
+        className="relative flex flex-col items-center justify-center min-h-screen text-center px-5 pt-16 md:pb-0 overflow-hidden"
       >
-        {/* Ambient glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div className="w-[700px] h-[700px] rounded-full bg-gold/10 blur-[120px]" />
+        {/* Background glow */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="w-[800px] h-[700px] rounded-full bg-[##cfab4a]/8 blur-[140px]" />
         </div>
 
-        <p className="mb-4 text-xs tracking-[0.35em] uppercase text-gold/80 font-semibold">
-          The Premier Leadership Experience · 2026
-        </p>
-
-        <h1 className="relative z-10 text-5xl sm:text-6xl md:text-8xl font-extrabold leading-none tracking-tight mb-6">
-          <span className="block text-white">CEO OF</span>
-          <span className="block bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent animate-shimmer">
-            MY LIFE
-          </span>
-        </h1>
-
-        <p className="relative z-10 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed mb-10">
-          A one-of-a-kind conference designed for visionary leaders ready to
-          own their narrative, master their decisions, and build an extraordinary
-          life—on their own terms.
-        </p>
-
-        <div className="relative z-10 flex flex-col sm:flex-row gap-4">
-          <a
-            href="#register"
-            className="px-8 py-4 rounded-full bg-gold text-[#0a0a0f] font-bold text-sm tracking-wide shadow-lg shadow-gold/30 transition-all hover:scale-105 hover:shadow-gold/50 active:scale-95"
-          >
-            Secure Your Spot →
-          </a>
-          <a
-            href="#speakers"
-            className="px-8 py-4 rounded-full border border-white/20 text-white/70 font-semibold text-sm tracking-wide transition-all hover:border-gold/50 hover:text-white"
-          >
-            Meet the Speakers
-          </a>
+        {/* Date badge */}
+        <div className="relative z-10 mb-8 inline-flex items-center gap-2 px-5 py-2 rounded-sm border border-[#cfab4a]/90 bg-[#cfab4a]/8 text-white text-sm md:text-lg font-bold tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-[#eb0629] animate-pulse" />
+          CONFÉRENCE LIVE | 10 Mai @ 16:00 
         </div>
 
-        {/* Event meta */}
-        <div className="relative z-10 mt-16 flex flex-wrap justify-center gap-8 text-sm text-white/40">
-          <span>Coming Soon — 2026</span>
-          <span>Location TBA</span>
-          <span>Limited Seats</span>
+        <div className='z-10 '>
+        <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[200px] w-full md:h-[600px] z-10" />
+
+
+        {/* Title
+        <h1 className="bebas-neue-regular absolute top-2/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-[clamp(2.9rem,10vw,10rem)] md:text-[clamp(4rem,18vw,10rem)] leading-none tracking-wide text-white ">
+          MONEY RESET
+        </h1> */}
+        </div>
+
+       
+
+        {/* Body copy */}
+        <div className="relative z-10 md:w-[80%] text-white text-base md:text-3xl leading-loose space-y-0 mb-5 md:mb-12 font-light ">
+        <p>Reprogrammez votre rapport à l&apos;argent et reprenez le contrôle de vos décisions financières</p>
+          <p>Reprogrammez votre rapport l’argent et reprenez le contrôle de vos décisions financières Votre vrai problème n’est pas le montant que vous gagnez, mais l’identité avec laquelle vous décidez.</p>
+          <p>Les mêmes peurs, les mêmes histoires,les mêmes réflexes… produisent toujours les mêmes résultats. Tant que votre système intérieur n’est pas reset, </p>
+          <ul> vous pouvez travailler plus, gagner plus, lire tous les livres :
+            <li>Votre niveau de vie restera bloquéM Money Reset est là pour couper ce cycle, réinitialiser votre rapport à l’argent et vous remettre aux commandes de vos choix, sans excuses et sans auto-sabotage.</li>
+          </ul>
+        </div>
+
+        <div className="relative z-10">
+          <CTA />
         </div>
       </section>
 
-      {/* ─── SPEAKERS ────────────────────────────────────────── */}
-      <section
-        id="speakers"
-        className="py-24 px-6 md:px-16 max-w-6xl mx-auto"
-        aria-label="Speaker Information"
-      >
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] uppercase text-gold/70 font-semibold mb-3">
-            World-Class Speakers
-          </p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white">
-            Learn from the{" "}
-            <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">
-              Best
-            </span>
-          </h2>
-          <p className="mt-4 text-white/50 max-w-xl mx-auto">
-            Our curated lineup brings together entrepreneurs, coaches, and
-            thought leaders who have mastered the art of self-leadership.
-          </p>
+      {/* ══════════════════════════════════════════════════════
+          2 · VIDÉO
+      ══════════════════════════════════════════════════════ */}
+      <section id="video" className="relative py-16 px-5 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="w-[600px] h-[500px] rounded-full bg-[#cfab4a]/6 blur-[120px]" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SPEAKERS.map((speaker) => (
-            <div
-              key={speaker.name}
-              className="group relative rounded-2xl border border-white/8 bg-white/3 p-8 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-white/5 hover:-translate-y-1"
-            >
-              {/* Avatar placeholder */}
-              <div className="mb-5 w-16 h-16 rounded-full bg-gradient-to-br from-gold/40 to-amber-600/20 flex items-center justify-center text-2xl font-bold text-gold">
-                {speaker.initials}
-              </div>
-              <h3 className="text-lg font-bold text-white mb-1">
-                {speaker.name}
-              </h3>
-              <p className="text-xs text-gold/70 font-semibold tracking-wide uppercase mb-3">
-                {speaker.title}
-              </p>
-              <p className="text-sm text-white/50 leading-relaxed">
-                {speaker.bio}
-              </p>
+        <div className="relative z-10 w-full max-w-4xl 2xl:max-w-5xl mx-auto text-center">
+          {/* Pre-video copy */}
+          <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Avant de réserver</p>
+          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight">
+            Regardez cette vidéo.
+          </h2>
+          <p className="text-white text-base md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto">
+            Vous allez comprendre pourquoi le problème n&apos;est pas l&apos;argent que vous gagnez…
+            mais <span className="text-white font-light">l&apos;identité financière</span> avec laquelle vous prenez vos décisions.
+          </p>
+
+          {/* Video card */}
+          <div className="relative rounded-sm overflow-hidden border border-[#cfab4a]/40 shadow-2xl shadow-[#cfab4a]/15 mb-10">
+            {/* Pink top glow bar */}
+            <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-[#cfab4a] to-transparent" />
+            {/* VIDEO PLACEHOLDER — replace src with actual video embed URL */}
+            <div className="aspect-video w-full bg-black">
+              <iframe
+                src="https://player.vimeo.com/video/1171043937?h=07184e896e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="w-full h-full"
+              ></iframe>
             </div>
-          ))}
+            <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-[#cfab4a] to-transparent" />
+          </div>
+
+          {/* Post-video copy */}
+          <p className="text-white text-lg md:text-2xl font-light leading-relaxed mb-8">
+            Suivie par plus de <span className="text-white font-light">3,4 millions de personnes</span>,<br />
+            Nahed Rachad aborde pour la première fois en présentiel<br />
+            le sujet de l&apos;identité financière.
+          </p>
+
+          <CTA />
         </div>
       </section>
 
-      {/* ─── REGISTRATION CTA ────────────────────────────────── */}
-      <section
-        id="register"
-        className="relative py-28 px-6 text-center overflow-hidden"
-        aria-label="Registration call to action"
-      >
-        {/* Glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div className="w-[600px] h-[400px] rounded-full bg-gold/8 blur-[100px]" />
-        </div>
-
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <p className="text-xs tracking-[0.35em] uppercase text-gold/70 font-semibold mb-4">
-            Ready to Take Over?
-          </p>
-          <h2 className="text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
-            Become the{" "}
-            <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent">
-              CEO
-            </span>{" "}
-            of Your Life
+      {/* ══════════════════════════════════════════════════════
+          3 · TRANSFORMATIONS
+      ══════════════════════════════════════════════════════ */}
+      <section id="transformations" className="relative py-10 md:py-24 px-2 md:px-5 bg-white/[0.015]">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-4 leading-tight">
+            80 % des gens travaillent plus…<br />
+            <span className="text-[#cfab4a]">mais restent au même niveau financier</span><br />
+            pendant des années.
           </h2>
-          <p className="text-white/50 text-base mb-10 leading-relaxed">
-            Seats are strictly limited. Register your interest now and be the
-            first to receive event details, early-bird pricing, and exclusive
-            pre-conference resources.
+          <p className="text-white text-lg md:text-2xl mt-4 mb-6 font-light">Pourquoi ?</p>
+          <p className="text-white text-lg md:text-2xl font-light mb-12">
+            Parce qu&apos;un <span className="text-[#d4a853]">plafond invisible</span> dirige leurs décisions.
           </p>
 
-          <RegisterForm />
+          <p className="text-white text-lg md:text-2xl font-light mb-8">
+            Le <strong className="text-white">10 mai</strong>, vous allez voir en face :
+          </p>
 
-          <p className="mt-4 text-xs text-white/25">
-            No spam, ever. Unsubscribe at any time.
+          <ul className="text-left  space-y-4 mb-12 max-w-xl mx-auto">
+            {[
+              'Le plafond financier que vous protégez inconsciemment.',
+              'Le pacte invisible qui vous maintient juste "assez"… mais jamais libre.',
+              'Pourquoi votre intelligence ne vous protège pas de la stagnation.',
+              'Pourquoi vous prenez des décisions depuis la peur… sans le voir.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4 ">
+                <span className="shrink-0 mt-1 w-6 h-6 rounded-full border border-[#cfab4a]/60 flex items-center justify-center text-[#cfab4a] text-xs font-bold">•</span>
+                <span className="text-white text-lg md:text-2xl font-light">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-white text-lg md:text-2xl font-light mb-2">
+            Le 10 Mai, vous ne viendrez pas chercher de la motivation.
+          </p>
+          <p className="text-white text-lg md:text-2xl font-light mb-10">
+            Vous viendrez appuyer sur <span className="text-[#cfab4a]">RESET</span>.
+          </p>
+
+          <CTA />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          4 · PHRASE SIGNATURE
+      ══════════════════════════════════════════════════════ */}
+      <section className="relative md:py-20 px-5 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="w-[900px] h-[200px] rounded-full bg-[#d4a853]/8 blur-[80px]" />
+        </div>
+        <div className="relative z-10 uppercase max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-16">
+          <p className="playfair-display-regular text-3xl md:text-5xl text-white leading-tight">
+            Arrêtez de blâmer les circonstances.
+          </p>
+          <p className="playfair-display-regular text-3xl md:text-5xl text-[#d4a853] leading-tight mt-2">
+            Votre programmation financière dirige votre vie.
           </p>
         </div>
       </section>
 
-      {/* ─── FOOTER ──────────────────────────────────────────── */}
-      <footer className="border-t border-white/5 py-8 px-6 text-center text-xs text-white/25 tracking-wide">
-        © {new Date().getFullYear()} CEO OF MY LIFE Conference. All rights reserved.
+      {/* ══════════════════════════════════════════════════════
+          5 · POURQUOI CETTE CONFÉRENCE
+      ══════════════════════════════════════════════════════ */}
+      <section id="pourquoi" className="py-5 md:py-14 px-5">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Pourquoi cette conférence</p>
+          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
+            La réalité que personne ne dit
+          </h2>
+          <div className="space-y-5 text-white text-lg md:text-2xl font-light leading-relaxed ">
+            <p>
+              Après des années d&apos;entrepreneuriat et des milliers de modélisations de femmes et d&apos;hommes qui ont réussi,
+              Nahed a compris une chose.
+            </p>
+            <p className="text-white font-light text-lg md:text-2xl">
+              Les gens ne manquent pas d&apos;intelligence.<br />
+              Ils manquent d&apos;un <span className="text-[#d4a853]">reset financier intérieur</span>.
+            </p>
+            <p>
+              Sans ce reset,<br />
+              les mêmes décisions produisent<br />
+              les mêmes résultats.
+            </p>
+            <p className="text-white font-light">
+              Money Reset est né de cette réalité.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          6 · PRICING
+      ══════════════════════════════════════════════════════ */}
+      <section id="pricing" className="relative md:py-24 py-5 px-5 bg-white/[0.015] overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="w-[700px] h-[400px] rounded-full bg-[#cfab4a]/6 blur-[120px]" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Tarifs</p>
+          <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight">
+            Plus vous attendez,<br />moins il reste de choix.
+          </h2>
+          <p className="text-white text-sm md:text-lg mb-12">Quand une catégorie est complète, elle disparaît automatiquement.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Balcon */}
+            <div className="rounded-sm border border-white bg-white/3 backdrop-blur-sm p-8 flex flex-col items-center gap-4">
+              <p className="text-white uppercase tracking-widest text-xs font-semibold">Balcon</p>
+              <p className="bebas-neue-regular text-6xl text-white">390</p>
+              <p className="text-white text-sm -mt-3">MAD</p>
+              <a href="#register" className="mt-auto w-full py-3 rounded-sm border border-white/20 text-white/70 hover:border-[#cfab4a]/60 hover:text-white text-sm font-semibold tracking-wide transition-all text-center">
+                Réserver
+              </a>
+            </div>
+
+            {/* Standard */}
+            <div className="rounded-sm border border-white/15 bg-white/4 backdrop-blur-sm p-8 flex flex-col items-center gap-4">
+              <p className="text-white/50 uppercase tracking-widest text-xs font-semibold">Standard</p>
+              <p className="bebas-neue-regular text-6xl text-white">470</p>
+              <p className="text-white/40 text-sm -mt-3">MAD</p>
+              <a href="#register" className="mt-auto w-full py-3 rounded-sm border border-white/20 text-white/70 hover:border-[#cfab4a]/60 hover:text-white text-sm font-semibold tracking-wide transition-all text-center">
+                Réserver
+              </a>
+            </div>
+
+            {/* VIP */}
+            <div className="rounded-sm border border-[#d4a853]/50 bg-[#d4a853]/5 backdrop-blur-sm p-8 flex flex-col items-center gap-4 relative overflow-hidden shadow-xl shadow-[#d4a853]/10">
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a853] to-transparent" />
+              <p className="text-[#d4a853] uppercase tracking-widest text-xs font-bold">VIP</p>
+              <p className="bebas-neue-regular text-6xl text-[#d4a853]">750</p>
+              <p className="text-[#d4a853]/60 text-sm -mt-3">MAD</p>
+              <p className="text-white/40 text-xs text-center">Places très limitées.</p>
+              <a href="#register" className="mt-auto w-full py-3 rounded-sm bg-[#d4a853] text-[#0a0a0f] font-bold text-sm tracking-wide hover:scale-[1.02] transition-all text-center">
+                Réserver VIP
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          7 · URGENCE
+      ══════════════════════════════════════════════════════ */}
+      <section className="py-5 md:py-16 px-5">
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <h2 className="playfair-display-regular uppercase text-4xl md:text-5xl text-white">
+            Les places sont limitées.
+          </h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-10 text-md md:text-xl text-white">
+            <span className="flex items-center gap-2"><span className="text-[#cfab4a] font-light md:font-bold">✕</span> Aucun replay</span>
+            <span className="flex items-center gap-2"><span className="text-[#cfab4a] font-light md:font-bold">✕</span> Aucune seconde date annoncée</span>
+          </div>
+          <p className="text-white text-sm md:text-xl">
+            Quand la salle est complète, les inscriptions ferment définitivement.
+          </p>
+          <CTA />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          8 · FORMULAIRE
+      ══════════════════════════════════════════════════════ */}
+      <section id="register" className="relative py-5 md:py-24 px-5 overflow-hidden bg-white/[0.015]">
+        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="w-[700px] h-[500px] rounded-full bg-[#cfab4a]/7 blur-[130px]" />
+        </div>
+
+        <div className="relative z-10 max-w-xl mx-auto text-center">
+          <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Inscription</p>
+          <h2 className="playfair-display-regular text-4xl uppercase md:text-5xl text-white mb-4 leading-tight">
+            Réserver ma place
+          </h2>
+          <div className="rounded-sm border border-white/10 bg-white/3 backdrop-blur-sm p-8">
+            <ConferenceForm />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          9 · FAQ
+      ══════════════════════════════════════════════════════ */}
+      <section id="faq" className="py-24 px-5">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-[#cfab4a]  tracking-widest text-xs font-bold mb-5 text-center">FAQ</p>
+          <h2 className="playfair-display-regular uppercase text-4xl md:text-5xl text-white mb-10 leading-tight text-center">
+            Questions fréquentes
+          </h2>
+          <FaqAccordion />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          FOOTER
+      ══════════════════════════════════════════════════════ */}
+      <footer className="border-t border-white/5 py-8 px-6 text-center text-xs text-white/25 tracking-wide space-y-2">
+        <p>© Nahed Rachad — Conférence Finance — Casablanca — 10 mai</p>
+        <div className="flex justify-center gap-4 text-white/20">
+          <a href="#" className="hover:text-white/60 transition-colors">Mentions légales</a>
+          <span>·</span>
+          <a href="#" className="hover:text-white/60 transition-colors">Politique de confidentialité</a>
+          <span>·</span>
+          <a href="#" className="hover:text-white/60 transition-colors">Contact</a>
+        </div>
       </footer>
     </main>
   );
 }
-
-/* ─── DATA ──────────────────────────────────────────────────── */
-const SPEAKERS = [
-  {
-    name: "Speaker One",
-    initials: "S1",
-    title: "Executive Coach & Best-Selling Author",
-    bio: "Placeholder bio — a visionary who helps high-achievers unlock their full leadership potential across every domain of life.",
-  },
-  {
-    name: "Speaker Two",
-    initials: "S2",
-    title: "Entrepreneur & Mindset Expert",
-    bio: "Placeholder bio — an entrepreneur who built multiple 7-figure ventures by building relentless self-belief and strategic clarity.",
-  },
-  {
-    name: "Speaker Three",
-    initials: "S3",
-    title: "Peak Performance Strategist",
-    bio: "Placeholder bio — a peak performance expert whose frameworks have been adopted by Fortune 500 leaders and Olympic athletes alike.",
-  },
-];
