@@ -6,17 +6,45 @@ import Swal from 'sweetalert2';
 export default function ListeAttenteForm() {
   const [state, setState] = useState<'idle' | 'loading'>('idle');
   const [form, setForm] = useState({ prenom: '', email: '', telNumber: '', countryCode: '+212' });
+  const [consent, setConsent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // Use the environment variable for the Google Apps Script Web App URL
+  const SCRIPT_URL = process.env.NEXT_PUBLIC_APP_SCRIPT_URL || '';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!SCRIPT_URL) {
+      console.error("L'URL de l'App Script n'est pas définie dans le fichier .env");
+      return;
+    }
+
     setState('loading');
     try {
-      await new Promise((r) => setTimeout(r, 900));
-      // TODO: replace the line above with your real API call
+      // Build full phone number
+      const fullPhone = `${form.countryCode} ${form.telNumber}`;
+
+      // Use URLSearchParams to avoid CORS preflight (OPTIONS) request
+      const formData = new URLSearchParams();
+      formData.append('prenom', form.prenom);
+      formData.append('email', form.email);
+      formData.append('phone', fullPhone);
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Crucial to prevent CORS errors with Google Apps Script
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+      });
+
+      // With mode: 'no-cors', the response is opaque (we can't read response.ok),
+      // but if the fetch didn't throw a network error, it was sent successfully.
 
       setState('idle');
       setForm({ prenom: '', email: '', telNumber: '', countryCode: form.countryCode });
@@ -134,6 +162,36 @@ export default function ListeAttenteForm() {
           />
         </div>
       </div>
+
+      {/* ── Consentement RGPD (élément obligatoire) ── */}
+      <label className="flex items-start gap-3 cursor-pointer group/consent">
+        <div className="relative mt-0.5 shrink-0">
+          <input
+            type="checkbox"
+            id="consent"
+            required
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="sr-only peer"
+          />
+          {/* Custom checkbox */}
+          <div className="w-5 h-5 rounded-sm border border-white/20 bg-white/5 transition-all
+                          peer-checked:bg-[#ff8bcc] peer-checked:border-[#ff8bcc]
+                          group-hover/consent:border-[#ff8bcc]/60 flex items-center justify-center">
+            {consent && (
+              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </div>
+        </div>
+        <span className="text-xs text-white/50 leading-relaxed group-hover/consent:text-white/70 transition-colors">
+          J'accepte que mes données personnelles (prénom, email, téléphone) soient enregistrées
+          et utilisées pour me contacter dans le cadre de cette liste d'attente.
+          Je peux me désinscrire à tout moment.{' '}
+          <span className="text-[#ff8bcc] font-medium">Champ obligatoire.</span>
+        </span>
+      </label>
 
       <button
         type="submit"
