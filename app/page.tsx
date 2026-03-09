@@ -61,7 +61,7 @@ export default function HomePage() {
        
 
         {/* Body copy */}
-        <div className="relative z-10 md:w-[80%] text-white text-lg md:text-2xl leading-loose space-y-0 mb-5 md:mb-12 font-light ">
+        <div className="relative z-10 md:w-[80%] text-white text-lg md:text-2xl leading-loose space-y-0 mb-5 md:mb-12 font-light">
         <p>Reprogrammez votre rapport à l&apos;argent et reprenez le contrôle de vos décisions financières</p>
           <p>Reprogrammez votre rapport l’argent et reprenez le contrôle de vos décisions financières Votre vrai problème n’est pas le montant que vous gagnez, mais l’identité avec laquelle vous décidez.</p>
           <p>Les mêmes peurs, les mêmes histoires,les mêmes réflexes… produisent toujours les mêmes résultats. Tant que votre système intérieur n’est pas reset, </p>

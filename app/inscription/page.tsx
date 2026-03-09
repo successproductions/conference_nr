@@ -29,37 +29,19 @@ export default function InscriptionPage() {
         <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-[#d4a853]/6 blur-[100px]" />
       </div>
 
-      {/* ─── Gift icon ────────────────────────────────────────── */}
-      <div className="relative z-10 mb-6 flex flex-col items-center gap-3">
-        {/* Animated gift box */}
-        <div className="relative animate-bounce" style={{ animationDuration: '2.5s' }}>
-          <div className="text-7xl select-none">🎁</div>
-        </div>
-
-        {/* Sparkle dots */}
-        <div className="flex gap-1.5">
-          {['bg-[#cfab4a]', 'bg-[#d4a853]', 'bg-[#cfab4a]'].map((color, i) => (
-            <span
-              key={i}
-              className={`w-1.5 h-1.5 rounded-full ${color} opacity-70`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* ─── Heading ──────────────────────────────────────────── */}
+      {/* ─── Heading ──────────────────────────────────── */}
       <div className="relative z-10 text-center mb-10 max-w-xl px-2">
-        <p className="text-[#cfab4a] uppercase tracking-[0.25em] text-xs font-semibold mb-4">
+        <p className="text-white uppercase tracking-[0.25em] text-xs font-semibold mb-4">
           Un cadeau de Nahed Rachad
         </p>
         <h1 className="playfair-display-regular text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight mb-5">
           Quelque chose de spécial<br />
-          <span className="text-[#d4a853] italic">t&apos;attend.</span>
+          <span className="text-white italic">t&apos;attend.</span>
         </h1>
-        <p className="text-white/55 text-base md:text-lg font-light leading-relaxed">
+        <p className="text-white text-base md:text-lg font-light leading-relaxed">
           Remplis le formulaire ci-dessous pour recevoir{' '}
           <span className="text-white font-medium">ton cadeau exclusif</span>{' '}
-          — réservé aux personnes qui comptent le plus.
+          réservé aux personnes qui comptent le plus.
         </p>
       </div>
 
