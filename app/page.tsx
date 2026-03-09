@@ -56,11 +56,6 @@ export default function HomePage() {
         <div className='z-10 '>
         <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[200px] w-full md:h-[600px] z-10" />
 
-
-        {/* Title
-        <h1 className="bebas-neue-regular absolute top-2/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-[clamp(2.9rem,10vw,10rem)] md:text-[clamp(4rem,18vw,10rem)] leading-none tracking-wide text-white ">
-          MONEY RESET
-        </h1> */}
         </div>
 
        
