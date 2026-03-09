@@ -37,7 +37,7 @@ export default function RegisterForm() {
     countryCode: '+212',
   });
 
-  // Unique Env Var for this specific form
+  // Unique Env 
   const SCRIPT_URL = process.env.NEXT_PUBLIC_INSCRIPTION_SCRIPT_URL || '';
 
   const handleChange = (
