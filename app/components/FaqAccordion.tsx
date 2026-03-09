@@ -33,7 +33,7 @@ export default function FaqAccordion() {
             onClick={() => setOpen(open === i ? null : i)}
             className="w-full flex items-center justify-between px-6 py-5 text-left group"
           >
-            <span className="font-light text-white text-base md:text-lg pr-4 group-hover:text-[#cfab4a] transition-colors">
+            <span className="font-light text-white text-lg md:text-xl pr-4 group-hover:text-[#cfab4a] transition-colors">
               {faq.q}
             </span>
             <span

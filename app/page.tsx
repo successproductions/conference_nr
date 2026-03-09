@@ -54,14 +54,14 @@ export default function HomePage() {
         </div>
 
         <div className='z-10 '>
-        <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[200px] w-full md:h-[600px] z-10" />
+        <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
 
         </div>
 
        
 
         {/* Body copy */}
-        <div className="relative z-10 md:w-[80%] text-white text-base md:text-2xl leading-loose space-y-0 mb-5 md:mb-12 font-light ">
+        <div className="relative z-10 md:w-[80%] text-white text-lg md:text-2xl leading-loose space-y-0 mb-5 md:mb-12 font-light ">
         <p>Reprogrammez votre rapport à l&apos;argent et reprenez le contrôle de vos décisions financières</p>
           <p>Reprogrammez votre rapport l’argent et reprenez le contrôle de vos décisions financières Votre vrai problème n’est pas le montant que vous gagnez, mais l’identité avec laquelle vous décidez.</p>
           <p>Les mêmes peurs, les mêmes histoires,les mêmes réflexes… produisent toujours les mêmes résultats. Tant que votre système intérieur n’est pas reset, </p>
@@ -89,7 +89,7 @@ export default function HomePage() {
           <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight">
             Regardez cette vidéo.
           </h2>
-          <p className="text-white text-base md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto">
+          <p className="text-white text-lg md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto">
             Vous allez comprendre pourquoi le problème n&apos;est pas l&apos;argent que vous gagnez…
             mais <span className="text-white font-light">l&apos;identité financière</span> avec laquelle vous prenez vos décisions.
           </p>
@@ -133,34 +133,50 @@ export default function HomePage() {
             pendant des années.
           </h2>
           <p className="text-white text-lg md:text-2xl mt-4 mb-6 font-light">Pourquoi ?</p>
-          <p className="text-white text-lg md:text-2xl font-light mb-12">
+          <p className="text-white text-lg md:text-2xl font-light mb-16">
             Parce qu&apos;un <span className="text-[#d4a853]">plafond invisible</span> dirige leurs décisions.
           </p>
 
-          <p className="text-white text-lg md:text-2xl font-light mb-8">
-            Le <strong className="text-white">10 mai</strong>, vous allez voir en face :
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
+            
+            <div className="text-left w-full order-2 md:order-1">
+              <p className="text-[#cfab4a] font-bold text-lg md:text-2xl mb-8">
+                Le <strong className="text-white">10 mai</strong>, vous allez voir en face :
+              </p>
 
-          <ul className="text-left  space-y-4 mb-12 max-w-xl mx-auto">
-            {[
-              'Le plafond financier que vous protégez inconsciemment.',
-              'Le pacte invisible qui vous maintient juste "assez"… mais jamais libre.',
-              'Pourquoi votre intelligence ne vous protège pas de la stagnation.',
-              'Pourquoi vous prenez des décisions depuis la peur… sans le voir.',
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4 ">
-                <span className="shrink-0 mt-1 w-6 h-6 rounded-full border border-[#cfab4a]/60 flex items-center justify-center text-[#cfab4a] text-xs font-bold">•</span>
-                <span className="text-white text-lg md:text-2xl font-light">{item}</span>
-              </li>
-            ))}
-          </ul>
+              <ul className="space-y-6 mb-12">
+                {[
+                  'Le plafond financier que vous protégez inconsciemment.',
+                  'Le pacte invisible qui vous maintient juste "assez"… mais jamais libre.',
+                  'Pourquoi votre intelligence ne vous protège pas de la stagnation.',
+                  'Pourquoi vous prenez des décisions depuis la peur… sans le voir.',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 ">
+                    <span className="shrink-0 mt-1 w-6 h-6 rounded-full border border-[#cfab4a]/60 flex items-center justify-center text-[#cfab4a] text-xs font-bold">•</span>
+                    <span className="text-white text-lg md:text-xl font-light">{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-          <p className="text-white text-lg md:text-2xl font-light mb-2">
-            Le 10 Mai, vous ne viendrez pas chercher de la motivation.
-          </p>
-          <p className="text-white text-lg md:text-2xl font-light mb-10">
-            Vous viendrez appuyer sur <span className="text-[#cfab4a]">RESET</span>.
-          </p>
+              <p className="text-white text-lg md:text-xl font-light mb-2">
+                Le 10 Mai, vous ne viendrez pas chercher de la motivation.
+              </p>
+              <p className="text-[#cfab4a] font-light text-xl md:text-3xl">
+                Vous viendrez appuyer sur <strong className="font-bold">RESET</strong>.
+              </p>
+            </div>
+
+            {/* Image 1 - Transformation */}
+            <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2">
+              <Image 
+                src="/conference/images/confernce1.jpg" 
+                alt="Transformation" 
+                fill 
+                className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-in-out" 
+              />
+            </div>
+            
+          </div>
 
           <CTA />
         </div>
@@ -173,7 +189,7 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="w-[900px] h-[200px] rounded-full bg-[#d4a853]/8 blur-[80px]" />
         </div>
-        <div className="relative z-10 uppercase max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-16">
+        <div className="relative z-10 uppercase max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-5 md:py-16">
           <p className="playfair-display-regular text-3xl md:text-5xl text-white leading-tight">
             Arrêtez de blâmer les circonstances.
           </p>
@@ -186,29 +202,42 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           5 · POURQUOI CETTE CONFÉRENCE
       ══════════════════════════════════════════════════════ */}
-      <section id="pourquoi" className="py-5 md:py-14 px-5">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Pourquoi cette conférence</p>
-          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
-            La réalité que personne ne dit
-          </h2>
-          <div className="space-y-5 text-white text-lg md:text-2xl font-light leading-relaxed ">
-            <p>
-              Après des années d&apos;entrepreneuriat et des milliers de modélisations de femmes et d&apos;hommes qui ont réussi,
-              Nahed a compris une chose.
-            </p>
-            <p className="text-white font-light text-lg md:text-2xl">
-              Les gens ne manquent pas d&apos;intelligence.<br />
-              Ils manquent d&apos;un <span className="text-[#d4a853]">reset financier intérieur</span>.
-            </p>
-            <p>
-              Sans ce reset,<br />
-              les mêmes décisions produisent<br />
-              les mêmes résultats.
-            </p>
-            <p className="text-white font-light">
-              Money Reset est né de cette réalité.
-            </p>
+      <section id="pourquoi" className="py-10 md:py-24 px-5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+          
+          {/* Image 2 - Pourquoi */}
+          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-[-20px_20px_60px_rgba(207,171,74,0.08)] order-2 md:order-1">
+            <Image 
+              src="/conference/images/confernce2.jpg" 
+              alt="Pourquoi cette conférence" 
+              fill 
+              className="object-cover object-top hover:scale-105 transition-transform duration-1000 ease-in-out" 
+            />
+          </div>
+
+          <div className="text-left order-1 md:order-2">
+            <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Pourquoi cette conférence</p>
+            <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
+              La réalité que personne ne dit
+            </h2>
+            <div className="space-y-6 text-white text-lg md:text-xl font-light leading-relaxed">
+              <p>
+                Après des années d&apos;entrepreneuriat et des milliers de modélisations de femmes et d&apos;hommes qui ont réussi,
+                Nahed a compris une chose.
+              </p>
+              <p className="text-white font-light text-xl md:text-2xl">
+                Les gens ne manquent pas d&apos;intelligence.<br />
+                Ils manquent d&apos;un <span className="text-[#d4a853]">reset financier intérieur</span>.
+              </p>
+              <p>
+                Sans ce reset, les mêmes décisions produisent invariablement les mêmes résultats.
+              </p>
+              <div className="border-l-2 border-[#cfab4a] pl-5 mt-8">
+                <p className="text-white/80 font-light italic">
+                  Money Reset est né de cette réalité.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -226,7 +255,7 @@ export default function HomePage() {
           <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight">
             Plus vous attendez,<br />moins il reste de choix.
           </h2>
-          <p className="text-white text-sm md:text-lg mb-12">Quand une catégorie est complète, elle disparaît automatiquement.</p>
+          <p className="text-white text-lg md:text-xl mb-12 font-light">Quand une catégorie est complète, elle disparaît automatiquement.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Balcon */}
@@ -267,19 +296,32 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           7 · URGENCE
       ══════════════════════════════════════════════════════ */}
-      <section className="py-5 md:py-16 px-5">
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="playfair-display-regular uppercase text-4xl md:text-5xl text-white">
-            Les places sont limitées.
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-10 text-md md:text-xl text-white">
-            <span className="flex items-center gap-2"><span className="text-[#cfab4a] font-light md:font-bold">✕</span> Aucun replay</span>
-            <span className="flex items-center gap-2"><span className="text-[#cfab4a] font-light md:font-bold">✕</span> Aucune seconde date annoncée</span>
+      <section className="py-10 md:py-24 px-5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+          <div className="text-left space-y-6 md:pr-10 order-2 md:order-1">
+            <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white leading-tight">
+              Les places sont<br />
+              <span className="text-[#cfab4a]">limitées.</span>
+            </h2>
+            <div className="flex flex-col gap-5 text-md md:text-xl text-white py-4">
+              <span className="flex items-center gap-3"><span className="text-[#cfab4a] font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucun replay</span>
+              <span className="flex items-center gap-3"><span className="text-[#cfab4a] font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucune seconde date annoncée</span>
+            </div>
+            <p className="text-white/70 text-sm md:text-xl pb-4 font-light leading-relaxed">
+              Quand la salle est complète, les inscriptions ferment définitivement. L&apos;expérience reste intimiste.
+            </p>
+            <CTA />
           </div>
-          <p className="text-white text-sm md:text-xl">
-            Quand la salle est complète, les inscriptions ferment définitivement.
-          </p>
-          <CTA />
+
+          {/* Image 3 - Urgence */}
+          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2">
+             <Image 
+               src="/conference/images/confernce3.jpg" 
+               alt="Urgence" 
+               fill 
+               className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-in-out" 
+             />
+          </div>
         </div>
       </section>
 
@@ -293,7 +335,7 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-xl mx-auto text-center">
           <p className="text-[#cfab4a] uppercase tracking-widest text-xs font-bold mb-5">Inscription</p>
-          <h2 className="playfair-display-regular text-4xl uppercase md:text-5xl text-white mb-4 leading-tight">
+          <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight">
             Réserver ma place
           </h2>
           <div className="rounded-sm border border-white/10 bg-white/3 backdrop-blur-sm p-8">
@@ -305,10 +347,10 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           9 · FAQ
       ══════════════════════════════════════════════════════ */}
-      <section id="faq" className="py-24 px-5">
+      <section id="faq" className="py-5 md:py-24 px-5">
         <div className="max-w-2xl mx-auto">
           <p className="text-[#cfab4a]  tracking-widest text-xs font-bold mb-5 text-center">FAQ</p>
-          <h2 className="playfair-display-regular uppercase text-4xl md:text-5xl text-white mb-10 leading-tight text-center">
+          <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white mb-10 leading-tight text-center">
             Questions fréquentes
           </h2>
           <FaqAccordion />
