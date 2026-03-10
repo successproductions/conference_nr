@@ -32,18 +32,20 @@ export default function InscriptionPage() {
       {/* ─── Heading ──────────────────────────────────── */}
       <div className="relative z-10 text-center mb-10 max-w-xl px-2">
         <p className="text-white uppercase tracking-[0.25em] text-xs font-semibold mb-4">
-          Un cadeau de Nahed Rachad
+          Quelque chose de spécial t’attend.
         </p>
         <h1 className="playfair-display-regular text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight mb-5">
-          Quelque chose de spécial<br />
-          <span className="text-white italic">t&apos;attend.</span>
+          Je suis Nahed Rachad,<br />
+          <span className="text-white italic">et j’ai préparé ce premier cadeau pour toi.</span>
         </h1>
         <p className="text-white text-base md:text-lg font-light leading-relaxed">
-          Remplis le formulaire ci-dessous pour recevoir{' '}
-          <span className="text-white font-medium">ton cadeau exclusif</span>{' '}
-          réservé aux personnes qui comptent le plus.
+          Un contenu que je partage avec celles et ceux qui veulent comprendre, anticiper et construire plus intelligemment.
+{' '}
+          <span className="text-white font-medium">Remplis simplement le formulaire </span>{' '}
+          ci-dessous pour recevoir ton accès.
         </p>
       </div>
+
 
       {/* ─── Divider ──────────────────────────────────────────── */}
       <div className="relative z-10 flex items-center gap-4 w-full max-w-lg mb-8">
