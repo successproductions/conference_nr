@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 // We can reuse the same countries list from the other forms
@@ -27,6 +28,7 @@ const INPUT_CLASS =
   'w-full px-5 py-3.5 rounded-sm bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm outline-none transition-all focus:border-[#cfab4a]/60 focus:bg-white/8 focus:ring-2 focus:ring-[#cfab4a]/15';
 
 export default function RegisterForm() {
+  const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'loading'>('idle');
   const [consent, setConsent] = useState(false);
   const [form, setForm] = useState({
@@ -87,6 +89,8 @@ export default function RegisterForm() {
           confirmButton: 'font-bold tracking-wide rounded-sm px-8',
         },
       });
+
+      router.push('/inscription/success');
     } catch {
       setStatus('idle');
       await Swal.fire({
