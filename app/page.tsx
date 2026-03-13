@@ -86,7 +86,7 @@ export default function HomePage() {
           <p>Reprogrammez votre rapport l’argent et reprenez le contrôle de vos décisions financières Votre vrai problème n’est pas le montant que vous gagnez, mais l’identité avec laquelle vous décidez.</p>
           <p>Les mêmes peurs, les mêmes histoires,les mêmes réflexes… produisent toujours les mêmes résultats. Tant que votre système intérieur n’est pas reset, </p>
           <ul> vous pouvez travailler plus, gagner plus, lire tous les livres :
-            <li>Votre niveau de vie restera bloquéM Money Reset est là pour couper ce cycle, réinitialiser votre rapport à l’argent et vous remettre aux commandes de vos choix, sans excuses et sans auto-sabotage.</li>
+            <li>Votre niveau de vie restera bloqué, Money Reset est là pour couper ce cycle, réinitialiser votre rapport à l’argent et vous remettre aux commandes de vos choix, sans excuses et sans auto-sabotage.</li>
           </ul>
         </div>
 
