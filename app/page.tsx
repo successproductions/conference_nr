@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'MONEY RESET — Conférence avec Nahed Rachad · Casablanca 10 Mai',
   description:
     "Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières. Conférence présentielle à Casablanca le 10 mai.",
+  alternates: {
+    canonical: 'https://nahedrachad.com/conference',
+  },
   openGraph: {
     title: 'MONEY RESET — Conférence Nahed Rachad',
     description:
@@ -23,6 +26,9 @@ export const metadata: Metadata = {
         alt: 'MONEY RESET - Conférence Nahed Rachad',
       },
     ],
+  },
+  other: {
+    'og:updated_time': new Date().toISOString(),
   },
   twitter: {
     card: 'summary_large_image',
@@ -377,7 +383,13 @@ export default function HomePage() {
       <footer className="border-t border-white/5 py-8 px-6 text-center text-xs text-white/25 tracking-wide space-y-2">
         <p>© Nahed Rachad — Conférence Finance — Casablanca — 10 mai</p>
         <div className="flex justify-center flex-wrap gap-4 text-white/20 mt-4">
-          <a href="/" className="hover:text-white/60 transition-colors">Accueil</a>
+          <a href="/" className="hover:text-white/60 transition-colors">Site Officiel</a>
+          <span>·</span>
+          <a href="/conference" className="hover:text-white/60 transition-colors">L&apos;Événement</a>
+          <span>·</span>
+          <a href="/conference/inscription" className="hover:text-white/60 transition-colors">Inscription VIP</a>
+          <span>·</span>
+          <a href="/conference/liste-attente" className="hover:text-white/60 transition-colors">Liste d&apos;attente</a>
           <span>·</span>
           <a href="#" className="hover:text-white/60 transition-colors">Mentions légales</a>
           <span>·</span>
