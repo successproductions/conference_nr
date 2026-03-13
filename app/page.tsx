@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light">
           
           <div className="space-y-4">
-            <h1>Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
+            <h1 className="playfair-display-regular text-3xl md:text-5xl uppercase">Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
             <p>
               Votre vrai problème n&apos;est pas le montant que vous gagnez.
             </p>
@@ -200,7 +200,7 @@ export default function HomePage() {
           </h2>
           <p className="text-white text-lg md:text-2xl mt-8 mb-6 font-light">Pourquoi ?</p>
           <p className="text-white text-lg md:text-2xl font-light mb-16">
-            Parce qu&apos;un <span className="text-[#d4a853]">plafond invisible</span><br className="max-md:hidden" />
+            Parce qu&apos;un <span className="text-white">plafond invisible</span><br className="max-md:hidden" />
             dirige leurs décisions.
           </p>
 
