@@ -57,10 +57,7 @@ const jsonLd = {
 };
 
 const lines = [
-  'Depuis des semaines, je te parle de devenir CEO OF YOUR LIFE .',
-  'Ne plus subir.',
-  'Décider.',
-  'Sortir de la stagnation.',
+  'Depuis des semaines, je te parle de reprendre le contrôle de ta vie De devenir CEO of Your Life .',
 ];
 
 export default function ListeAttentePage() {
@@ -143,13 +140,16 @@ export default function ListeAttentePage() {
               <p className="font-light text-white">
                 Mais cette fois-ci, ce sera différent.
               </p>
+              <p className="font-light text-white">Parce que certaines décisions ne peuvent plus attendre.</p>
               <p className="font-light text-white">Les premières places passeront par cette liste privée.</p>
-              <p className="font-light text-white">Si tu veux être informée avant l&apos;annonce officielle</p>
               <p className="font-light text-white">
-                et accéder aux inscriptions avant tout le monde :
+                Avant l’annonce publique.
               </p>
             </div>
-            
+            <p className="font-light text-lg md:text-2xl text-white">
+              Si tu veux être informée avant l&apos;annonce officielle et avoir accès
+              avant tout le monde.
+            </p>
             <div className="rounded-sm border border-white/8 bg-white/3 backdrop-blur-sm p-7 sm:p-9">
               <ListeAttenteForm />
             </div>
