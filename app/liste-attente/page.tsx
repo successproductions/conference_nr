@@ -149,10 +149,7 @@ export default function ListeAttentePage() {
                 et accéder aux inscriptions avant tout le monde :
               </p>
             </div>
-            <p className="font-light text-lg md:text-2xl text-white">
-              Si tu veux être informée avant l&apos;annonce officielle et avoir accès
-              avant tout le monde.
-            </p>
+            
             <div className="rounded-sm border border-white/8 bg-white/3 backdrop-blur-sm p-7 sm:p-9">
               <ListeAttenteForm />
             </div>
