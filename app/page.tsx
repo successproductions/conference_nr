@@ -15,6 +15,20 @@ export const metadata: Metadata = {
     siteName: 'MONEY RESET',
     locale: 'fr_FR',
     type: 'website',
+    images: [
+      {
+        url: 'https://nahedrachad.com/conference/images/liste-attente/MONEYRESET2.png',
+        width: 1200,
+        height: 630,
+        alt: 'MONEY RESET - Conférence Nahed Rachad',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MONEY RESET — Conférence Nahed Rachad',
+    description: "Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières.",
+    images: ['https://nahedrachad.com/conference/images/liste-attente/MONEYRESET2.png'],
   },
 };
 
@@ -44,7 +58,7 @@ export default function HomePage() {
       >
         {/* Background glow */}
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="w-[800px] h-[700px] rounded-full bg-[##cfab4a]/8 blur-[140px]" />
+          <div className="w-[800px] h-[700px] rounded-full bg-[#cfab4a]/8 blur-[140px]" />
         </div>
 
         {/* Date badge */}
@@ -54,8 +68,8 @@ export default function HomePage() {
         </div>
 
         <div className='z-10 '>
-        <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
-
+          <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
+          <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
         </div>
 
        
@@ -362,7 +376,9 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════ */}
       <footer className="border-t border-white/5 py-8 px-6 text-center text-xs text-white/25 tracking-wide space-y-2">
         <p>© Nahed Rachad — Conférence Finance — Casablanca — 10 mai</p>
-        <div className="flex justify-center gap-4 text-white/20">
+        <div className="flex justify-center flex-wrap gap-4 text-white/20 mt-4">
+          <a href="/" className="hover:text-white/60 transition-colors">Accueil</a>
+          <span>·</span>
           <a href="#" className="hover:text-white/60 transition-colors">Mentions légales</a>
           <span>·</span>
           <a href="#" className="hover:text-white/60 transition-colors">Politique de confidentialité</a>
@@ -370,6 +386,47 @@ export default function HomePage() {
           <a href="#" className="hover:text-white/60 transition-colors">Contact</a>
         </div>
       </footer>
+      
+      {/* Schema.org JSON-LD pour le SEO Événement */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "MONEY RESET — Conférence Nahed Rachad",
+            "startDate": "2024-05-10T16:00:00+01:00",
+            "endDate": "2024-05-10T20:00:00+01:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "location": {
+              "@type": "Place",
+              "name": "Casablanca",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Casablanca",
+                "addressCountry": "MA"
+              }
+            },
+            "image": [
+              "https://nahedrachad.com/conference/images/liste-attente/MONEYRESET2.png"
+            ],
+            "description": "Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières. Conférence présentielle à Casablanca le 10 mai.",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://nahedrachad.com/conference",
+              "price": "390",
+              "priceCurrency": "MAD",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-03-01T00:00:00+00:00"
+            },
+            "performer": {
+              "@type": "Person",
+              "name": "Nahed Rachad"
+            }
+          })
+        }}
+      />
     </main>
   );
 }
