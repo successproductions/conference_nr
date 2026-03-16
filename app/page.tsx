@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import PageAnimations from './components/PageAnimations';
 import FaqAccordion from './components/FaqAccordion';
 import ConferenceForm from './components/ConferenceForm';
 
@@ -54,6 +55,7 @@ const CTA = ({ href = '#register', label = 'RÉSERVER MA PLACE' }) => (
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
+      <PageAnimations />
 
       {/* ══════════════════════════════════════════════════════
           1 · HERO
@@ -66,7 +68,7 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="w-[800px] h-[700px] rounded-full bg-[#cfab4a]/8 blur-[140px]" />
         </div>
-        <div className='z-10 '>
+        <div className='z-10 gsap-scale-in'>
           <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
           <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
         </div>
@@ -74,9 +76,9 @@ export default function HomePage() {
        
 
         {/* Body copy */}
-        <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light">
+        <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light gsap-stagger-container">
           
-          <div className="space-y-4">
+          <div className="space-y-4 gsap-stagger-item">
             <h1 className="playfair-display-regular text-3xl md:text-5xl uppercase">Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
             <p>
               Votre vrai problème n&apos;est pas le montant que vous gagnez.
@@ -86,7 +88,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 gsap-stagger-item">
             <p>
               Les mêmes peurs.<br />
               Les mêmes histoires.<br />
@@ -98,7 +100,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 gsap-stagger-item">
             <p>
               Tant que votre système intérieur 
               n&apos;est pas reset,
@@ -114,7 +116,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-4 text-white">
+          <div className="space-y-4 text-white gsap-stagger-item">
             <p className="text-white">
               Money Reset est là pour une chose.
             </p>
@@ -147,17 +149,17 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full max-w-4xl 2xl:max-w-5xl mx-auto text-center">
           {/* Pre-video copy */}
-          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5">Avant de réserver</p>
-          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight">
+          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5 gsap-fade-up">Avant de réserver</p>
+          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight gsap-fade-up">
             Regardez cette vidéo.
           </h2>
-          <p className="text-white text-lg md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto">
+          <p className="text-white text-lg md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto gsap-fade-up">
             Vous allez comprendre pourquoi le problème n&apos;est pas l&apos;argent que vous gagnez…
             mais <span className="text-white font-light">l&apos;identité financière</span> avec laquelle vous prenez vos décisions.
           </p>
 
           {/* Video card */}
-          <div className="relative rounded-sm overflow-hidden border border-[#cfab4a]/40 shadow-2xl shadow-[#cfab4a]/15 mb-10">
+          <div className="relative rounded-sm overflow-hidden border border-[#cfab4a]/40 shadow-2xl shadow-[#cfab4a]/15 mb-10 gsap-scale-in">
             {/* Pink top glow bar */}
             <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-[#cfab4a] to-transparent" />
             {/* VIDEO PLACEHOLDER — replace src with actual video embed URL */}
@@ -258,12 +260,12 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="w-[900px] h-[200px] rounded-full bg-[#d4a853]/8 blur-[80px]" />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-10 md:py-20">
+        <div className="relative z-10 max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-10 md:py-20 gsap-fade-up">
           <p className="playfair-display-regular text-3xl md:text-5xl text-white leading-tight uppercase">
             ARRÊTEZ DE BLÂMER<br />
             LES CIRCONSTANCES.
           </p>
-          <p className="playfair-display-regular text-3xl md:text-5xl text-white leading-tight mt-6">
+          <p className="playfair-display-regular uppercase text-3xl md:text-5xl text-white leading-tight mt-6">
             Votre programmation financière<br />
             dirige votre vie.
           </p>
@@ -274,10 +276,10 @@ export default function HomePage() {
           5 · POURQUOI CETTE CONFÉRENCE
       ══════════════════════════════════════════════════════ */}
       <section id="pourquoi" className="py-10 md:py-24 px-5">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center gsap-stagger-container">
           
           {/* Image 2 - Pourquoi */}
-          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-[-20px_20px_60px_rgba(207,171,74,0.08)] order-2 md:order-1">
+          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-[-20px_20px_60px_rgba(207,171,74,0.08)] order-2 md:order-1 gsap-stagger-item">
             <Image 
               src="/conference/images/confernce2.jpg" 
               alt="Pourquoi cette conférence" 
@@ -286,7 +288,7 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="text-left order-1 md:order-2">
+          <div className="text-left order-1 md:order-2 gsap-stagger-item">
             <p className="text-white uppercase tracking-widest text-xs font-bold mb-5">POURQUOI CETTE CONFÉRENCE</p>
             <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
               La réalité que personne ne dit.
@@ -317,8 +319,8 @@ export default function HomePage() {
           7 · URGENCE
       ══════════════════════════════════════════════════════ */}
       <section className="py-10 md:py-24 px-5">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
-          <div className="text-left space-y-6 md:pr-10 order-2 md:order-1">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center gsap-stagger-container">
+          <div className="text-left space-y-6 md:pr-10 order-2 md:order-1 gsap-stagger-item">
             <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white leading-tight">
               Les places sont<br />
               <span className="text-white">limitées.</span>
@@ -334,7 +336,7 @@ export default function HomePage() {
           </div>
 
           {/* Image 3 - Urgence */}
-          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2">
+          <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2 gsap-stagger-item">
              <Image 
                src="/conference/images/confernce3.jpg" 
                alt="Urgence" 
@@ -353,12 +355,12 @@ export default function HomePage() {
           <div className="w-[700px] h-[500px] rounded-full bg-[#cfab4a]/7 blur-[130px]" />
         </div>
 
-        <div className="relative z-10 max-w-xl mx-auto text-center">
-          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5">Inscription</p>
-          <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight">
+        <div className="relative z-10 max-w-xl mx-auto text-center gsap-stagger-container">
+          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5 gsap-stagger-item">Inscription</p>
+          <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight gsap-stagger-item">
             Réserver ma place
           </h2>
-          <div className="rounded-sm border border-white/10 bg-white/3 backdrop-blur-sm p-8">
+          <div className="rounded-sm border border-white/10 bg-white/3 backdrop-blur-sm p-8 gsap-stagger-item">
             <ConferenceForm />
           </div>
         </div>
@@ -368,12 +370,14 @@ export default function HomePage() {
           9 · FAQ
       ══════════════════════════════════════════════════════ */}
       <section id="faq" className="py-5 md:py-24 px-5">
-        <div className="max-w-2xl mx-auto">
-          <p className="text-white  tracking-widest text-xs font-bold mb-5 text-center">FAQ</p>
-          <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white mb-10 leading-tight text-center">
+        <div className="max-w-2xl mx-auto gsap-stagger-container">
+          <p className="text-white  tracking-widest text-xs font-bold mb-5 text-center gsap-stagger-item">FAQ</p>
+          <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white mb-10 leading-tight text-center gsap-stagger-item">
             Questions fréquentes
           </h2>
-          <FaqAccordion />
+          <div className="gsap-stagger-item">
+            <FaqAccordion />
+          </div>
         </div>
       </section>
 

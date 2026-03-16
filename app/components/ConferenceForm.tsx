@@ -118,8 +118,8 @@ export default function ConferenceForm() {
         <p className="block text-xs font-semibold tracking-widest uppercase text-white mb-3">
           Catégorie
         </p>
-        <div className="grid grid-cols-3 gap-3">
-          {CATEGORIES.map(({ label, price,   }) => {
+        <div className="flex bg-white/5 p-1 rounded-full border border-white/10 w-full mb-6">
+          {CATEGORIES.map(({ label, price }) => {
             const active = category === label;
             const isVip  = label === 'VIP';
             return (
@@ -127,21 +127,26 @@ export default function ConferenceForm() {
                 key={label}
                 type="button"
                 onClick={() => setCategory(label)}
-                className={`flex flex-col items-center gap-1 py-4 px-2 rounded-sm border text-center transition-all
-                  ${active
-                    ? isVip
-                      ? 'border-gold bg-gold/10 shadow-lg shadow-gold/15'
-                      : 'border-[#cfab4a] bg-[#cfab4a]/10'
-                    : 'border-white/10 bg-white/3 hover:border-white/30'
+                className={`flex-1 flex flex-col items-center justify-center py-3 rounded-full transition-all duration-300 relative
+                  ${active 
+                    ? isVip 
+                      ? 'bg-linear-to-br from-gold to-[#cfab4a] shadow-lg shadow-[#cfab4a]/20 scale-[1.02] z-10' 
+                      : 'bg-white shadow-lg text-black scale-[1.02] z-10' 
+                    : 'hover:bg-white/5 text-white/50'
                   }`}
               >
-                <span className={`text-xs font-bold tracking-widest uppercase ${active ? (isVip ? 'text-gold' : 'text-[#cfab4a]') : 'text-white/50'}`}>
+                <span className={`text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 transition-colors
+                  ${active ? (isVip ? 'text-black/80' : 'text-black/60') : 'text-white/40'}`}>
                   {label}
                 </span>
-                <span className={`bebas-neue-regular text-2xl leading-none ${active ? 'text-white' : 'text-white'}`}>
+                <span className={`bebas-neue-regular text-2xl md:text-3xl leading-none transition-colors
+                  ${active ? (isVip ? 'text-black' : 'text-black') : 'text-white'}
+                `}>
                   {price.split(' ')[0]}
                 </span>
-               
+                {!active && (
+                  <span className="text-[10px] uppercase tracking-widest text-transparent absolute bottom-1">MAD</span>
+                )}
               </button>
             );
           })}

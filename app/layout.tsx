@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue, Montserrat, Oswald, Playfair_Display } from "next/font/google";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -46,7 +47,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${montserrat.variable} ${oswald.variable} ${playfairDisplay.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
