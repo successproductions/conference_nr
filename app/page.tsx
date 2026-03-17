@@ -302,11 +302,11 @@ export default function HomePage() {
               <p>
                 Nahed a compris une chose :
               </p>
-              <p className="font-light text-white text-xl md:text-2xl">
+              <p className="font-light text-white text-lg md:text-2xl">
                 Les gens ne manquent pas<br />
                 d&apos;intelligence.
               </p>
-              <p className="font-light text-white text-xl md:text-2xl">
+              <p className="font-light text-white text-lg md:text-2xl">
                 Ils manquent<br />
                 d&apos;un reset financier intérieur.
               </p>
@@ -329,10 +329,13 @@ export default function HomePage() {
               <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucun replay</span>
               <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucune seconde date annoncée</span>
             </div>
-            <p className="text-white/70 text-sm md:text-xl pb-4 font-light leading-relaxed">
+            <p className="text-white/70 text-lg md:text-xl pb-4 font-light leading-relaxed">
               Quand la salle est complète, les inscriptions ferment définitivement. L&apos;expérience reste intimiste.
             </p>
-            <CTA />
+            <div className="flex justify-center">
+              <CTA />
+            </div>
+          
           </div>
 
           {/* Image 3 - Urgence */}
