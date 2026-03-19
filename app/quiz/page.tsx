@@ -331,9 +331,6 @@ function IntroScreen({ onStart }: { onStart: () => void }) {
             </div>
           ))}
         </div>
-        <p className="text-gray-400 text-xs mt-3 leading-relaxed">
-          Ces profils ne jugent pas votre capacité. Ils révèlent le mécanisme qui peut limiter votre croissance.
-        </p>
       </div>
 
       <button
@@ -468,7 +465,6 @@ function ResultScreen({ profileKey, answers, onRestart }: { profileKey: 'A' | 'B
       </div>
 
       <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl">{profile.emoji}</span>
         <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight uppercase">
           {profile.label}
         </h2>

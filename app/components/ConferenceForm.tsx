@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 
-type Category = 'Balcon' | 'Standard' | 'VIP';
+type Category = 'Balcon' | 'Standard' | 'VIP' | 'Online';
 
 const CATEGORIES: { label: Category; price: string; }[] = [
   { label: 'Balcon',   price: '390 MAD' },
   { label: 'Standard', price: '470 MAD' },
-  { label: 'VIP',      price: '750 MAD' }
+  { label: 'VIP',      price: '750 MAD' },
+  { label: 'Online', price: '360 MAD'}
 ];
 
 const COUNTRIES: { flag: string; code: string; dial: string }[] = [
@@ -127,19 +128,19 @@ export default function ConferenceForm() {
                 key={label}
                 type="button"
                 onClick={() => setCategory(label)}
-                className={`flex-1 flex flex-col items-center justify-center py-3 rounded-full transition-all duration-300 relative
+                className={`flex-1 flex flex-col items-center justify-center py-2 md:py-3 rounded-full transition-all duration-300 relative
                   ${active 
                     ? isVip 
-                      ? 'bg-linear-to-br from-gold to-[#cfab4a] shadow-lg shadow-[#cfab4a]/20 scale-[1.02] z-10' 
-                      : 'bg-white shadow-lg text-black scale-[1.02] z-10' 
+                      ? 'bg-linear-to-br from-gold to-[#cfab4a] shadow-lg shadow-[#cfab4a]/20 scale-100 sm:scale-[1.02] z-10' 
+                      : 'bg-white shadow-lg text-black scale-100 sm:scale-[1.02] z-10' 
                     : 'hover:bg-white/5 text-white/50'
                   }`}
               >
-                <span className={`text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 transition-colors
+                <span className={`text-[9px] sm:text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 transition-colors
                   ${active ? (isVip ? 'text-black/80' : 'text-black/60') : 'text-white/40'}`}>
                   {label}
                 </span>
-                <span className={`bebas-neue-regular text-2xl md:text-3xl leading-none transition-colors
+                <span className={`bebas-neue-regular text-xl sm:text-2xl md:text-3xl leading-none transition-colors
                   ${active ? (isVip ? 'text-black' : 'text-black') : 'text-white'}
                 `}>
                   {price.split(' ')[0]}
