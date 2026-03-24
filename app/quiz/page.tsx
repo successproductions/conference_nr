@@ -282,7 +282,7 @@ function MobileTopBar({ current, total, phase }: { current: number; total: numbe
 /* ─── INTRO SCREEN ──────────────────────────────────────────────── */
 function IntroScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
+    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
       {/* Badge */}
       <div className="inline-flex mb-6">
         <span className="px-3 py-1 rounded-full border border-[#cfab4a]/40 text-[#cfab4a] text-xs tracking-widest uppercase font-semibold">
