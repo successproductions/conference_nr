@@ -62,7 +62,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════ */}
       <section
         id="hero"
-        className="relative flex flex-col items-center justify-center min-h-screen text-center px-5 pt-16 md:pb-0 overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-screen text-center px-5 md:pb-0 overflow-hidden"
       >
         {/* Background glow */}
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function HomePage() {
         </div>
         <div className='z-10 gsap-scale-in'>
           <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
-          <Image src="/conference/images/liste-attente/MONEYRESET2.png" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
+          <Image src="/conference/images/DESKTOPLP.jpeg" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
         </div>
 
        
@@ -240,7 +240,7 @@ export default function HomePage() {
             {/* Image 1 - Transformation */}
             <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2">
               <Image 
-                src="/conference/images/confernce1.jpg" 
+                src="/conference/images/confernce3.jpg" 
                 alt="Transformation" 
                 fill 
                 className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-in-out" 
@@ -281,7 +281,7 @@ export default function HomePage() {
           {/* Image 2 - Pourquoi */}
           <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-[-20px_20px_60px_rgba(207,171,74,0.08)] order-2 md:order-1 gsap-stagger-item">
             <Image 
-              src="/conference/images/confernce2.jpg" 
+              src="/conference/images/confernce1.jpeg" 
               alt="Pourquoi cette conférence" 
               fill 
               className="object-cover object-top hover:scale-105 transition-transform duration-1000 ease-in-out" 
@@ -341,7 +341,7 @@ export default function HomePage() {
           {/* Image 3 - Urgence */}
           <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2 gsap-stagger-item">
              <Image 
-               src="/conference/images/confernce3.jpg" 
+               src="/conference/images/confernce2.jpeg" 
                alt="Urgence" 
                fill 
                className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-in-out" 

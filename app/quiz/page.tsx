@@ -190,19 +190,30 @@ function computeProfile(answers: Record<number, string>): 'A' | 'B' | 'C' | 'D' 
 function LeftPanel({ current, total, phase }: { current: number; total: number; phase: 'intro' | 'quiz' | 'result' }) {
   const answered = phase === 'intro' ? 0 : phase === 'result' ? total : current;
 
+  // Image dynamique basée sur l'étape
+  let imageSrc = "/conference/images/quiz/imageQuiz1.jpg";
+  if (phase === 'intro') {
+    imageSrc = "/conference/images/quiz/imageQuiz1.jpg";
+  } else if (phase === 'quiz') {
+    imageSrc = `/conference/images/quiz/female${current}.jpg`;
+  } else if (phase === 'result') {
+    imageSrc = "/conference/images/quiz/famale_result2.jpg";
+  }
+
   return (
-    <div className="relative hidden lg:block h-screen w-full overflow-hidden select-none">
+    <div className="relative hidden lg:block h-screen w-full overflow-hidden select-none bg-[#0a0a0f]">
       {/* Full-height image */}
       <Image
-        src="/conference/images/quiz/imageQuiz.jpg"
+        key={imageSrc} // Force la mise à jour de l'image visuellement à chaque changement
+        src={imageSrc}
         alt="Quiz illustration"
         fill
-        className="object-cover object-center"
+        className="object-cover object-center transition-opacity duration-500"
         priority
       />
 
       {/* Subtle dark overlay so the progress bar reads well */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* Step pills — pinned to bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 px-8 pb-8">
@@ -280,7 +291,24 @@ function MobileTopBar({ current, total, phase }: { current: number; total: numbe
 }
 
 /* ─── INTRO SCREEN ──────────────────────────────────────────────── */
-function IntroScreen({ onStart }: { onStart: () => void }) {
+function IntroScreen({
+  onStart,
+  userData,
+  setUserData,
+}: {
+  onStart: () => void;
+  userData: { prenom: string; email: string; phone: string };
+  setUserData: React.Dispatch<React.SetStateAction<{ prenom: string; email: string; phone: string }>>;
+}) {
+  const isFormValid =
+    userData.prenom.trim() !== '' &&
+    userData.email.trim() !== '' &&
+    userData.phone.trim() !== '';
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
       {/* Badge */}
@@ -294,51 +322,74 @@ function IntroScreen({ onStart }: { onStart: () => void }) {
         Quel type d&apos;entrepreneur êtes-vous vraiment ?
       </h1>
 
-      <p className="text-gray-500 text-sm md:text-base mb-8 font-light">
+      <p className="text-gray-500 text-sm md:text-base mb-6 font-light">
         En 2 minutes, découvrez le mécanisme invisible qui peut freiner votre croissance entrepreneuriale.
       </p>
 
       {/* Intro block */}
-      <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 mb-8 space-y-4">
-        <p className="text-gray-700 font-medium">La majorité des entrepreneurs ne manquent pas :</p>
-        <ul className="space-y-2">
+      <div className="p-5 mb-6 bg-gray-50 border border-gray-100 rounded-2xl space-y-3">
+        <p className="text-gray-700 font-medium text-sm">La majorité des entrepreneurs ne manquent pas :</p>
+        <ul className="space-y-1.5 pl-2">
           {["d'idées", "d'intelligence", "d'opportunités"].map((item) => (
-            <li key={item} className="flex items-center gap-3 text-gray-600 text-sm">
+            <li key={item} className="flex items-center gap-2 text-gray-600 text-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#cfab4a] shrink-0" />
               {item}
             </li>
           ))}
         </ul>
-        <p className="text-gray-700 text-sm leading-relaxed">
+        <p className="text-gray-700 text-sm leading-relaxed pt-2">
           Ils sont simplement bloqués par un <strong>mécanisme qu&apos;ils ne voient pas</strong>.
           Ce diagnostic rapide vous permettra d&apos;identifier votre profil entrepreneurial dominant.
         </p>
       </div>
 
-      {/* 4 profiles preview */}
-      <div className="mb-8">
-        <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-4">Les 4 profils possibles</p>
-        <div className="grid grid-cols-2 gap-3">
-          {[
-            { emoji: '1️⃣', label: 'Le Visionnaire Prisonnier', color: 'bg-purple-50 border-purple-200' },
-            { emoji: '2️⃣', label: "L'Analyste Paralysé", color: 'bg-blue-50 border-blue-200' },
-            { emoji: '3️⃣', label: "L'Entrepreneur Épuisé", color: 'bg-orange-50 border-orange-200' },
-            { emoji: '4️⃣', label: 'Le Décideur Retardataire', color: 'bg-emerald-50 border-emerald-200' },
-          ].map((p) => (
-            <div key={p.label} className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 ${p.color}`}>
-              <span className="text-sm">{p.emoji}</span>
-              <span className="text-xs text-gray-700 font-medium leading-snug">{p.label}</span>
-            </div>
-          ))}
+      {/* LEAD CAPTURE FORM */}
+      <div className="space-y-4 mb-8">
+        <div>
+          <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Nom Complet</label>
+          <input
+            type="text"
+            name="prenom"
+            value={userData.prenom}
+            onChange={handleChange}
+            placeholder="Votre nom complet"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+            placeholder="votre@email.com"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Téléphone</label>
+          <input
+            type="tel"
+            name="phone"
+            value={userData.phone}
+            onChange={handleChange}
+            placeholder="+212 600 000 000"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]"
+            required
+          />
         </div>
       </div>
 
       <button
         onClick={onStart}
-        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95"
+        disabled={!isFormValid}
+        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         style={{
-          background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
-          boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
+          background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db',
+          boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.35)' : 'none',
         }}
       >
         Commencer le diagnostic →
@@ -481,7 +532,7 @@ function ResultScreen({ profileKey, answers, onRestart }: { profileKey: 'A' | 'B
 
       {/* Bullets if any */}
       {profile.bullets.length > 0 && (
-        <div className="rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 mb-6">
+        <div className=" py-4 mb-0">
           <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-3">Les visionnaires créent souvent :</p>
           <ul className="space-y-2">
             {profile.bullets.map((b) => (
@@ -503,11 +554,7 @@ function ResultScreen({ profileKey, answers, onRestart }: { profileKey: 'A' | 'B
 
       {/* Conclusion */}
       <div
-        className="rounded-xl p-5 mb-8 border"
-        style={{
-          background: `linear-gradient(135deg, ${profile.accent}15, ${profile.accent}05)`,
-          borderColor: `${profile.accent}30`,
-        }}
+        className="mb-0 border"
       >
         <p className="text-gray-800 text-sm md:text-base font-medium leading-relaxed italic">
           &ldquo;{profile.conclusion}&rdquo;
@@ -515,13 +562,13 @@ function ResultScreen({ profileKey, answers, onRestart }: { profileKey: 'A' | 'B
       </div>
 
       {/* Transition phrase */}
-      <div className="rounded-xl bg-[#0a0a0f] text-white p-6 mb-8">
-        <p className="text-white/70 text-xs uppercase tracking-widest font-semibold mb-3">Quelle que soit votre profil</p>
-        <p className="text-white text-sm md:text-base leading-relaxed mb-4">
+      <div className=" text-black py-6 mb-4">
+        <p className="text-gray-700 text-sm md:text-base leading-relaxed uppercase tracking-widest font-semibold mb-3">Quelle que soit votre profil</p>
+        <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
           La croissance entrepreneuriale dépend rarement uniquement du travail.
           Elle dépend surtout :
         </p>
-        <ul className="space-y-2">
+        <ul className="space-y-2 mb-6">
           {['des décisions', 'de la structure', 'du système que vous construisez'].map((item) => (
             <li key={item} className="flex items-center gap-2 text-[#cfab4a] text-sm font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#cfab4a] shrink-0" />
@@ -529,18 +576,24 @@ function ResultScreen({ profileKey, answers, onRestart }: { profileKey: 'A' | 'B
             </li>
           ))}
         </ul>
+
+        {/* NOUVEAU TEXTE INVITATION CONFÉRENCE */}
+        <p className="text-gray-800 font-medium text-sm md:text-base leading-relaxed italic">
+          Si vous voulez aller plus loin, Nahed Rachad organise une conférence le <strong>10 mai à Casablanca</strong>.<br />
+          Si vous voulez réserver une place Premium, cliquez ici :
+        </p>
       </div>
 
       {/* CTA to conference */}
       <a
-        href="/conference"
+        href="/conference/liste-attente"
         className="block w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95 mb-3"
         style={{
           background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
           boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
         }}
       >
-        👉 Découvrir la conférence
+        Je réserve ma place Premium
       </a>
 
       <button
@@ -559,6 +612,9 @@ export default function QuizPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [profileKey, setProfileKey] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
+  
+  // Lead capture state
+  const [userData, setUserData] = useState({ prenom: '', email: '', phone: '' });
 
   const currentQuestion = questions[currentIndex];
   const selectedKey = answers[currentQuestion?.id] ?? null;
@@ -581,6 +637,28 @@ export default function QuizPage() {
       const result = computeProfile(answers);
       setProfileKey(result);
       setPhase('result');
+
+      // Submit to Google Sheets (Quiz Web App)
+      const SCRIPT_URL = process.env.NEXT_PUBLIC_APP_SCRIPT_URL;
+      if (SCRIPT_URL) {
+        try {
+          const data = new URLSearchParams();
+          data.append('formType', 'quiz');
+          data.append('prenom', userData.prenom);
+          data.append('email', userData.email);
+          data.append('phone', userData.phone);
+          data.append('profil', result);
+
+          fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: data.toString(),
+          });
+        } catch (error) {
+          console.error("Failed to submit quiz data:", error);
+        }
+      }
     }
   }
 
@@ -593,6 +671,7 @@ export default function QuizPage() {
     setCurrentIndex(0);
     setAnswers({});
     setProfileKey(null);
+    setUserData({ prenom: '', email: '', phone: '' });
   }
 
   return (
@@ -605,7 +684,7 @@ export default function QuizPage() {
           phase={phase}
         />
         <div className="flex-1 bg-white">
-          {phase === 'intro' && <IntroScreen onStart={handleStart} />}
+          {phase === 'intro' && <IntroScreen onStart={handleStart} userData={userData} setUserData={setUserData} />}
           {phase === 'quiz' && (
             <QuestionScreen
               question={currentQuestion}
@@ -640,7 +719,7 @@ export default function QuizPage() {
 
         {/* RIGHT — light panel 60% */}
         <div className="w-[60%] h-full bg-white overflow-y-auto">
-          {phase === 'intro' && <IntroScreen onStart={handleStart} />}
+          {phase === 'intro' && <IntroScreen onStart={handleStart} userData={userData} setUserData={setUserData} />}
           {phase === 'quiz' && (
             <QuestionScreen
               question={currentQuestion}

@@ -9,7 +9,7 @@ const CATEGORIES: { label: Category; price: string; }[] = [
   { label: 'Balcon',   price: '390 MAD' },
   { label: 'Standard', price: '470 MAD' },
   { label: 'VIP',      price: '750 MAD' },
-  { label: 'Online', price: '360 MAD'}
+  { label: 'Online', price: '370 MAD'}
 ];
 
 const COUNTRIES: { flag: string; code: string; dial: string }[] = [
