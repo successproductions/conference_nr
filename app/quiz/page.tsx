@@ -325,9 +325,8 @@ function IntroScreen({
       <p className="text-gray-500 text-sm md:text-base mb-6 font-light">
         En 2 minutes, découvrez le mécanisme invisible qui peut freiner votre croissance entrepreneuriale.
       </p>
-
       {/* Intro block */}
-      <div className="p-5 mb-6 bg-gray-50 border border-gray-100 rounded-2xl space-y-3">
+      <div className="mb-6 space-y-3">
         <p className="text-gray-700 font-medium text-sm">La majorité des entrepreneurs ne manquent pas :</p>
         <ul className="space-y-1.5 pl-2">
           {["d'idées", "d'intelligence", "d'opportunités"].map((item) => (
