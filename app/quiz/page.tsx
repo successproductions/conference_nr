@@ -179,6 +179,26 @@ const profiles = {
   },
 };
 
+/* ─── COUNTRIES ─────────────────────────────────────────────────── */
+const COUNTRIES: { flag: string; code: string; dial: string }[] = [
+  { flag: '🇲🇦', code: 'MA', dial: '+212' },
+  { flag: '🇫🇷', code: 'FR', dial: '+33' },
+  { flag: '🇩🇿', code: 'DZ', dial: '+213' },
+  { flag: '🇹🇳', code: 'TN', dial: '+216' },
+  { flag: '🇧🇪', code: 'BE', dial: '+32' },
+  { flag: '🇨🇭', code: 'CH', dial: '+41' },
+  { flag: '🇨🇦', code: 'CA', dial: '+1'   },
+  { flag: '🇬🇧', code: 'GB', dial: '+44'  },
+  { flag: '🇩🇪', code: 'DE', dial: '+49'  },
+  { flag: '🇪🇸', code: 'ES', dial: '+34'  },
+  { flag: '🇮🇹', code: 'IT', dial: '+39'  },
+  { flag: '🇵🇹', code: 'PT', dial: '+351' },
+  { flag: '🇸🇳', code: 'SN', dial: '+221' },
+  { flag: '🇨🇮', code: 'CI', dial: '+225' },
+  { flag: '🇺🇸', code: 'US', dial: '+1'   },
+  { flag: '🇦🇪', code: 'AE', dial: '+971' },
+];
+
 /* ─── Compute dominant profile ──────────────────────────────────── */
 function computeProfile(answers: Record<number, string>): 'A' | 'B' | 'C' | 'D' {
   const counts: Record<string, number> = { A: 0, B: 0, C: 0, D: 0 };
@@ -297,15 +317,15 @@ function IntroScreen({
   setUserData,
 }: {
   onStart: () => void;
-  userData: { prenom: string; email: string; phone: string };
-  setUserData: React.Dispatch<React.SetStateAction<{ prenom: string; email: string; phone: string }>>;
+  userData: { prenom: string; email: string; phone: string; countryCode: string };
+  setUserData: React.Dispatch<React.SetStateAction<{ prenom: string; email: string; phone: string; countryCode: string }>>;
 }) {
   const isFormValid =
     userData.prenom.trim() !== '' &&
     userData.email.trim() !== '' &&
     userData.phone.trim() !== '';
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -370,15 +390,29 @@ function IntroScreen({
         </div>
         <div>
           <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Téléphone</label>
-          <input
-            type="tel"
-            name="phone"
-            value={userData.phone}
-            onChange={handleChange}
-            placeholder="+212 600 000 000"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]"
-            required
-          />
+          <div className="flex gap-2">
+            <select
+              name="countryCode"
+              value={userData.countryCode}
+              onChange={handleChange}
+              className="w-[100px] shrink-0 px-3 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a] appearance-none"
+            >
+              {COUNTRIES.map((c) => (
+                <option key={c.code} value={c.dial}>
+                  {c.flag} {c.dial}
+                </option>
+              ))}
+            </select>
+            <input
+              type="tel"
+              name="phone"
+              value={userData.phone}
+              onChange={handleChange}
+              placeholder="600 000 000"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]"
+              required
+            />
+          </div>
         </div>
       </div>
 
@@ -613,7 +647,7 @@ export default function QuizPage() {
   const [profileKey, setProfileKey] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
   
   // Lead capture state
-  const [userData, setUserData] = useState({ prenom: '', email: '', phone: '' });
+  const [userData, setUserData] = useState({ prenom: '', email: '', phone: '', countryCode: '+212' });
 
   const currentQuestion = questions[currentIndex];
   const selectedKey = answers[currentQuestion?.id] ?? null;
@@ -645,7 +679,7 @@ export default function QuizPage() {
           data.append('formType', 'quiz');
           data.append('prenom', userData.prenom);
           data.append('email', userData.email);
-          data.append('phone', userData.phone);
+          data.append('phone', `${userData.countryCode} ${userData.phone}`);
           data.append('profil', result);
 
           fetch(SCRIPT_URL, {
@@ -670,7 +704,7 @@ export default function QuizPage() {
     setCurrentIndex(0);
     setAnswers({});
     setProfileKey(null);
-    setUserData({ prenom: '', email: '', phone: '' });
+    setUserData({ prenom: '', email: '', phone: '', countryCode: '+212' });
   }
 
   return (
