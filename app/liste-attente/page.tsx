@@ -4,21 +4,21 @@ import Link from 'next/link';
 import ListeAttenteForm from './components/ListeAttenteForm';
 
 export const metadata: Metadata = {
-  title: "Liste d'Attente — CEO OF MY LIFE",
+  title: "Liste d'Attente — MONEY RESET",
   description:
-    "Inscris-toi sur la liste d'attente exclusive et sois prévenue en priorité avant l'annonce officielle de la prochaine étape CEO OF MY LIFE.",
+    "Inscris-toi sur la liste d'attente exclusive et sois prévenue en priorité avant l'annonce officielle de la prochaine étape MONEY RESET.",
   openGraph: {
-    title: "Liste d'Attente — CEO OF MY LIFE",
+    title: "Liste d'Attente — MONEY RESET",
     description:
       "Inscris-toi sur la liste d'attente exclusive et sois prévenue en priorité avant l'annonce officielle.",
     url: 'https://nahedrachad.com/conference/liste-attente',
-    siteName: 'CEO OF MY LIFE',
+    siteName: 'MONEY RESET',
     images: [
       {
         url: 'https://nahedrachad.com/conference/images/liste-attente/imagewebnr.jpeg',
         width: 1200,
         height: 630,
-        alt: "CEO OF MY LIFE — Liste d'Attente",
+        alt: "MONEY RESET — Liste d'Attente",
       },
     ],
     locale: 'fr_FR',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Liste d'Attente — CEO OF MY LIFE",
+    title: "Liste d'Attente — MONEY RESET",
     description:
       "Inscris-toi sur la liste d'attente exclusive et sois prévenue en priorité avant l'annonce officielle.",
     images: ['https://nahedrachad.com/conference/images/liste-attente/imagewebnr.jpeg'],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Event',
-  name: 'CEO OF MY LIFE — La prochaine étape',
+  name: 'MONEY RESET — La prochaine étape',
   description:
     "Inscris-toi sur la liste d'attente exclusive et sois prévenue en priorité avant l'annonce officielle.",
   organizer: {
@@ -76,7 +76,7 @@ export default function ListeAttentePage() {
         <div className="block md:hidden">
           <Image
             src="/conference/images/liste-attente/imageNR.jpeg"
-            alt="CEO OF MY LIFE - Nahed Rachad"
+            alt="MONEY RESET - Nahed Rachad"
             fill
             priority
             className="object-cover"
@@ -87,7 +87,7 @@ export default function ListeAttentePage() {
         <div className="hidden md:block">
           <Image
             src="/conference/images/liste-attente/imagewebnr.jpeg"
-            alt="CEO OF MY LIFE - Nahed Rachad"
+            alt="MONEY RESET - Nahed Rachad"
             fill
             priority
             className="object-cover"
@@ -159,7 +159,7 @@ export default function ListeAttentePage() {
 
       {/* ─── FOOTER ───────────────────────────────────────────── */}
       <footer className="border-t border-white/5 py-6 px-6 text-center text-xs text-white tracking-wide">
-        © {new Date().getFullYear()} CEO OF MY LIFE. Tous droits réservés.
+        © {new Date().getFullYear()} MONEY RESET. Tous droits réservés.
         {' — '}
         {/* Internal link — uses '/' because Next.js basePath '/conference' is prepended automatically */}
         <Link href="/" className="underline underline-offset-2 hover:text-[#ff8bcc] transition-colors">

@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function ListeAttenteForm() {
+  const router = useRouter();
   const [state, setState] = useState<'idle' | 'loading'>('idle');
   const [form, setForm] = useState({ prenom: '', email: '', telNumber: '', countryCode: '+212' });
   const [consent, setConsent] = useState(false);
@@ -63,6 +65,9 @@ export default function ListeAttenteForm() {
           confirmButton: 'font-bold tracking-wide rounded-full px-8',
         },
       });
+
+      // Redirect to thank you page
+      router.push('/liste-attente/thank-you');
     } catch {
       setState('idle');
       await Swal.fire({
