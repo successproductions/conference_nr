@@ -149,7 +149,6 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full max-w-4xl 2xl:max-w-5xl mx-auto text-center">
           {/* Pre-video copy */}
-          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5 gsap-fade-up">Avant de réserver</p>
           <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight gsap-fade-up">
             Regardez cette vidéo.
           </h2>
@@ -240,7 +239,7 @@ export default function HomePage() {
             {/* Image 1 - Transformation */}
             <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-[#cfab4a]/20 shadow-2xl shadow-[#cfab4a]/10 order-1 md:order-2">
               <Image 
-                src="/conference/images/confernce3.jpg" 
+                src="/conference/images/confernce2.jpg" 
                 alt="Transformation" 
                 fill 
                 className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-in-out" 
@@ -289,7 +288,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-left order-1 md:order-2 gsap-stagger-item">
-            <p className="text-white uppercase tracking-widest text-xs font-bold mb-5">POURQUOI CETTE CONFÉRENCE</p>
+            
             <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
               La réalité que personne ne dit.
             </h2>
@@ -359,7 +358,7 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-xl mx-auto text-center gsap-stagger-container">
-          <p className="text-white uppercase tracking-widest text-xs font-bold mb-5 gsap-stagger-item">Inscription</p>
+          
           <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight gsap-stagger-item">
             Réserver ma place
           </h2>
@@ -374,7 +373,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════ */}
       <section id="faq" className="py-5 md:py-24 px-5">
         <div className="max-w-2xl mx-auto gsap-stagger-container">
-          <p className="text-white  tracking-widest text-xs font-bold mb-5 text-center gsap-stagger-item">FAQ</p>
+        
           <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white mb-10 leading-tight text-center gsap-stagger-item">
             Questions fréquentes
           </h2>
