@@ -70,7 +70,18 @@ export default function HomePage() {
         </div>
         <div className='z-10 gsap-scale-in'>
           <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
-          <Image src="/conference/images/DESKTOPLP.jpeg" alt="Hero" width={1920} height={580}  className=" object-cover  h-[290px] w-full md:h-[600px] z-10" />
+          {/* Mobile: image pleine largeur */}
+          <Image
+            src="/conference/images/DESKTOPLP.jpeg"
+            alt="Hero"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="block md:hidden object-cover w-screen h-[290px] -mx-5"
+            priority
+          />
+          {/* Desktop: image originale */}
+          <Image src="/conference/images/DESKTOPLP.jpeg" alt="Hero" width={1920} height={580} className="hidden md:block object-cover h-[600px] w-full z-10" />
         </div>
 
        
@@ -79,7 +90,7 @@ export default function HomePage() {
         <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light gsap-stagger-container">
           
           <div className="space-y-4 gsap-stagger-item">
-            <h1 className="playfair-display-regular text-3xl md:text-5xl uppercase">Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
+            <h1 className="playfair-display-regular text-2xl md:text-5xl uppercase">Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
             <p>
               Votre vrai problème n&apos;est pas le montant que vous gagnez.
             </p>
@@ -190,20 +201,21 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════ */}
       <section id="transformations" className="relative py-10 md:py-24 px-2 md:px-5 bg-white/[0.015]">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-4 leading-tight">
+          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-2 leading-tight">
             80 % des gens<br />
             travaillent plus…<br /><br />
-            <span className="text-white">
+            <span className="text-white mb-2">
               mais restent<br />
               au même niveau financier<br />
-              pendant des années.
+              pendant des années
+            </span><br/>
+            Pourquoi ?<br/>
+            <span className="playfair-display-regular text-3xl md:text-5xl mb-2 uppercase">
+            Parce qu&apos;un plafond invisible<br className="max-md:hidden" />
+            dirige leurs décisions.
             </span>
           </h2>
-          <p className="text-white text-lg md:text-2xl mt-8 mb-6 font-light">Pourquoi ?</p>
-          <p className="text-white text-lg md:text-2xl font-light mb-16">
-            Parce qu&apos;un <span className="text-white">plafond invisible</span><br className="max-md:hidden" />
-            dirige leurs décisions.
-          </p>
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
             
