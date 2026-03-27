@@ -72,12 +72,12 @@ export default function HomePage() {
           <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
           {/* Mobile: image pleine largeur */}
           <Image
-            src="/conference/images/DESKTOPLP.jpeg"
+            src="/conference/images/PHONELP.jpeg"
             alt="Hero"
             width={0}
             height={0}
             sizes="100vw"
-            className="block md:hidden object-cover w-screen h-[290px] -mx-5"
+            className="block md:hidden object-cover h-[290px] relative left-1/2 -translate-x-1/2 w-screen"
             priority
           />
           {/* Desktop: image originale */}
