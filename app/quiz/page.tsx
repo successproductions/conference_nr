@@ -236,6 +236,10 @@ function LeftPanel({ current, total, phase }: { current: number; total: number; 
         fill
         className="object-cover object-center transition-opacity duration-500"
         priority
+        quality={75}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAICAgIBwkJCQkJCQkKDAkLDAwLDA0RFBISFQ0PFwwSFBUTHRgYGBgSFBcUHRj/2wBDAQcHBwoIChMJChMoGBYaHCAgICAhICAgICAhICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA//2Q=="
       />
       <div className="absolute inset-0 bg-black/10" />
       <div className="absolute bottom-0 left-0 right-0 z-10 px-8 pb-8">
@@ -592,7 +596,6 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-2">
         {profile.subLabel}
       </h2>
-      {/* <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-6">Score : {score} / 40</p> */}
 
       <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-6" />
 
