@@ -148,7 +148,7 @@ const profiles: Record<Zone, {
   },
   yellow: {
     zone: 'yellow', emoji: '🟡',
-    label: 'COMBATTANT DÉSORGANISÉ (27–33)',
+    label: 'COMBATTANT DÉSORGANISÉ ',
     subLabel: '"Tu essaies beaucoup. Mais sans vraie direction."',
     accent: '#f59e0b',
     paragraphs: [
@@ -368,7 +368,7 @@ function QuestionScreen({
   onPrev: () => void;
 }) {
   return (
-    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
+    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
       <div className="inline-flex mb-5">
         <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
           Question {questionIndex + 1} sur {totalQuestions}
@@ -461,7 +461,7 @@ function PersonalInfoScreen({
   };
 
   return (
-    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
+    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
       <div className="inline-flex mb-6">
         <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
           Dernière étape
@@ -587,7 +587,7 @@ function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) 
 function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; onRestart: () => void }) {
   const profile = profiles[zone];
   return (
-    <div className="flex flex-col min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
+    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
       <div className="inline-flex mb-6">
         <span className="px-4 py-1.5 rounded-full border text-sm font-bold tracking-wider" style={{ borderColor: profile.accent, color: profile.accent, background: `${profile.accent}15` }}>
           {profile.emoji} {profile.label}
@@ -780,7 +780,7 @@ export default function QuizPage() {
         <div className="w-[40%] h-full shrink-0">
           <LeftPanel current={currentIndex + 1} total={questions.length} phase={panelPhase} />
         </div>
-        <div className="w-[60%] h-full bg-white overflow-y-auto">{renderContent()}</div>
+        <div className="w-[60%] h-full bg-white overflow-y-auto flex flex-col">{renderContent()}</div>
       </main>
     </>
   );
