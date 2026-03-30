@@ -773,7 +773,7 @@ export default function Quiz2Page() {
       {/* ── MOBILE LAYOUT (< lg) ── */}
       <main className="lg:hidden min-h-screen bg-white flex flex-col">
         <MobileTopBar current={currentIndex + 1} total={questions.length} phase={panelPhase} />
-        <div className="flex-1 bg-white">{renderContent()}</div>
+        <div className="flex-1 bg-white overflow-y-auto">{renderContent()}</div>
       </main>
 
       {/* ── DESKTOP LAYOUT (lg+) ── */}
