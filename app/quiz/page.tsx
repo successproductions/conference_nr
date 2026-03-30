@@ -7,102 +7,102 @@ import Image from 'next/image';
 const questions = [
   {
     id: 1,
-    text: 'Depuis combien de temps tu te dis que tu vas "reprendre le contrôle" de ton argent ?',
+    text: 'Quand tu reçois de l\'argent (salaire, paiement, rentrée imprévue), que se passe-t-il le plus souvent dans les 7 jours ?',
     options: [
-      { key: 'A', label: 'Plus de 3 ans', points: 1 },
-      { key: 'B', label: 'Entre 1 et 3 ans', points: 2 },
-      { key: 'C', label: 'Depuis quelques mois', points: 3 },
-      { key: 'D', label: "J'ai déjà commencé à agir", points: 4 },
+      { key: 'A', label: 'Je le dépense très vite, sans trop regarder.' },
+      { key: 'B', label: 'Je le laisse sur le compte sans y toucher, par peur de manquer.' },
+      { key: 'C', label: 'Je rembourse d\'abord ce que je dois, puis je vois après.' },
+      { key: 'D', label: 'J\'ai déjà prévu où chaque euro va aller.' },
     ],
   },
   {
     id: 2,
-    text: "Ce mois-ci, est-ce que tu sais exactement combien tu as dépensé et où ?",
+    text: 'Quand tu penses à ton avenir financier, quelle phrase te ressemble le plus ?',
     options: [
-      { key: 'A', label: 'Absolument pas', points: 1 },
-      { key: 'B', label: "J'ai une vague idée", points: 2 },
-      { key: 'C', label: 'Oui, à peu près', points: 3 },
-      { key: 'D', label: 'Oui, au centime près', points: 4 },
+      { key: 'A', label: '"On verra bien, de toute façon je me débrouille toujours."' },
+      { key: 'B', label: '"J\'ai peur, je préfère ne pas y penser."' },
+      { key: 'C', label: '"J\'ai envie de m\'en sortir, mais je tourne en rond."' },
+      { key: 'D', label: '"J\'ai des objectifs clairs, il me manque surtout de la discipline."' },
     ],
   },
   {
     id: 3,
-    text: "Si une urgence de 1\u202f000€ arrive demain — que se passe-t-il ?",
+    text: 'Quand tu regardes ton compte en banque :',
     options: [
-      { key: 'A', label: "Catastrophe. Je ne sais pas comment je vais faire", points: 1 },
-      { key: 'B', label: "Je vais devoir emprunter", points: 2 },
-      { key: 'C', label: "Je vais m'en sortir mais ça va faire mal", points: 3 },
-      { key: 'D', label: "J'ai une réserve. Je gère", points: 4 },
+      { key: 'A', label: 'Je regarde seulement quand je sens que ça ne va pas.' },
+      { key: 'B', label: 'J\'évite de regarder, ça me stresse trop.' },
+      { key: 'C', label: 'Je regarde régulièrement mais ça ne change pas mes décisions.' },
+      { key: 'D', label: 'Je le regarde chaque semaine et j\'agis en fonction.' },
     ],
   },
   {
     id: 4,
-    text: 'Combien de fois as-tu essayé de "tout recommencer financièrement" ces 3 dernières années ?',
+    text: 'Si une dépense imprévue arrive :',
     options: [
-      { key: 'A', label: "Jamais, je ne sais même pas par où commencer", points: 1 },
-      { key: 'B', label: "J'ai essayé, mais j'ai abandonné à chaque fois", points: 2 },
-      { key: 'C', label: "J'essaie régulièrement mais rien ne tient", points: 3 },
-      { key: 'D', label: "J'ai trouvé un système, même imparfait, qui tient", points: 4 },
+      { key: 'A', label: 'Panique → je paye comme je peux, et je gère après.' },
+      { key: 'B', label: 'Je repousse, je fais comme si ça n\'existait pas.' },
+      { key: 'C', label: 'Je demande de l\'aide / un prêt.' },
+      { key: 'D', label: 'J\'ai prévu une marge pour ça.' },
     ],
   },
   {
     id: 5,
-    text: "Quand tu penses à ton compte bancaire en ce moment, tu ressens quoi ?",
+    text: 'Quand on te parle d\'investir :',
     options: [
-      { key: 'A', label: "Honte / évitement — je préfère ne pas regarder", points: 1 },
-      { key: 'B', label: "Stress / angoisse — ça me pèse tous les jours", points: 2 },
-      { key: 'C', label: "Frustration — je travaille dur mais ça n'avance pas", points: 3 },
-      { key: 'D', label: "Calme relatif — ce n'est pas parfait mais je contrôle", points: 4 },
+      { key: 'A', label: '"J\'aimerais bien"… mais je ne passe jamais à l\'action.' },
+      { key: 'B', label: '"Ce n\'est pas pour moi."' },
+      { key: 'C', label: 'J\'ai déjà essayé → mauvaises expériences.' },
+      { key: 'D', label: 'Je me renseigne et je décide.' },
     ],
   },
   {
     id: 6,
-    text: "Dans 12 mois, si tu ne changes rien, tu seras où financièrement ?",
+    text: 'Ton rapport émotionnel à l\'argent :',
     options: [
-      { key: 'A', label: "Exactement au même point. Ou pire", points: 1 },
-      { key: 'B', label: "Je ne veux pas y penser", points: 2 },
-      { key: 'C', label: "Peut-être un peu mieux… peut-être pas", points: 3 },
-      { key: 'D', label: "J'ai un plan, ça dépend de moi", points: 4 },
+      { key: 'A', label: 'Je culpabilise après avoir dépensé.' },
+      { key: 'B', label: 'L\'argent me fait peur.' },
+      { key: 'C', label: 'J\'y pense tout le temps.' },
+      { key: 'D', label: 'C\'est un outil.' },
     ],
   },
   {
     id: 7,
-    text: 'Est-ce que tu as déjà pris une décision financière "sous émotion" que tu regrettes encore aujourd\'hui ?',
+    text: 'Quand tu fais une erreur financière :',
     options: [
-      { key: 'A', label: "Oui, plusieurs — et ça m'a coûté cher", points: 1 },
-      { key: 'B', label: "Oui, une grosse erreur que je suis encore en train de payer", points: 2 },
-      { key: 'C', label: "Oui, des petites erreurs régulières", points: 3 },
-      { key: 'D', label: "Rarement — j'ai appris à prendre du recul", points: 4 },
+      { key: 'A', label: '"Je suis nul(le) avec l\'argent."' },
+      { key: 'B', label: 'Je blâme quelque chose / quelqu\'un.' },
+      { key: 'C', label: 'J\'évite d\'y penser.' },
+      { key: 'D', label: 'J\'analyse pour corriger.' },
     ],
   },
   {
     id: 8,
-    text: 'Combien de fois tu as dit "quand j\'aurai plus d\'argent, je commencerai à le gérer correctement" ?',
+    text: 'La phrase qui te parle le plus :',
     options: [
-      { key: 'A', label: "C'est littéralement ma phrase préférée", points: 1 },
-      { key: 'B', label: "Plusieurs fois, oui", points: 2 },
-      { key: 'C', label: "Une ou deux fois", points: 3 },
-      { key: 'D', label: "Jamais — je sais que c'est un piège mental", points: 4 },
+      { key: 'A', label: '"Dès que j\'ai un peu d\'air, ça replonge."' },
+      { key: 'B', label: '"Je préfère ne pas regarder."' },
+      { key: 'C', label: '"Je ne comprends pas où part mon argent."' },
+      { key: 'D', label: '"Je veux reprendre le contrôle sainement."' },
     ],
   },
   {
     id: 9,
-    text: "Si quelqu'un te donnait un système clair pour reprendre le contrôle en 30 jours, qu'est-ce qui t'empêcherait réellement d'agir ?",
+    text: 'Sur les 12 derniers mois :',
     options: [
-      { key: 'A', label: "Je n'ai pas le temps", points: 1 },
-      { key: 'B', label: "Je ne veux pas investir", points: 2 },
-      { key: 'C', label: "J'ai peur que ça ne marche pas pour moi", points: 3 },
-      { key: 'D', label: "Rien. Je suis prêt(e) maintenant", points: 4 },
+      { key: 'A', label: 'Les mêmes erreurs en boucle.' },
+      { key: 'B', label: 'J\'ai subi.' },
+      { key: 'C', label: 'J\'ai tenté sans stratégie.' },
+      { key: 'D', label: 'J\'ai commencé à structurer.' },
     ],
   },
   {
     id: 10,
-    text: "Quelle phrase décrit le mieux ta situation en ce moment ?",
+    text: 'La stabilité financière pour toi :',
     options: [
-      { key: 'A', label: '"Je survis financièrement. Chaque mois est une bataille."', points: 1 },
-      { key: 'B', label: '"Je m\'en sors mais rien n\'est stable. Je suis épuisé(e)."', points: 2 },
-      { key: 'C', label: '"Je veux vraiment changer mais je ne sais pas comment."', points: 3 },
-      { key: 'D', label: '"Je suis en mouvement. Il me manque juste un cadre solide."', points: 4 },
+      { key: 'A', label: 'Beau… mais irréaliste.' },
+      { key: 'B', label: 'Difficile à imaginer.' },
+      { key: 'C', label: 'Peut-être un jour.' },
+      { key: 'D', label: 'Possible avec un cadre.' },
     ],
   },
 ];
@@ -116,35 +116,35 @@ const profiles: Record<Zone, {
 }> = {
   red: {
     zone: 'red', emoji: '🔴',
-    label: 'SURVIVANT HAUT DE GAMME (10–19)',
-    subLabel: '"Tu gères, tu avances, mais à quel prix ?"',
+    label: 'PROFIL A — LE SURVIVANT HAUT DE GAMME',
+    subLabel: '"Tu gères. Tu avances. Tu tiens."',
     accent: '#ef4444',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "De l'extérieur, tu as l'air de bien t'en sortir. Tu paies tes factures. Tu avances. Mais tu le sais : c'est au prix d'une énergie épuisante.",
-      "Tu compenses par l'effort. Tu t'adaptes. Tu réagis. Chaque jour est une micro-gestion de crises qui n'arrivent que parce que tu n'as pas de système.",
-      "Le problème, ce n'est pas ton revenu. C'est que tu fonctionnes en mode urgence permanent. Tu brûles ton énergie au lieu de la construire.",
-      "Et tu le sais au plus profond : ça ne peut pas durer comme ça.",
-      "Money Reset n'est pas une formation de plus. C'est le moment où tu vas poser, pour la première fois, un système réel qui fonctionne sans ta présence constante.",
+      "Mais en réalité… tu es en mode survie amélioré.",
+      "Tu fais face. Tu trouves des solutions. Tu t'en sors toujours. Mais au prix de ton énergie.",
+      "Ton système repose sur : l'effort, l'adaptation, la réaction.",
+      "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais 'sécuriser'.",
+      "Tu n'as pas un problème d'argent. Tu n'as pas de système. Et sans système : tu compenses, tu recommences, tu t'épuises.",
+      "Ton prochain niveau n'est pas plus d'effort. C'est sortir définitivement du mode survie.",
     ],
     bullets: ["l'effort", "l'adaptation", "la réaction"],
-    cta: "Tu es capable. Mais la capacité sans système, c'est juste du travail de fou. Money Reset te montre comment passer de 'je gère' à 'ça fonctionne'.",
+    cta: "Money Reset te montre comment avoir un vrai système qui fonctionne sans ta présence constante.",
   },
   orange: {
     zone: 'orange', emoji: '🟠',
-    label: 'ÉVITANT LUCIDE (20–26)',
-    subLabel: '"Tu sais que tu dois le faire. Mais tu ne le fais pas."',
+    label: 'PROFIL B — L\'ÉVITANT LUCIDE',
+    subLabel: '"Tu sais… mais tu préfères ne pas voir."',
     accent: '#f97316',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "Non, tu n'es pas nul(le) avec l'argent. Non, tu n'as pas un problème de connaissance.",
-      "Ton problème est plus profond. C'est la peur. L'anxiété. Le sentiment d'être dépassé(e) par quelque chose que tu ne comprends pas vraiment.",
-      "Alors tu évites. Tu repousses. Tu dis 'je verrai plus tard'. Et chaque fois que tu repousses, tu perds un peu plus le contrôle.",
-      "Le pire ? Tu sais exactement ce que tu fais. Tu es lucide sur ton évitement. Et ça te frustre encore plus.",
-      "Money Reset n'est pas là pour te juger. Il est là pour te montrer qu'une fois que tu as un plan simple et clair, l'anxiété disparaît. Parce que c'est l'incertitude qui te paralyse, pas l'argent.",
+      "Tu n'es pas inconscient(e). Tu comprends que quelque chose ne va pas. Mais tu évites. Pas par faiblesse. Par protection.",
+      "L'argent est associé à : la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
+      "Résultat : flou, anxiété silencieuse, perte de contrôle progressive.",
+      "Ton problème n'est pas l'argent. C'est la relation que tu as avec lui.",
+      "Tant que tu évites : tu laisses ta situation décider à ta place.",
+      "Ton prochain niveau : c'est regarder en face — sans te juger — et reprendre le pouvoir.",
     ],
     bullets: [],
-    cta: "Ton premier pas vers le contrôle n'est pas financier. C'est psychologique. Et ça commence par oser regarder en face.",
+    cta: "Money Reset t'aide à transformer l'anxiété en clarté, l'évitement en action.",
   },
   yellow: {
     zone: 'yellow', emoji: '🟡',
@@ -164,19 +164,19 @@ const profiles: Record<Zone, {
   },
   green: {
     zone: 'green', emoji: '🟢',
-    label: 'STRATÈGE EN CONSTRUCTION (34–40)',
-    subLabel: '"Tu comprends comment ça marche. Prochaine étape : la maîtrise."',
+    label: 'PROFIL D — LE STRATÈGE EN CONSTRUCTION',
+    subLabel: '"Tu es déjà en avance."',
     accent: '#22c55e',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "Tu as déjà compris quelque chose que beaucoup n'ont pas : la structure fonctionne. Les systèmes fonctionnent.",
-      "Tu le vois dans ta vie. Tu as mis en place des choses. Ça marche. Tu as un semblant de contrôle. C'est déjà énorme.",
-      "Mais voilà : tu es encore à un stade où tu 'gères'. Tu réagis bien, tu organises, tu contrôles. C'est bon. Mais tu n'as pas encore commencé à 'piloter'.",
-      "Et il y a toute une différence. Piloter, c'est quand ton système fonctionne tellement bien que tu fais tes choix à partir de stratégie, pas à partir de réaction.",
-      "Money Reset c'est le moment où tu vas faire le saut de 'gestionnaire' à 'pilote'. C'est là que la vraie création de richesse commence.",
+      "Tu as compris : que l'argent se pilote, que les décisions comptent, que la structure est clé. Mais il manque encore quelque chose : un système complet.",
+      "Aujourd'hui : tu avances, mais pas encore de manière optimisée, pas encore avec une vraie puissance.",
+      "Tu es entre deux niveaux : plus dans le chaos, mais pas encore dans la maîtrise.",
+      "Ton profil montre que tu as déjà les bons réflexes. Le système que tu lis maintenant dans Money Reset sera ton accélérateur.",
+      "C'est la différence entre 'gérer' et 'piloter'. Entre progresser et créer.",
+      "Ton prochain niveau : passer de 'je gère' à 'je pilote' — c'est là que commence la vraie création de richesse.",
     ],
     bullets: [],
-    cta: "Tu es plus proche que tu ne le penses. La prochaine étape, ce n'est pas une formation de plus. C'est une clarification.",
+    cta: "Tu es l'un des profils qui tire le plus de Money Reset. Le dernier clic pour passer au niveau supérieur.",
   },
 };
 
@@ -200,18 +200,23 @@ const COUNTRIES: { flag: string; code: string; dial: string }[] = [
   { flag: '🇦🇪', code: 'AE', dial: '+971' },
 ];
 
-/* ─── Compute zone from total points ────────────────────────────── */
+/* ─── Compute zone from letter frequency (profile counting) ──────── */
 function computeScore(answers: Record<number, string>): { score: number; zone: Zone } {
-  let total = 0;
+  const letterCount = { A: 0, B: 0, C: 0, D: 0 };
   questions.forEach((q) => {
     const key = answers[q.id];
-    if (key) {
-      const opt = q.options.find((o) => o.key === key);
-      if (opt) total += opt.points;
+    if (key && (key === 'A' || key === 'B' || key === 'C' || key === 'D')) {
+      letterCount[key]++;
     }
   });
-  const zone: Zone = total <= 19 ? 'red' : total <= 26 ? 'orange' : total <= 33 ? 'yellow' : 'green';
-  return { score: total, zone };
+  let dominantLetter: 'A' | 'B' | 'C' | 'D' = 'A';
+  let maxCount = letterCount.A;
+  if (letterCount.B > maxCount) { dominantLetter = 'B'; maxCount = letterCount.B; }
+  if (letterCount.C > maxCount) { dominantLetter = 'C'; maxCount = letterCount.C; }
+  if (letterCount.D > maxCount) { dominantLetter = 'D'; maxCount = letterCount.D; }
+  const zoneMap: Record<string, Zone> = { A: 'red', B: 'orange', C: 'yellow', D: 'green' };
+  const zone: Zone = zoneMap[dominantLetter];
+  return { score: maxCount, zone };
 }
 
 /* ─── LEFT PANEL (DESKTOP) ──────────────────────────────────────── */
@@ -315,29 +320,25 @@ function IntroScreen({
       </div>
 
       <h1 className="playfair-display-regular text-3xl md:text-4xl xl:text-5xl text-[#0a0a0f] font-bold leading-tight mb-3 uppercase">
-        Pourquoi tu es encore au même niveau financier aujourd&apos;hui
+        Quel est ton profil Money Reset ?
       </h1>
 
       <p className="text-gray-500 text-sm md:text-base mb-4 font-light">
-        Es-tu vraiment prêt(e) à changer ta vie financière — ou tu vas encore attendre ?
+        En 7 minutes, découvre ton profil financier caché et pourquoi tu répètes toujours les mêmes schémas avec l&apos;argent.
       </p>
       <div className="mb-6 space-y-2 text-sm text-gray-600 italic border-l-4 border-[#cfab4a]/40 pl-4">
-        <p>Ce quiz ne va pas te flatter. Il va te montrer exactement pourquoi tu es encore là où tu es.</p>
-        <p>👉 Si tu n&apos;es pas prêt(e) à voir la vérité, ne fais pas ce quiz.</p>
-        <p>Réponds honnêtement. Pas pour moi. Pour toi.</p>
+        <p>Ce quiz ne parle pas de chiffres.</p>
+        <p>Il parle de tes réflexes avec l&apos;argent.</p>
+        <p>Réponds honnêtement, sans te juger.</p>
       </div>
 
       <div className="mb-4 space-y-2 text-sm text-gray-600">
-        <p className="font-medium text-gray-700">La majorité des entrepreneurs ne manquent pas :</p>
+        <p className="font-medium text-gray-700">À la fin, tu découvriras :</p>
         <ul className="space-y-1.5 pl-2">
-          {["d'idées", "d'intelligence", "d'opportunités"].map((item) => (
-            <li key={item} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#cfab4a] shrink-0" />
-              {item}
-            </li>
-          ))}
+          <li>• Ton profil réel</li>
+          <li>• Le mécanisme qui te bloque</li>
+          <li>• Comment la conférence Money Reset peut t&apos;aider à changer de scénario</li>
         </ul>
-        <p>Ils sont simplement bloqués par un <strong>mécanisme qu&apos;ils ne voient pas</strong>.</p>
       </div>
 
       <button
@@ -619,11 +620,11 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </div>
       )}
 
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-8 italic border-l-4 pl-4" style={{ borderColor: profile.accent }}>
+      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-2 italic border-l-4 pl-4" style={{ borderColor: profile.accent }}>
         {profile.cta}
       </p>
 
-      <div className="rounded-xl border border-gray-100 bg-gray-50 p-4 mb-6 text-sm text-gray-700 space-y-1">
+      <div className="py-4 mb-2 text-sm text-gray-700 space-y-1">
         <p className="font-semibold text-[#0a0a0f]">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
         <p>L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
