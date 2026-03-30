@@ -8,6 +8,7 @@ const questions = [
   {
     id: 1,
     text: 'Depuis combien de temps tu te dis que tu vas "reprendre le contrôle" de ton argent ?',
+    subtitle: 'Sois honnête. Personne ne te regarde.',
     options: [
       { key: 'A', label: 'Plus de 3 ans', points: 1 },
       { key: 'B', label: 'Entre 1 et 3 ans', points: 2 },
@@ -27,7 +28,7 @@ const questions = [
   },
   {
     id: 3,
-    text: "Si une urgence de 1\u202f000€ arrive demain — que se passe-t-il ?",
+    text: "Si une urgence de 1 000€ arrive demain — que se passe-t-il ?",
     options: [
       { key: 'A', label: "Catastrophe. Je ne sais pas comment je vais faire", points: 1 },
       { key: 'B', label: "Je vais devoir emprunter", points: 2 },
@@ -152,9 +153,9 @@ const profiles: Record<Zone, {
     subLabel: '"Tu essaies beaucoup. Mais sans vraie direction."',
     accent: '#f59e0b',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
       "Tu n'es pas passif(ve). Loin de là. Tu testes. Tu lis. Tu essaies différentes approches. Tu fais preuve d'initiative.",
-      "Mais voilà : tu as beaucoup d'actions, pas assez de système. Tu avanças, puis tu recules. Tu fais des progrès qui ne tiennent pas.",
+      "Mais voilà : tu as beaucoup d'actions, pas assez de système. Tu avançais, puis tu recules. Tu fais des progrès qui ne tiennent pas.",
       "Et surtout, tu es épuisé(e). Pas par le manque d'effort — tu en fais assez — mais parce que tu cours dans tous les sens sans vraie direction.",
       "C'est comme conduire une moto puissante sans système de freinage. Tu vas vite, mais tu ne contrôles pas vraiment où tu vas.",
       "Money Reset va te montrer comment transformer ton énergie — que tu as en abondance — en résultats durables. L'enjeu n'est pas plus d'action. C'est une meilleure organisation.",
@@ -311,29 +312,22 @@ function IntroScreen({
       </div>
 
       <h1 className="playfair-display-regular text-3xl md:text-4xl xl:text-5xl text-[#0a0a0f] font-bold leading-tight mb-3 uppercase">
-        Pourquoi tu es encore au même niveau financier aujourd&apos;hui
+        Pourquoi tu es encore au même niveau financier aujourd&apos;hui (et ce qui va se passer si rien ne change)
       </h1>
 
-      <p className="text-gray-500 text-sm md:text-base mb-4 font-light">
+      <p className="text-gray-500 text-sm md:text-base mb-2 font-light">
         Es-tu vraiment prêt(e) à changer ta vie financière — ou tu vas encore attendre ?
       </p>
-      <div className="mb-6 space-y-2 text-sm text-gray-600 italic border-l-4 border-[#cfab4a]/40 pl-4">
-        <p>Ce quiz ne va pas te flatter. Il va te montrer exactement pourquoi tu es encore là où tu es.</p>
-        <p>👉 Si tu n&apos;es pas prêt(e) à voir la vérité, ne fais pas ce quiz.</p>
-        <p>Réponds honnêtement. Pas pour moi. Pour toi.</p>
-      </div>
 
-      <div className="mb-4 space-y-2 text-sm text-gray-600">
-        <p className="font-medium text-gray-700">La majorité des entrepreneurs ne manquent pas :</p>
-        <ul className="space-y-1.5 pl-2">
-          {["d'idées", "d'intelligence", "d'opportunités"].map((item) => (
-            <li key={item} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#cfab4a] shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p>Ils sont simplement bloqués par un <strong>mécanisme qu&apos;ils ne voient pas</strong>.</p>
+      <div className="mb-6 space-y-1 text-sm text-gray-600 italic border-l-4 border-[#cfab4a]/40 pl-4">
+        <p>Ce quiz ne va pas te flatter.</p>
+        <p>Il va te montrer exactement pourquoi tu es encore là où tu es.</p>
+        <p>Et ce que tu vas découvrir risque de ne pas te plaire.</p>
+        <p className="mt-3">👉 Si tu n&apos;es pas prêt(e) à voir la vérité, ne fais pas ce quiz.</p>
+        <p>Réponds honnêtement.</p>
+        <p>Pas pour moi.</p>
+        <p>Pour toi.</p>
+        <p className="mt-3">Parce que dans 5 minutes, tu vas comprendre une chose que personne ne t&apos;a encore dite clairement.</p>
       </div>
 
       <button
@@ -370,9 +364,13 @@ function QuestionScreen({
         </span>
       </div>
 
-      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-snug mb-8">
+      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-snug mb-3">
         {question.text}
       </h2>
+
+      {question.subtitle && (
+        <p className="text-gray-500 text-xs md:text-sm mb-6 italic">{question.subtitle}</p>
+      )}
 
       <div className="h-px bg-linear-to-r from-[#cfab4a]/40 via-[#cfab4a]/20 to-transparent mb-8" />
 
@@ -464,23 +462,23 @@ function PersonalInfoScreen({
       </div>
 
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-3">
-        Pour voir ton résultat détaillé
+        Ton profil est prêt. Dernière étape pour y accéder 👇
       </h2>
 
       <p className="text-gray-600 text-sm md:text-base mb-8">
-        Remplis tes informations personnelles pour accéder à ton profil complet et découvrir comment améliorer ta situation financière.
+        Est-ce que tu veux comprendre concrètement comment améliorer ta situation financière dans les prochaines semaines ?
       </p>
 
       {/* PERSONAL INFO FORM */}
       <div className="space-y-4 mb-8">
         <div>
-          <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Nom Complet</label>
+          <label className="block text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Prénom</label>
           <input 
             type="text" 
             name="prenom" 
             value={userData.prenom} 
             onChange={handleChange} 
-            placeholder="Votre nom complet"
+            placeholder="Votre prénom"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all focus:border-[#cfab4a] focus:ring-1 focus:ring-[#cfab4a]" 
             required 
           />
@@ -526,14 +524,18 @@ function PersonalInfoScreen({
       <button
         onClick={onSubmit}
         disabled={!isFormValid}
-        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed mb-3"
         style={{
           background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db',
           boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.35)' : 'none',
         }}
       >
-        Voir mon résultat →
+        Voir mon diagnostic →
       </button>
+
+      <p className="text-xs text-gray-400 text-center">
+        Entre ton email maintenant. Je vais t&apos;envoyer ton diagnostic complet et ton accès prioritaire à la conférence du 10 mai à Casablanca.
+      </p>
     </div>
   );
 }
@@ -544,14 +546,14 @@ function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) 
     <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
       <div className="inline-flex mb-6">
         <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
-          Dernière étape
+          Ton choix
         </span>
       </div>
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-3">
-        Ton profil est prêt. Dernière étape pour y accéder 👇
+        Qu&apos;est-ce que tu veux faire maintenant ?
       </h2>
       <p className="text-gray-600 text-sm md:text-base mb-8">
-        Est-ce que tu veux comprendre concrètement comment améliorer ta situation financière dans les prochaines semaines ?
+        Assure-toi de faire un choix conscient. Certaines personnes feront ce quiz… et ne feront rien derrière.
       </p>
       <div className="space-y-3">
         <button
@@ -581,6 +583,7 @@ function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) 
 /* ─── RESULT SCREEN ─────────────────────────────────────────────── */
 function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; onRestart: () => void }) {
   const profile = profiles[zone];
+  
   return (
     <div className="flex flex-col min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
       <div className="inline-flex mb-6">
@@ -592,7 +595,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-2">
         {profile.subLabel}
       </h2>
-      {/* <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-6">Score : {score} / 40</p> */}
+      <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-6">Score : {score} / 40</p>
 
       <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-6" />
 
@@ -620,13 +623,15 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         {profile.cta}
       </p>
 
-      <div className="rounded-xl border border-gray-100 bg-gray-50 p-4 mb-6 text-sm text-gray-700 space-y-1">
-        <p className="font-semibold text-[#0a0a0f]">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
-        <p>L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
+      <div className="rounded-xl border border-gray-100 bg-gray-50 p-4 mb-6 text-sm text-gray-700 space-y-2">
+        <p className="font-semibold text-[#0a0a0f]">🔥 Tu peux continuer comme ça encore 1 an…</p>
+        <p>ou décider maintenant.</p>
+        <p className="font-semibold">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
       {/* FOMO SECTION */}
       <div className="rounded-xl border border-red-200 bg-red-50 p-4 mb-6 text-sm space-y-2">
+        <p className="font-bold text-red-600">🔥 FOMO</p>
         <p className="text-red-700 font-semibold">Accès limité jusqu&apos;au 10 mai.</p>
       </div>
 
@@ -660,7 +665,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
 }
 
 /* ─── PAGE ──────────────────────────────────────────────────────── */
-export default function QuizPage() {
+export default function Quiz2Page() {
   const [phase, setPhase] = useState<'intro' | 'quiz' | 'info' | 'commitment' | 'result'>('intro');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -708,8 +713,8 @@ export default function QuizPage() {
     if (SCRIPT_URL) {
       try {
         const data = new URLSearchParams();
-        // Use 'quiz' for yes, 'quiz_brevo' for no
-        data.append('formType', choice === 'yes' ? 'quiz' : 'quiz_brevo');
+        // Use 'quiz2' for yes, 'quiz2_brevo' for no
+        data.append('formType', choice === 'yes' ? 'quiz2' : 'quiz2_brevo');
         data.append('prenom', userData.prenom);
         data.append('email', userData.email);
         data.append('phone', `${userData.countryCode} ${userData.phone}`);
