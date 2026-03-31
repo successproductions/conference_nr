@@ -89,7 +89,7 @@ const questions = [
     id: 9,
     text: 'Sur les 12 derniers mois :',
     options: [
-      { key: 'A', label: 'Les mêmes erreurs en boucle.' },
+      { key: 'A', label: 'J\'ai fait les mêmes erreurs en boucle.' },
       { key: 'B', label: 'J\'ai subi.' },
       { key: 'C', label: 'J\'ai tenté sans stratégie.' },
       { key: 'D', label: 'J\'ai commencé à structurer.' },
@@ -326,14 +326,14 @@ function IntroScreen({
       <p className="text-gray-500 text-sm md:text-base mb-4 font-light">
         En 7 minutes, découvre ton profil financier caché et pourquoi tu répètes toujours les mêmes schémas avec l&apos;argent.
       </p>
-      <div className="mb-6 space-y-2 text-sm text-gray-600 italic border-l-4 border-[#cfab4a]/40 pl-4">
+      <div className="mb-6 space-y-2 text-gray-500 text-sm md:text-base mb-4 font-light">
         <p>Ce quiz ne parle pas de chiffres.</p>
         <p>Il parle de tes réflexes avec l&apos;argent.</p>
         <p>Réponds honnêtement, sans te juger.</p>
       </div>
 
-      <div className="mb-4 space-y-2 text-sm text-gray-600">
-        <p className="font-medium text-gray-700">À la fin, tu découvriras :</p>
+      <div className="mb-4 space-y-2 text-gray-500 text-sm md:text-base mb-4 font-light">
+        <p className="font-medium text-gray-500">À la fin, tu découvriras :</p>
         <ul className="space-y-1.5 pl-2">
           <li>• Ton profil réel</li>
           <li>• Le mécanisme qui te bloque</li>
@@ -442,14 +442,14 @@ function QuestionScreen({
 }
 
 /* ─── PERSONAL INFO SCREEN ─────────────────────────────────────── */
-function PersonalInfoScreen({
+function CombinedInfoScreen({
   userData,
   setUserData,
-  onSubmit,
+  onDecide,
 }: {
   userData: { prenom: string; email: string; phone: string; countryCode: string };
   setUserData: React.Dispatch<React.SetStateAction<{ prenom: string; email: string; phone: string; countryCode: string }>>;
-  onSubmit: () => void;
+  onDecide: (choice: string) => void;
 }) {
   const isFormValid =
     userData.prenom.trim() !== '' &&
@@ -469,11 +469,11 @@ function PersonalInfoScreen({
       </div>
 
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-3">
-        Pour voir ton résultat détaillé
+        Ton profil est prêt. Dernière étape pour y accéder 
       </h2>
 
       <p className="text-gray-600 text-sm md:text-base mb-8">
-        Remplis tes informations personnelles pour accéder à ton profil complet et découvrir comment améliorer ta situation financière.
+        Remplis tes informations personnelles puis choisis ton option.
       </p>
 
       {/* PERSONAL INFO FORM */}
@@ -528,53 +528,28 @@ function PersonalInfoScreen({
         </div>
       </div>
 
-      <button
-        onClick={onSubmit}
-        disabled={!isFormValid}
-        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-        style={{
-          background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db',
-          boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.35)' : 'none',
-        }}
-      >
-        Voir mon résultat →
-      </button>
-    </div>
-  );
-}
-
-/* ─── COMMITMENT SCREEN ─────────────────────────────────────────── */
-function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) {
-  return (
-    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
-      <div className="inline-flex mb-6">
-        <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
-          Dernière étape
-        </span>
-      </div>
-      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-3">
-        Ton profil est prêt. Dernière étape pour y accéder 👇
-      </h2>
-      <p className="text-gray-600 text-sm md:text-base mb-8">
-        Est-ce que tu veux comprendre concrètement comment améliorer ta situation financière dans les prochaines semaines ?
-      </p>
+      {/* COMMITMENT BUTTONS */}
       <div className="space-y-3">
         <button
           onClick={() => onDecide('yes')}
-          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)', boxShadow: '0 8px 32px rgba(207,171,74,0.3)' }}
+          disabled={!isFormValid}
+          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db', boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.3)' : 'none' }}
         >
           ✅ Oui, je veux participer à Money Reset le 10 mai à Casablanca
         </button>
         <button
           onClick={() => onDecide('more')}
-          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-[#0a0a0f] text-left px-5 transition-all border border-gray-200 hover:border-[#cfab4a] hover:bg-[#cfab4a]/5 active:scale-95"
+          disabled={!isFormValid}
+          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-[#0a0a0f] text-left px-5 transition-all border border-gray-200 hover:border-[#cfab4a] hover:bg-[#cfab4a]/5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           🤔 Je veux en savoir plus
         </button>
         <button
           onClick={() => onDecide('no')}
-          className="w-full py-3 rounded-xl text-sm text-gray-400 text-left px-5 transition-all hover:text-gray-600"
+          disabled={!isFormValid}
+          className="w-full py-3 rounded-xl text-sm text-left px-5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ color: isFormValid ? '#9ca3af' : '#d1d5db' }}
         >
           ❌ Pas pour le moment
         </button>
@@ -583,12 +558,13 @@ function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) 
   );
 }
 
+
 /* ─── RESULT SCREEN ─────────────────────────────────────────────── */
 function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; onRestart: () => void }) {
   const profile = profiles[zone];
   return (
-    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
-      <div className="inline-flex mb-6">
+    <div className="flex flex-col w-full px-4 py-5 md:px-6 md:py-6 lg:px-10 lg:py-8">
+      <div className="inline-flex mb-3">
         <span className="px-4 py-1.5 rounded-full border text-sm font-bold tracking-wider" style={{ borderColor: profile.accent, color: profile.accent, background: `${profile.accent}15` }}>
           {profile.emoji} {profile.label}
         </span>
@@ -598,18 +574,18 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         {profile.subLabel}
       </h2>
 
-      <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-6" />
+      <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-4" />
 
-      <div className="space-y-4 mb-6">
+      <div className="space-y-3 mb-4">
         {profile.paragraphs.map((p, i) => (
-          <p key={i} className="text-gray-700 text-sm md:text-base leading-relaxed">{p}</p>
+          <p key={i} className="text-gray-700 text-sm leading-relaxed">{p}</p>
         ))}
       </div>
 
       {profile.bullets.length > 0 && (
-        <div className="mb-6 pl-3 border-l-4" style={{ borderColor: profile.accent }}>
-          <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-3">Chaque semaine qui passe te coûte :</p>
-          <ul className="space-y-1.5">
+        <div className="mb-2 pl-3 border-l-4" style={{ borderColor: profile.accent }}>
+          <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-1">Chaque semaine qui passe te coûte :</p>
+          <ul className="space-y-1">
             {profile.bullets.map((b) => (
               <li key={b} className="flex items-center gap-2 text-gray-700 text-sm">
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: profile.accent }} />
@@ -620,27 +596,76 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </div>
       )}
 
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-2 italic border-l-4 pl-4" style={{ borderColor: profile.accent }}>
+      <p className="text-gray-700 text-sm leading-relaxed mb-2 ">
         {profile.cta}
       </p>
 
-      <div className="py-4 mb-2 text-sm text-gray-700 space-y-1">
-        <p className="font-semibold text-[#0a0a0f]">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
+      <div className="py-2 mb-2 text-sm text-gray-700 space-y-0.5">
+        <p className=" text-[#0a0a0f]">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
         <p>L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
-      {/* FOMO SECTION */}
-      <div className="rounded-xl border border-red-200 bg-red-50 p-4 mb-6 text-sm space-y-2">
-        <p className="text-red-700 font-semibold">Accès limité jusqu&apos;au 10 mai.</p>
+      {/* VERSION COURTE FINALE - TRANSITION & CTA */}
+      <div className="py-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
+        {/* TRANSITION */}
+        <div className="space-y-1">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <span className="font-semibold">Ce que tu viens de lire n'est pas un hasard.</span>
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            C'est un schéma.
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            Et sans cadre, il va continuer.
+          </p>
+        </div>
+
+        {/* CTA */}
+        <div className="space-y-1">
+          <p className="text-gray-700 text-sm leading-relaxed font-semibold">
+            Tu veux comprendre comment changer ça concrètement ?
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+             J'ai ouvert un groupe WhatsApp privé.
+          </p>
+        </div>
+
+        {/* ACTION STEPS */}
+        <div className="space-y-1 bg-[#cfab4a]/5 rounded-lg p-3">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <span className="font-semibold">📲 Action :</span>
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+             <span className="font-semibold">1. Enregistre ce numéro :</span> Conférence Money Reset
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+             <span className="font-semibold">2. Clique ici pour rejoindre </span>
+          </p>
+        </div>
+
+        {/* TRUST WARNING */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+          <p className="text-yellow-800 text-sm font-semibold">
+            ⚠️ Important :
+          </p>
+          <p className="text-yellow-700 text-sm mt-0.5">
+            Enregistre le numéro pour être sûr de recevoir les messages.
+          </p>
+        </div>
+
+        {/* FOMO */}
+        <p className="text-red-700 font-semibold text-sm">
+          🔥 Accès limité jusqu'au 10 mai.
+        </p>
       </div>
 
-      {/* WHATSAPP CONTACT SECTION */}
-      <div className="space-y-3">
+      {/* WHATSAPP CONTACT BUTTONS */}
+      <div className="space-y-2 lg:max-w-md lg:mx-auto">
         <a
           href="https://wa.me/212666538168"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4  lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{
             background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
             boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
@@ -650,10 +675,10 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </a>
 
         <a
-          href="https://chat.whatsapp.com/HG9jVnMNbiK3Euc2oVaNvo?mode=gi_t"
+          href="https://chat.whatsapp.com/Ek6W4od60NY4UHI18Skt0r?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{ background: '#25d366', boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)' }}
         >
           💬 Rejoindre le groupe WhatsApp
@@ -665,7 +690,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
 
 /* ─── PAGE ──────────────────────────────────────────────────────── */
 export default function QuizPage() {
-  const [phase, setPhase] = useState<'intro' | 'quiz' | 'info' | 'commitment' | 'result'>('intro');
+  const [phase, setPhase] = useState<'intro' | 'quiz' | 'info' | 'result'>('intro');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [zone, setZone] = useState<Zone | null>(null);
@@ -696,7 +721,7 @@ export default function QuizPage() {
   }
 
   function handleInfoSubmit() {
-    setPhase('commitment');
+    // This is no longer used - decisions happen directly in the combined screen
   }
 
   function handleDecide(choice: string) {
@@ -740,7 +765,7 @@ export default function QuizPage() {
     setUserData({ prenom: '', email: '', phone: '', countryCode: '+212' });
   }
 
-  const panelPhase = phase === 'commitment' || phase === 'info' || phase === 'result' ? 'result' : phase;
+  const panelPhase = phase === 'info' || phase === 'result' ? 'result' : phase;
 
   const renderContent = () => {
     if (phase === 'intro') return <IntroScreen onStart={handleStart} />;
@@ -756,13 +781,12 @@ export default function QuizPage() {
       />
     );
     if (phase === 'info') return (
-      <PersonalInfoScreen
+      <CombinedInfoScreen
         userData={userData}
         setUserData={setUserData}
-        onSubmit={handleInfoSubmit}
+        onDecide={handleDecide}
       />
     );
-    if (phase === 'commitment') return <CommitmentScreen onDecide={handleDecide} />;
     if (phase === 'result' && zone) return <ResultScreen zone={zone} score={score} onRestart={handleRestart} />;
     return null;
   };

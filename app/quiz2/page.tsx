@@ -319,7 +319,7 @@ function IntroScreen({
         Es-tu vraiment prêt(e) à changer ta vie financière — ou tu vas encore attendre ?
       </p>
 
-      <div className="mb-6 space-y-1 text-sm text-gray-600 italic border-l-4 border-[#cfab4a]/40 pl-4">
+      <div className="mb-6 space-y-1 text-gray-500 text-sm md:text-base mb-4 font-light italic border-l-4 border-[#cfab4a]/40 pl-4">
         <p>Ce quiz ne va pas te flatter.</p>
         <p>Il va te montrer exactement pourquoi tu es encore là où tu es.</p>
         <p>Et ce que tu vas découvrir risque de ne pas te plaire.</p>
@@ -435,14 +435,14 @@ function QuestionScreen({
 }
 
 /* ─── PERSONAL INFO SCREEN ─────────────────────────────────────── */
-function PersonalInfoScreen({
+function CombinedInfoScreen({
   userData,
   setUserData,
-  onSubmit,
+  onDecide,
 }: {
   userData: { prenom: string; email: string; phone: string; countryCode: string };
   setUserData: React.Dispatch<React.SetStateAction<{ prenom: string; email: string; phone: string; countryCode: string }>>;
-  onSubmit: () => void;
+  onDecide: (choice: string) => void;
 }) {
   const isFormValid =
     userData.prenom.trim() !== '' &&
@@ -454,7 +454,7 @@ function PersonalInfoScreen({
   };
 
   return (
-    <div className="flex flex-col px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
+    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
       <div className="inline-flex mb-6">
         <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
           Dernière étape
@@ -466,7 +466,7 @@ function PersonalInfoScreen({
       </h2>
 
       <p className="text-gray-600 text-sm md:text-base mb-8">
-        Est-ce que tu veux comprendre concrètement comment améliorer ta situation financière dans les prochaines semaines ?
+        Remplis tes informations personnelles puis choisis ton option.
       </p>
 
       {/* PERSONAL INFO FORM */}
@@ -521,57 +521,28 @@ function PersonalInfoScreen({
         </div>
       </div>
 
-      <button
-        onClick={onSubmit}
-        disabled={!isFormValid}
-        className="w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed mb-3"
-        style={{
-          background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db',
-          boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.35)' : 'none',
-        }}
-      >
-        Voir mon diagnostic →
-      </button>
-
-      <p className="text-xs text-gray-400 text-center">
-        Entre ton email maintenant. Je vais t&apos;envoyer ton diagnostic complet et ton accès prioritaire à la conférence du 10 mai à Casablanca.
-      </p>
-    </div>
-  );
-}
-
-/* ─── COMMITMENT SCREEN ─────────────────────────────────────────── */
-function CommitmentScreen({ onDecide }: { onDecide: (choice: string) => void }) {
-  return (
-    <div className="flex flex-col justify-center min-h-full px-5 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
-      <div className="inline-flex mb-6">
-        <span className="px-3 py-1 rounded-full bg-[#cfab4a]/10 border border-[#cfab4a]/30 text-[#b8922e] text-xs tracking-wider font-semibold uppercase">
-          Ton choix
-        </span>
-      </div>
-      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-3">
-        Qu&apos;est-ce que tu veux faire maintenant ?
-      </h2>
-      <p className="text-gray-600 text-sm md:text-base mb-8">
-        Assure-toi de faire un choix conscient. Certaines personnes feront ce quiz… et ne feront rien derrière.
-      </p>
+      {/* COMMITMENT BUTTONS */}
       <div className="space-y-3">
         <button
           onClick={() => onDecide('yes')}
-          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)', boxShadow: '0 8px 32px rgba(207,171,74,0.3)' }}
+          disabled={!isFormValid}
+          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db', boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.3)' : 'none' }}
         >
           ✅ Oui, je veux participer à Money Reset le 10 mai à Casablanca
         </button>
         <button
           onClick={() => onDecide('more')}
-          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-[#0a0a0f] text-left px-5 transition-all border border-gray-200 hover:border-[#cfab4a] hover:bg-[#cfab4a]/5 active:scale-95"
+          disabled={!isFormValid}
+          className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-[#0a0a0f] text-left px-5 transition-all border border-gray-200 hover:border-[#cfab4a] hover:bg-[#cfab4a]/5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           🤔 Je veux en savoir plus
         </button>
         <button
           onClick={() => onDecide('no')}
-          className="w-full py-3 rounded-xl text-sm text-gray-400 text-left px-5 transition-all hover:text-gray-600"
+          disabled={!isFormValid}
+          className="w-full py-3 rounded-xl text-sm text-left px-5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ color: isFormValid ? '#9ca3af' : '#d1d5db' }}
         >
           ❌ Pas pour le moment
         </button>
@@ -585,7 +556,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
   const profile = profiles[zone];
   
   return (
-    <div className="flex flex-col w-full px-5 py-8 md:px-8 md:py-10 lg:px-14 lg:py-14">
+    <div className="flex flex-col w-full px-4 py-5 md:px-6 md:py-6 lg:px-10 lg:py-8">
       <div className="inline-flex mb-6">
         <span className="px-4 py-1.5 rounded-full border text-sm font-bold tracking-wider" style={{ borderColor: profile.accent, color: profile.accent, background: `${profile.accent}15` }}>
           {profile.emoji} {profile.label}
@@ -629,19 +600,67 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         <p className="font-semibold">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
-      {/* FOMO SECTION */}
-      <div className="rounded-xl border border-red-200 bg-red-50 p-4 mb-6 text-sm space-y-2">
-        <p className="font-bold text-red-600">🔥 FOMO</p>
-        <p className="text-red-700 font-semibold">Accès limité jusqu&apos;au 10 mai.</p>
+      {/* VERSION COURTE FINALE - TRANSITION & CTA */}
+      <div className="py-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
+        {/* TRANSITION */}
+        <div className="space-y-1">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <span className="font-semibold">Ce que tu viens de lire n'est pas un hasard.</span>
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            C'est un schéma.
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            Et sans cadre, il va continuer.
+          </p>
+        </div>
+
+        {/* CTA */}
+        <div className="space-y-1">
+          <p className="text-gray-700 text-sm leading-relaxed font-semibold">
+            Tu veux comprendre comment changer ça concrètement ?
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            👉 J'ai ouvert un groupe WhatsApp privé.
+          </p>
+        </div>
+
+        {/* ACTION STEPS */}
+        <div className="space-y-1 bg-[#cfab4a]/5 rounded-lg p-3">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <span className="font-semibold">📲 Action :</span>
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            👉 <span className="font-semibold">1. Enregistre ce numéro :</span> ADAM PRO - Conférence Money Reset
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            👉 <span className="font-semibold">2. Clique ici pour rejoindre 👇</span>
+          </p>
+        </div>
+
+        {/* TRUST WARNING */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+          <p className="text-yellow-800 text-sm font-semibold">
+            ⚠️ Important :
+          </p>
+          <p className="text-yellow-700 text-sm mt-0.5">
+            Enregistre le numéro pour être sûr de recevoir les messages.
+          </p>
+        </div>
+
+        {/* FOMO */}
+        <p className="text-red-700 font-semibold text-sm">
+          🔥 Accès limité jusqu'au 10 mai.
+        </p>
       </div>
 
-      {/* WHATSAPP CONTACT SECTION */}
-      <div className="space-y-3">
+      {/* WHATSAPP CONTACT BUTTONS */}
+      <div className="space-y-2 lg:max-w-md lg:mx-auto">
         <a
           href="https://wa.me/212666538168"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4 lg:py-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{
             background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
             boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
@@ -654,7 +673,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
           href="https://chat.whatsapp.com/HG9jVnMNbiK3Euc2oVaNvo?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4 lg:py-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{ background: '#25d366', boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)' }}
         >
           💬 Rejoindre le groupe WhatsApp
@@ -666,7 +685,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
 
 /* ─── PAGE ──────────────────────────────────────────────────────── */
 export default function Quiz2Page() {
-  const [phase, setPhase] = useState<'intro' | 'quiz' | 'info' | 'commitment' | 'result'>('intro');
+  const [phase, setPhase] = useState<'intro' | 'quiz' | 'info' | 'result'>('intro');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [zone, setZone] = useState<Zone | null>(null);
@@ -697,7 +716,7 @@ export default function Quiz2Page() {
   }
 
   function handleInfoSubmit() {
-    setPhase('commitment');
+    // This is no longer used - decisions happen directly in the combined screen
   }
 
   function handleDecide(choice: string) {
@@ -741,7 +760,7 @@ export default function Quiz2Page() {
     setUserData({ prenom: '', email: '', phone: '', countryCode: '+212' });
   }
 
-  const panelPhase = phase === 'commitment' || phase === 'info' || phase === 'result' ? 'result' : phase;
+  const panelPhase = phase === 'info' || phase === 'result' ? 'result' : phase;
 
   const renderContent = () => {
     if (phase === 'intro') return <IntroScreen onStart={handleStart} />;
@@ -757,13 +776,12 @@ export default function Quiz2Page() {
       />
     );
     if (phase === 'info') return (
-      <PersonalInfoScreen
+      <CombinedInfoScreen
         userData={userData}
         setUserData={setUserData}
-        onSubmit={handleInfoSubmit}
+        onDecide={handleDecide}
       />
     );
-    if (phase === 'commitment') return <CommitmentScreen onDecide={handleDecide} />;
     if (phase === 'result' && zone) return <ResultScreen zone={zone} score={score} onRestart={handleRestart} />;
     return null;
   };
