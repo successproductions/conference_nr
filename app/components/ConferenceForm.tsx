@@ -46,7 +46,7 @@ export default function ConferenceForm() {
     countryCode: '+212',
   });
 
-  const SCRIPT_URL = process.env.NEXT_PUBLIC_CONFERENCE_SCRIPT_URL || '';
+  const SCRIPT_URL = process.env.NEXT_PUBLIC_APP_SCRIPT_URL || '';
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -55,7 +55,8 @@ export default function ConferenceForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!SCRIPT_URL) {
-      console.error('NEXT_PUBLIC_CONFERENCE_SCRIPT_URL is not set');
+      console.error('NEXT_PUBLIC_APP_SCRIPT_URL is not configured');
+      setStatus('idle');
       return;
     }
 
@@ -63,6 +64,7 @@ export default function ConferenceForm() {
     try {
       const fullPhone = `${form.countryCode} ${form.telNumber}`;
       const data = new URLSearchParams();
+      data.append('formType', 'conference');
       data.append('prenom',   form.prenom);
       data.append('nom',      form.nom);
       data.append('email',    form.email);
@@ -83,7 +85,7 @@ export default function ConferenceForm() {
       await Swal.fire({
         icon: 'success',
         title: 'Place réservée ! 🎉',
-        html: `<p style="color:#ffffff99">Catégorie <strong style="color:#cfab4a">${category}</strong> — vous recevrez la confirmation par email.</p>`,
+        html: `<p style="color:#ffffff99">Catégorie <strong style="color:#cfab4a">${category}</strong> — vous serez dirigé vers le paiement.</p>`,
         confirmButtonText: 'Parfait !',
         background: '#111118',
         color: '#ffffff',
@@ -93,6 +95,11 @@ export default function ConferenceForm() {
           confirmButton: 'font-bold tracking-wide rounded-sm px-8',
         },
       });
+
+      // Redirect after 1 second
+      setTimeout(() => {
+        window.location.href = 'https://guichet.com/ma-fr/event/salon-formation/money-reset-transformez-votre-futur-financier-le-10-mai-5792';
+      }, 1000);
     } catch {
       setStatus('idle');
       await Swal.fire({

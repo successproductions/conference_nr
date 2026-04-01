@@ -650,7 +650,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
 
         {/* FOMO */}
         <p className="text-red-700 font-semibold text-sm">
-          🔥 Accès limité jusqu'au 10 mai.
+          🔥 Accès limité jusqu'à 3 jours.
         </p>
       </div>
 

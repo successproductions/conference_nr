@@ -527,6 +527,9 @@ function CombinedInfoScreen({
           </div>
         </div>
       </div>
+      <p className="text-gray-600 text-sm md:text-base mb-8">
+        Est-ce que tu veux comprendre concrètement comment améliorer ta situation financière dans les prochaines semaines ?
+      </p>
 
       {/* COMMITMENT BUTTONS */}
       <div className="space-y-3">
@@ -655,7 +658,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
 
         {/* FOMO */}
         <p className="text-red-700 font-semibold text-sm">
-          🔥 Accès limité jusqu'au 10 mai.
+          🔥 Accès limité jusqu'à 3 jours.
         </p>
       </div>
 
@@ -718,10 +721,6 @@ export default function QuizPage() {
     } else {
       setPhase('info');
     }
-  }
-
-  function handleInfoSubmit() {
-    // This is no longer used - decisions happen directly in the combined screen
   }
 
   function handleDecide(choice: string) {
