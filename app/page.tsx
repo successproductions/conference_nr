@@ -72,7 +72,7 @@ export default function HomePage() {
           <h1 className="sr-only">MONEY RESET — Conférence avec Nahed Rachad à Casablanca</h1>
           {/* Mobile: image pleine largeur */}
           <Image
-            src="/conference/images/PHONELP.jpeg"
+            src="/conference/images/PHONELP1.jpeg"
             alt="Hero"
             width={0}
             height={0}
@@ -90,7 +90,7 @@ export default function HomePage() {
         <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light gsap-stagger-container">
           
           <div className="space-y-4 gsap-stagger-item">
-            <h1 className="playfair-display-regular text-2xl md:text-5xl uppercase">Reprogrammez votre rapport à l'argent et reprenez le contrôle de vos décisions financières</h1>
+            <h1 className="playfair-display-regular text-[21px] md:text-5xl uppercase">TU NE MANQUES PAS D’ARGENT, TU STAGNES À CAUSE DE TES DÉCISIONS.</h1>
             <p>
               Votre vrai problème n&apos;est pas le montant que vous gagnez.
             </p>
@@ -160,12 +160,14 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full max-w-4xl 2xl:max-w-5xl mx-auto text-center">
           {/* Pre-video copy */}
-          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-6 leading-tight gsap-fade-up">
-            Regardez cette vidéo.
+          <h2 className="playfair-display-regular text-[22px] md:text-5xl uppercase text-white mb-6 leading-tight gsap-fade-up">
+            AVANT DE RÉSERVER, REGARDEZ CETTE VIDÉO.
           </h2>
           <p className="text-white text-lg md:text-2xl leading-relaxed mb-10 font-light max-w-2xl mx-auto gsap-fade-up">
-            Vous allez comprendre pourquoi le problème n&apos;est pas l&apos;argent que vous gagnez…
-            mais <span className="text-white font-light">l&apos;identité financière</span> avec laquelle vous prenez vos décisions.
+            Dans cette vidéo, je vous explique clairement : 
+ <span className="text-white font-light"> Pourquoi vous faites des efforts… <br/>
+mais que vos résultats financiers ne changent pas.</span> <br/> Et surtout, ce que vous devez changer
+pour sortir de ce cycle. <br/>Si vous vous reconnaissez dans ce que vous entendez, alors cette conférence est pour vous.
           </p>
 
           {/* Video card */}
@@ -187,9 +189,12 @@ export default function HomePage() {
 
           {/* Post-video copy */}
           <p className="text-white text-lg md:text-2xl font-light leading-relaxed mb-8">
-            Suivie par plus de <span className="text-white font-light">3,4 millions de personnes</span>,<br />
-            Nahed Rachad aborde pour la première fois en présentiel<br />
-            le sujet de l&apos;identité financière.
+            Plus de 3,4 millions de personnes suivent déjà ce travail.<br />
+            Des milliers ont déjà changé leur manière de décider,
+et vu leur réalité financière évoluer.<br />
+            Le 10 mai, pour la première fois,
+ce travail est présenté en direct, en présentiel.<br/>
+Vous pouvez continuer à faire comme avant. <br/>Ou comprendre enfin ce qui bloque vos résultats.
           </p>
 
           <CTA />
@@ -199,37 +204,30 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           3 · TRANSFORMATIONS
       ══════════════════════════════════════════════════════ */}
-      <section id="transformations" className="relative py-10 md:py-24 px-2 md:px-5 bg-white/[0.015]">
+      <section id="transformations" className="relative py-5 md:py-10 px-2 md:px-5 bg-white/[0.015]">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-2 leading-tight">
-            80 % des gens<br />
-            travaillent plus…<br /><br />
+          <h2 className="playfair-display-regular text-[22px] md:text-5xl uppercase text-white mb-4 leading-tight">
+            80 % DES GENS<br />
+            VONT CONTINUER COMME ÇA.<br />
             <span className="text-white mb-2">
-              mais restent<br />
-              au même niveau financier<br />
-              pendant des années
-            </span><br/>
-            Pourquoi ?<br/>
-            <span className="playfair-display-regular text-3xl md:text-5xl mb-2 uppercase">
-            Parce qu&apos;un plafond invisible<br className="max-md:hidden" />
-            dirige leurs décisions.
+              JUSQU’À CE QU’IL SOIT TROP TARD POUR CHANGER.<br />
             </span>
           </h2>
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-6 md:mb-10">
             
             <div className="text-left w-full order-2 md:order-1">
               <p className="text-white font-bold text-lg md:text-2xl mb-8">
-                Le <strong className="text-white">10 mai</strong>, vous allez voir en face :
+                Le 10 mai, vous allez voir ce que vous évitez depuis des années.
               </p>
 
               <ul className="space-y-6 mb-12">
                 {[
-                  'Le plafond financier que vous protégez inconsciemment.',
-                  'Le pacte invisible qui vous maintient juste "assez"… mais jamais libre.',
-                  'Pourquoi votre intelligence ne vous protège pas de la stagnation.',
-                  'Pourquoi vous prenez des décisions depuis la peur… sans le voir.',
+                  'Ce niveau que vous n’arrivez pas à dépasser… même en faisant plus.',
+                  'Ce confort qui vous rassure… mais vous enferme.',
+                  'Ce jeu invisible où vous avancez… sans jamais vraiment changer de vie.',
+                  'Et surtout, la vérité que la plupart refusent de regarder : vous pourriez faire beaucoup plus… mais quelque chose en vous vous en empêche.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 ">
                     <span className="shrink-0 mt-1 w-6 h-6 rounded-full border border-[#cfab4a]/60 flex items-center justify-center text-white text-xs font-bold">•</span>
@@ -238,13 +236,14 @@ export default function HomePage() {
                 ))}
               </ul>
 
-              <p className="text-white text-lg md:text-xl font-light mb-6">
+              <p className="text-white text-[22px] md:text-xl font-light mb-0 md:mb-2">
                 Le 10 mai,<br />
-                vous ne viendrez pas chercher<br />
-                de la motivation.
-              </p>
-              <p className="text-white font-light text-lg md:text-3xl">
-                Vous viendrez appuyer sur RESET.
+                ce ne sera pas agréable.<br />
+                Mais ce sera nécessaire.
+                Vous ne viendrez pas pour être motivé.
+                Vous viendrez pour comprendre.
+                Et une fois que vous aurez compris,
+                vous ne pourrez plus continuer comme avant.
               </p>
             </div>
 
@@ -272,13 +271,8 @@ export default function HomePage() {
           <div className="w-[900px] h-[200px] rounded-full bg-[#d4a853]/8 blur-[80px]" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center border-y border-[#d4a853]/20 py-10 md:py-20 gsap-fade-up">
-          <p className="playfair-display-regular text-3xl md:text-5xl text-white leading-tight uppercase">
-            ARRÊTEZ DE BLÂMER<br />
-            LES CIRCONSTANCES.
-          </p>
-          <p className="playfair-display-regular uppercase text-3xl md:text-5xl text-white leading-tight mt-6">
-            Votre programmation financière<br />
-            dirige votre vie.
+          <p className="playfair-display-regular text-[22px] md:text-5xl text-white leading-tight uppercase">
+            ARRÊTEZ DE CROIRE QUE LE PROBLÈME EST À L’EXTÉRIEUR.
           </p>
         </div>
       </section>
@@ -301,25 +295,25 @@ export default function HomePage() {
 
           <div className="text-left order-1 md:order-2 gsap-stagger-item">
             
-            <h2 className="playfair-display-regular text-3xl md:text-5xl uppercase text-white mb-10 leading-tight">
-              La réalité que personne ne dit.
+            <h2 className="playfair-display-regular text-[22px] md:text-4xl uppercase text-white mb-10 leading-tight">
+              VOICI LA VÉRITÉ QUE PEU DE GENS REGARDENT EN FACE :
             </h2>
             <div className="space-y-6 md:space-y-8 text-white text-lg md:text-xl font-light leading-relaxed">
               <p>
-                Après des années d&apos;entrepreneuriat<br />
-                et des milliers de modélisations<br />
-                de femmes et d&apos;hommes qui réussissent,
+                C’est votre conditionnement interne qui vous limite<br />
+                Vous pouvez être intelligent.<br />Motivé.<br />Travailleur.<br />
+                Et rester exactement au même niveau. Parce que ce qui pilote vos résultats n’est pas visible.
               </p>
               <p>
-                Nahed a compris une chose :
+               Et tant que ce système interne ne change pas, rien ne change vraiment.
               </p>
               <p className="font-light text-white text-lg md:text-2xl">
-                Les gens ne manquent pas<br />
-                d&apos;intelligence.
+                C’est pour ça que la majorité des gens
+essaient encore…sans jamais basculer.
               </p>
               <p className="font-light text-white text-lg md:text-2xl">
-                Ils manquent<br />
-                d&apos;un reset financier intérieur.
+                Le 10 mai, vous ne viendrez pas apprendre plus.<br />
+                Vous viendrez reprogrammer  ce qui décide à votre place.
               </p>
             </div>
           </div>
@@ -329,19 +323,27 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           7 · URGENCE
       ══════════════════════════════════════════════════════ */}
+      <h2 className="pl-4 md:hidden playfair-display-regular uppercase text-[22px] md:text-5xl text-white leading-tight">
+              Vous pouvez attendre, Comme la majorité. <br />
+              <span className="text-white">Ou décider maintenant.</span>
+            </h2>
       <section className="py-10 md:py-24 px-5">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center gsap-stagger-container">
           <div className="text-left space-y-6 md:pr-10 order-2 md:order-1 gsap-stagger-item">
-            <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white leading-tight">
-              Les places sont<br />
-              <span className="text-white">limitées.</span>
+            <h2 className="hidden md:block playfair-display-regular uppercase text-3xl md:text-4xl text-white leading-tight">
+              Vous pouvez attendre.<br /> Comme la majorité.<br />
+              <span className="text-white">Ou décider maintenant.</span>
             </h2>
+
             <div className="flex flex-col gap-5 text-md md:text-xl text-white py-4">
-              <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucun replay</span>
-              <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Aucune seconde date annoncée</span>
+                          <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed">
+              Parce que :
+            </p>
+              <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Il n’y aura pas de replay</span>
+              <span className="flex items-center gap-3"><span className="text-white font-light md:font-bold border border-[#cfab4a]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">✕</span> Il n’y aura pas de deuxième date</span>
             </div>
             <p className="text-white/70 text-lg md:text-xl pb-4 font-light leading-relaxed">
-              Quand la salle est complète, les inscriptions ferment définitivement. L&apos;expérience reste intimiste.
+              Et quand ce sera plein, ce sera fini.
             </p>
             <div className="flex justify-center">
               <CTA />
@@ -371,7 +373,7 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-xl mx-auto text-center gsap-stagger-container">
           
-          <h2 className="playfair-display-regular text-3xl uppercase md:text-5xl text-white mb-4 leading-tight gsap-stagger-item">
+          <h2 className="playfair-display-regular text-[24px] uppercase md:text-5xl text-white mb-4 leading-tight gsap-stagger-item">
             Réserver ma place
           </h2>
           <div className="rounded-sm border border-white/10 bg-white/3 backdrop-blur-sm p-8 gsap-stagger-item">
@@ -386,7 +388,7 @@ export default function HomePage() {
       <section id="faq" className="py-5 md:py-24 px-5">
         <div className="max-w-2xl mx-auto gsap-stagger-container">
         
-          <h2 className="playfair-display-regular uppercase text-3xl md:text-5xl text-white mb-10 leading-tight text-center gsap-stagger-item">
+          <h2 className="playfair-display-regular uppercase text-[24px] md:text-5xl text-white mb-10 leading-tight text-center gsap-stagger-item">
             Questions fréquentes
           </h2>
           <div className="gsap-stagger-item">

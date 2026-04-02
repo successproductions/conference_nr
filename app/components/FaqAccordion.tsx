@@ -3,20 +3,16 @@ import { useState } from 'react';
 
 const FAQS = [
   {
-    q: "A qui s'adresse cette conférence ?",
-    a: "A celles et ceux qui refusent de répéter la même année financière.",
+    q: "À qui s'adresse cette conférence ?",
+    a: "À celles et ceux qui sentent qu'ils pourraient faire beaucoup plus…\n\nmais qui n'arrivent pas à passer un cap.\n\nCe n'est pas une question de niveau.\n\nC'est une question de fonctionnement.\n\nQue vous soyez entrepreneur, salarié ou en transition,\nsi vous avez déjà essayé sans obtenir les résultats que vous voulez vraiment,\n\nvous êtes concerné.",
   },
   {
-    q: "Est-ce une conférence d'investissement / trading ?",
-    a: "Non. Ce n'est pas une conférence sur les outils. C'est une conférence sur le système intérieur qui décide.",
+    q: "Est-ce une conférence d'investissement ou de trading ?",
+    a: "Non.\n\nVous pouvez apprendre toutes les stratégies du monde,\nsi ce qui pilote vos décisions ne change pas,\nvos résultats ne changeront pas non plus.\n\nCette conférence agit à la racine.\n\nC'est ce qui vous permet ensuite\nd'appliquer réellement ce que vous savez déjà.",
   },
   {
-    q: 'Dois-je déjà "gagner beaucoup" ?',
-    a: "Que vous gagniez 3 000 ou 30 000, si vos décisions restent les mêmes, votre plafond reste le même.",
-  },
-  {
-    q: "Est-ce que ce sera confrontant ?",
-    a: "Oui. Ce n'est pas une conférence confortable. C'est une conférence lucide.",
+    q: "Est-ce que ça va vraiment changer quelque chose pour moi ?",
+    a: "Oui.\n\nParce que le problème n'est pas ce que vous faites.\n\nC'est ce qui vous fait refaire toujours la même chose.\n\nTant que ça ne change pas,\nles résultats ne changent pas non plus.\n\nEt c'est précisément ce qui est traité ici.",
   },
 ];
 
