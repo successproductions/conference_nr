@@ -89,7 +89,7 @@ export default function HomePage() {
         {/* Body copy */}
         <div className="relative z-10 md:w-[80%] text-left md:text-center text-white text-lg md:text-2xl leading-relaxed space-y-8 mb-10 md:mb-16 font-light gsap-stagger-container">
           
-          <div className="space-y-4 gsap-stagger-item">
+          <div className="md:space-y-4 gsap-stagger-item">
             <h1 className="playfair-display-regular text-[21px] md:text-5xl uppercase">TU NE MANQUES PAS D’ARGENT, TU STAGNES À CAUSE DE TES DÉCISIONS.</h1>
             <p>
               Votre vrai problème n&apos;est pas le montant que vous gagnez.
@@ -97,9 +97,7 @@ export default function HomePage() {
             <p>
               C&apos;est l&apos;identité financière avec laquelle vous prenez vos décisions.
             </p>
-          </div>
-
-          <div className="space-y-4 gsap-stagger-item">
+                      <div className="md:space-y-4 gsap-stagger-item">
             <p>
               Les mêmes peurs.<br />
               Les mêmes histoires.<br />
@@ -109,9 +107,6 @@ export default function HomePage() {
               Produisent toujours<br />
               les mêmes résultats.
             </p>
-          </div>
-
-          <div className="space-y-4 gsap-stagger-item">
             <p>
               Tant que votre système intérieur 
               n&apos;est pas reset,
@@ -126,8 +121,10 @@ export default function HomePage() {
               restera bloqué.
             </p>
           </div>
+          </div>
 
-          <div className="space-y-4 text-white gsap-stagger-item">
+
+          <div className="md:space-y-4 text-white gsap-stagger-item">
             <p className="text-white">
               Money Reset est là pour une chose.
             </p>
@@ -153,7 +150,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           2 · VIDÉO
       ══════════════════════════════════════════════════════ */}
-      <section id="video" className="relative py-16 px-5 overflow-hidden">
+      <section id="video" className="relative py-6 md:py-16 px-5 overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="w-[600px] h-[500px] rounded-full bg-[#cfab4a]/6 blur-[120px]" />
         </div>
