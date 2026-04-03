@@ -148,7 +148,7 @@ const profiles: Record<Zone, {
   yellow: {
     zone: 'yellow', emoji: '🟡',
     label: 'PROFIL C — LE COMBATTANT DÉSORGANISÉ',
-    subLabel: 'Tu essaies. Beaucoup. Mais sans structure.',
+    subLabel: 'Tu essaies. Beaucoup.',
     accent: '#f59e0b',
     paragraphs: [
       "Tu fais des efforts. Tu t'informes. Tu testes. Mais sans structure.",
@@ -602,10 +602,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         {profile.cta}
       </p>
 
-      <div className="py-2 mb-2 text-sm md:text-lg text-gray-700 space-y-0.5">
-        <p className="  text-gray-700">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
-        <p>L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
-      </div>
+      
 
       {/* VERSION COURTE FINALE - TRANSITION & CTA */}
       <div className="py-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
