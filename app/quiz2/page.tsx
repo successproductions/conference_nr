@@ -150,7 +150,7 @@ const profiles: Record<Zone, {
   yellow: {
     zone: 'yellow', emoji: '🟡',
     label: 'COMBATTANT DÉSORGANISÉ (27–33)',
-    subLabel: '"Tu essaies beaucoup. Mais sans vraie direction."',
+    subLabel: 'Tu essaies beaucoup. Mais sans vraie direction.',
     accent: '#f59e0b',
     paragraphs: [
       "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
@@ -219,13 +219,13 @@ function computeScore(answers: Record<number, string>): { score: number; zone: Z
 function LeftPanel({ current, total, phase }: { current: number; total: number; phase: 'intro' | 'quiz' | 'result' }) {
   const answered = phase === 'intro' ? 0 : phase === 'result' ? total : current;
 
-  let imageSrc = '/conference/images/quiz/imageQuiz1.jpg';
+  let imageSrc = '/conference/images/quiz2/imageQuiz1.jpg';
   if (phase === 'intro') {
-    imageSrc = '/conference/images/quiz/imageQuiz1.jpg';
+    imageSrc = '/conference/images/quiz2/imageQuiz1.jpg';
   } else if (phase === 'quiz') {
-    imageSrc = `/conference/images/quiz/female${current}.jpg`;
+    imageSrc = `/conference/images/quiz2/female${current}.jpg`;
   } else if (phase === 'result') {
-    imageSrc = '/conference/images/quiz/famale_result2.jpg';
+    imageSrc = '/conference/images/quiz2/famale_result2.jpg';
   }
 
   return (
@@ -319,11 +319,11 @@ function IntroScreen({
         Es-tu vraiment prêt(e) à changer ta vie financière — ou tu vas encore attendre ?
       </p>
 
-      <div className="mb-6 space-y-1 text-gray-500 text-sm md:text-base mb-4 font-light italic border-l-4 border-[#cfab4a]/40 pl-4">
+      <div className="mb-6 space-y-1 text-gray-500 text-sm md:text-base mb-4 font-light">
         <p>Ce quiz ne va pas te flatter.</p>
         <p>Il va te montrer exactement pourquoi tu es encore là où tu es.</p>
         <p>Et ce que tu vas découvrir risque de ne pas te plaire.</p>
-        <p className="mt-3">👉 Si tu n&apos;es pas prêt(e) à voir la vérité, ne fais pas ce quiz.</p>
+        <p className="mt-3">Si tu n&apos;es pas prêt(e) à voir la vérité, ne fais pas ce quiz.</p>
         <p>Réponds honnêtement.</p>
         <p>Pas pour moi.</p>
         <p>Pour toi.</p>
@@ -566,8 +566,6 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
       <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-2">
         {profile.subLabel}
       </h2>
-      <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-6">Score : {score} / 40</p>
-
       <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-6" />
 
       <div className="space-y-4 mb-6">
@@ -577,7 +575,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
       </div>
 
       {profile.bullets.length > 0 && (
-        <div className="mb-6 pl-3 border-l-4" style={{ borderColor: profile.accent }}>
+        <div className=" pl-3 border-l-4" style={{ borderColor: profile.accent }}>
           <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-3">Chaque semaine qui passe te coûte :</p>
           <ul className="space-y-1.5">
             {profile.bullets.map((b) => (
@@ -590,18 +588,18 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </div>
       )}
 
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-8 italic border-l-4 pl-4" style={{ borderColor: profile.accent }}>
+      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-2 " >
         {profile.cta}
       </p>
 
-      <div className="rounded-xl border border-gray-100 bg-gray-50 p-4 mb-6 text-sm text-gray-700 space-y-2">
+      <div className="mb-6 text-sm text-gray-700 space-y-2">
         <p className="font-semibold text-[#0a0a0f]">🔥 Tu peux continuer comme ça encore 1 an…</p>
         <p>ou décider maintenant.</p>
         <p className="font-semibold">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
       {/* VERSION COURTE FINALE - TRANSITION & CTA */}
-      <div className="py-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
+      <div className="pb-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
         {/* TRANSITION */}
         <div className="space-y-1">
           <p className="text-gray-700 text-sm leading-relaxed">
@@ -621,25 +619,25 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
             Tu veux comprendre comment changer ça concrètement ?
           </p>
           <p className="text-gray-700 text-sm leading-relaxed">
-            👉 J'ai ouvert un groupe WhatsApp privé.
+            J'ai ouvert un groupe WhatsApp privé.
           </p>
         </div>
 
         {/* ACTION STEPS */}
-        <div className="space-y-1 bg-[#cfab4a]/5 rounded-lg p-3">
+        <div className="space-y-1">
           <p className="text-gray-700 text-sm leading-relaxed">
             <span className="font-semibold">📲 Action :</span>
           </p>
           <p className="text-gray-700 text-sm leading-relaxed">
-            👉 <span className="font-semibold">1. Enregistre ce numéro :</span> ADAM PRO - Conférence Money Reset
+            <span className="font-semibold">1. Enregistre ce numéro : 👇</span> 
           </p>
           <p className="text-gray-700 text-sm leading-relaxed">
-            👉 <span className="font-semibold">2. Clique ici pour rejoindre 👇</span>
+            <span className="font-semibold">2. Clique ici pour rejoindre 👇</span>
           </p>
         </div>
 
         {/* TRUST WARNING */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+        <div className="">
           <p className="text-yellow-800 text-sm font-semibold">
             ⚠️ Important :
           </p>
@@ -660,7 +658,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
           href="https://wa.me/212666538168"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 lg:py-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{
             background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
             boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
@@ -670,10 +668,10 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </a>
 
         <a
-          href="https://chat.whatsapp.com/HG9jVnMNbiK3Euc2oVaNvo?mode=gi_t"
+          href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full py-4 lg:py-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+          className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
           style={{ background: '#25d366', boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)' }}
         >
           💬 Rejoindre le groupe WhatsApp

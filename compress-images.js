@@ -5,6 +5,7 @@ const path = require('path');
 const imageDirs = [
   './public/images/quiz',
   './public/images/liste-attente',
+  './public/images/quiz2',
 ];
 
 async function compressImage(filePath) {

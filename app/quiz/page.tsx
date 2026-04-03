@@ -678,7 +678,7 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </a>
 
         <a
-          href="https://chat.whatsapp.com/Ek6W4od60NY4UHI18Skt0r?mode=gi_t"
+          href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
