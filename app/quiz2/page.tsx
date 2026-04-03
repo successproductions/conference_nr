@@ -655,19 +655,6 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
       {/* WHATSAPP CONTACT BUTTONS */}
       <div className="space-y-2 lg:max-w-md lg:mx-auto">
         <a
-          href="https://wa.me/212666538168"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
-          style={{
-            background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)',
-            boxShadow: '0 8px 32px rgba(207,171,74,0.35)',
-          }}
-        >
-          📱 Enregistre ce numéro
-        </a>
-
-        <a
           href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
