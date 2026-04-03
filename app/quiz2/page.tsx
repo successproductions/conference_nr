@@ -369,7 +369,7 @@ function QuestionScreen({
       </h2>
 
       {question.subtitle && (
-        <p className="text-gray-500 text-xs md:text-sm mb-6 italic">{question.subtitle}</p>
+        <p className="text-gray-500 text-xs md:text-sm mb-6 ">{question.subtitle}</p>
       )}
 
       <div className="h-px bg-linear-to-r from-[#cfab4a]/40 via-[#cfab4a]/20 to-transparent mb-8" />
@@ -603,7 +603,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
       <div className="pb-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
         {/* FOMO */}
         {choice !== 'no' && (
-          <p className="text-red-700 font-semibold text-sm">
+          <p className="text-red-700 font-semibold text-sm md:text-lg">
             {choice === 'yes' ? '🔥 Accès pour inscription limité' : '🔥 Accès limité jusqu\'à 3 jours.'}
           </p>
         )}
