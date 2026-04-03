@@ -117,67 +117,65 @@ const profiles: Record<Zone, {
 }> = {
   red: {
     zone: 'red', emoji: '🔴',
-    label: 'SURVIVANT HAUT DE GAMME (10–19)',
-    subLabel: '"Tu gères, tu avances, mais à quel prix ?"',
+    label: 'PROFIL A — LE SURVIVANT HAUT DE GAMME',
+    subLabel: 'Tu gères. Tu avances. Tu tiens.',
     accent: '#ef4444',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "De l'extérieur, tu as l'air de bien t'en sortir. Tu paies tes factures. Tu avances. Mais tu le sais : c'est au prix d'une énergie épuisante.",
-      "Tu compenses par l'effort. Tu t'adaptes. Tu réagis. Chaque jour est une micro-gestion de crises qui n'arrivent que parce que tu n'as pas de système.",
-      "Le problème, ce n'est pas ton revenu. C'est que tu fonctionnes en mode urgence permanent. Tu brûles ton énergie au lieu de la construire.",
-      "Et tu le sais au plus profond : ça ne peut pas durer comme ça.",
-      "Money Reset n'est pas une formation de plus. C'est le moment où tu vas poser, pour la première fois, un système réel qui fonctionne sans ta présence constante.",
+      "Mais en réalité… tu es en mode survie amélioré.",
+      "Tu fais face. Tu trouves des solutions. Tu t'en sors toujours. Mais au prix de ton énergie.",
+      "Ton système repose sur : l'effort, l'adaptation, la réaction.",
+      "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais 'sécuriser'.",
+      "Tu n'as pas un problème d'argent. Tu n'as pas de système. Et sans système : tu compenses, tu recommences, tu t'épuises.",
+      "Ta situation est claire. Ce que tu viens de lire, tu ne peux plus l'ignorer.",
     ],
     bullets: ["l'effort", "l'adaptation", "la réaction"],
-    cta: "Tu es capable. Mais la capacité sans système, c'est juste du travail de fou. Money Reset te montre comment passer de 'je gère' à 'ça fonctionne'.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   orange: {
     zone: 'orange', emoji: '🟠',
-    label: 'ÉVITANT LUCIDE (20–26)',
-    subLabel: '"Tu sais que tu dois le faire. Mais tu ne le fais pas."',
+    label: 'PROFIL B — L\'ÉVITANT LUCIDE',
+    subLabel: 'Tu sais… mais tu préfères ne pas voir.',
     accent: '#f97316',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "Non, tu n'es pas nul(le) avec l'argent. Non, tu n'as pas un problème de connaissance.",
-      "Ton problème est plus profond. C'est la peur. L'anxiété. Le sentiment d'être dépassé(e) par quelque chose que tu ne comprends pas vraiment.",
-      "Alors tu évites. Tu repousses. Tu dis 'je verrai plus tard'. Et chaque fois que tu repousses, tu perds un peu plus le contrôle.",
-      "Le pire ? Tu sais exactement ce que tu fais. Tu es lucide sur ton évitement. Et ça te frustre encore plus.",
-      "Money Reset n'est pas là pour te juger. Il est là pour te montrer qu'une fois que tu as un plan simple et clair, l'anxiété disparaît. Parce que c'est l'incertitude qui te paralyse, pas l'argent.",
+      "Tu n'es pas inconscient(e). Tu comprends que quelque chose ne va pas. Mais tu évites. Pas par faiblesse. Par protection.",
+      "L'argent est associé à : la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
+      "Résultat : flou, anxiété silencieuse, perte de contrôle progressive.",
+      "Ton problème n'est pas l'argent. C'est la relation que tu as avec lui.",
+      "Tu comprends ton profil. Mais comprendre ne suffit pas.",
     ],
     bullets: [],
-    cta: "Ton premier pas vers le contrôle n'est pas financier. C'est psychologique. Et ça commence par oser regarder en face.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   yellow: {
     zone: 'yellow', emoji: '🟡',
-    label: 'COMBATTANT DÉSORGANISÉ (27–33)',
-    subLabel: 'Tu essaies beaucoup. Mais sans vraie direction.',
+    label: 'PROFIL C — LE COMBATTANT DÉSORGANISÉ',
+    subLabel: 'Tu essaies. Beaucoup.',
     accent: '#f59e0b',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
-      "Tu n'es pas passif(ve). Loin de là. Tu testes. Tu lis. Tu essaies différentes approches. Tu fais preuve d'initiative.",
-      "Mais voilà : tu as beaucoup d'actions, pas assez de système. Tu avançais, puis tu recules. Tu fais des progrès qui ne tiennent pas.",
-      "Et surtout, tu es épuisé(e). Pas par le manque d'effort — tu en fais assez — mais parce que tu cours dans tous les sens sans vraie direction.",
-      "C'est comme conduire une moto puissante sans système de freinage. Tu vas vite, mais tu ne contrôles pas vraiment où tu vas.",
-      "Money Reset va te montrer comment transformer ton énergie — que tu as en abondance — en résultats durables. L'enjeu n'est pas plus d'action. C'est une meilleure organisation.",
+      "Tu fais des efforts. Tu t'informes. Tu testes. Mais sans structure.",
+      "Tu avances… puis tu reviens en arrière. Tu changes de stratégie. Tu recommences. Tu ajustes.",
+      "Mais sans cadre global : rien ne tient.",
+      "Résultat : fatigue, frustration, impression de stagner malgré les efforts.",
+      "Tu n'es pas perdu(e). Tu es désorganisé(e).",
+      "Ton problème : trop d'actions, pas assez de système. Ton prochain niveau : transformer ton énergie en stratégie.",
     ],
     bullets: [],
-    cta: "Tu as le moteur. Il te manque la boussole. Money Reset c'est ta boussole.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   green: {
     zone: 'green', emoji: '🟢',
-    label: 'STRATÈGE EN CONSTRUCTION (34–40)',
-    subLabel: '"Tu comprends comment ça marche. Prochaine étape : la maîtrise."',
+    label: 'PROFIL D — LE STRATÈGE EN CONSTRUCTION',
+    subLabel: 'Tu es déjà en avance.',
     accent: '#22c55e',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "Tu as déjà compris quelque chose que beaucoup n'ont pas : la structure fonctionne. Les systèmes fonctionnent.",
-      "Tu le vois dans ta vie. Tu as mis en place des choses. Ça marche. Tu as un semblant de contrôle. C'est déjà énorme.",
-      "Mais voilà : tu es encore à un stade où tu 'gères'. Tu réagis bien, tu organises, tu contrôles. C'est bon. Mais tu n'as pas encore commencé à 'piloter'.",
-      "Et il y a toute une différence. Piloter, c'est quand ton système fonctionne tellement bien que tu fais tes choix à partir de stratégie, pas à partir de réaction.",
-      "Money Reset c'est le moment où tu vas faire le saut de 'gestionnaire' à 'pilote'. C'est là que la vraie création de richesse commence.",
+      "Tu as compris : que l'argent se pilote, que les décisions comptent, que la structure est clé.",
+      "Mais il manque encore quelque chose. Un système complet.",
+      "Parce qu'aujourd'hui : tu avances, mais pas encore de manière optimisée, pas encore avec une vraie puissance.",
+      "Tu es entre deux niveaux : plus dans le chaos, mais pas encore dans la maîtrise.",
+      "Ton prochain niveau : passer de 'je gère' à 'je pilote'.",
     ],
     bullets: [],
-    cta: "Tu es plus proche que tu ne le penses. La prochaine étape, ce n'est pas une formation de plus. C'est une clarification.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
 };
 
@@ -529,7 +527,7 @@ function CombinedInfoScreen({
           className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           style={{ background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db', boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.3)' : 'none' }}
         >
-          ✅ Oui, je veux participer à Money Reset le 10 mai à Casablanca
+          ✅ Oui, je veux participer à la conférence Money Reset le 10 mai à Casablanca
         </button>
         <button
           onClick={() => onDecide('more')}
@@ -631,20 +629,12 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           </p>
         </div> */}
 
-        {/* TRUST WARNING */}
-        <div className="">
-          <p className="text-yellow-800 text-sm font-semibold">
-            ⚠️ Important :
-          </p>
-          <p className="text-yellow-700 text-sm mt-0.5">
-            Enregistre le numéro pour être sûr de recevoir les messages.
-          </p>
-        </div>
-
         {/* FOMO */}
-        <p className="text-red-700 font-semibold text-sm">
-          🔥 Accès limité jusqu'à 3 jours.
-        </p>
+        {choice !== 'no' && (
+          <p className="text-red-700 font-semibold text-sm">
+            {choice === 'yes' ? '🔥 Accès pour inscription limité' : '🔥 Accès limité jusqu\'à 3 jours.'}
+          </p>
+        )}
       </div>
 
       {/* CONDITIONAL BUTTON - RESERVATION or WHATSAPP */}
@@ -708,9 +698,7 @@ export default function Quiz2Page() {
     }
   }
 
-  function handleInfoSubmit() {
-    // This is no longer used - decisions happen directly in the combined screen
-  }
+
 
   function handleDecide(choiceValue: string) {
     const { score: s, zone: z } = computeScore(answers);

@@ -117,7 +117,7 @@ const profiles: Record<Zone, {
   red: {
     zone: 'red', emoji: '🔴',
     label: 'PROFIL A — LE SURVIVANT HAUT DE GAMME',
-    subLabel: '"Tu gères. Tu avances. Tu tiens."',
+    subLabel: 'Tu gères. Tu avances. Tu tiens.',
     accent: '#ef4444',
     paragraphs: [
       "Mais en réalité… tu es en mode survie amélioré.",
@@ -125,31 +125,30 @@ const profiles: Record<Zone, {
       "Ton système repose sur : l'effort, l'adaptation, la réaction.",
       "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais 'sécuriser'.",
       "Tu n'as pas un problème d'argent. Tu n'as pas de système. Et sans système : tu compenses, tu recommences, tu t'épuises.",
-      "Ton prochain niveau n'est pas plus d'effort. C'est sortir définitivement du mode survie.",
+      "Ta situation est claire. Ce que tu viens de lire, tu ne peux plus l'ignorer.",
     ],
     bullets: ["l'effort", "l'adaptation", "la réaction"],
-    cta: "Money Reset te montre comment avoir un vrai système qui fonctionne sans ta présence constante.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   orange: {
     zone: 'orange', emoji: '🟠',
     label: 'PROFIL B — L\'ÉVITANT LUCIDE',
-    subLabel: '"Tu sais… mais tu préfères ne pas voir."',
+    subLabel: 'Tu sais… mais tu préfères ne pas voir.',
     accent: '#f97316',
     paragraphs: [
       "Tu n'es pas inconscient(e). Tu comprends que quelque chose ne va pas. Mais tu évites. Pas par faiblesse. Par protection.",
       "L'argent est associé à : la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
       "Résultat : flou, anxiété silencieuse, perte de contrôle progressive.",
       "Ton problème n'est pas l'argent. C'est la relation que tu as avec lui.",
-      "Tant que tu évites : tu laisses ta situation décider à ta place.",
-      "Ton prochain niveau : c'est regarder en face — sans te juger — et reprendre le pouvoir.",
+      "Tu comprends ton profil. Mais comprendre ne suffit pas.",
     ],
     bullets: [],
-    cta: "Money Reset t'aide à transformer l'anxiété en clarté, l'évitement en action.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   yellow: {
     zone: 'yellow', emoji: '🟡',
     label: 'COMBATTANT DÉSORGANISÉ ',
-    subLabel: '"Tu essaies beaucoup. Mais sans vraie direction."',
+    subLabel: 'Tu essaies beaucoup. Mais sans vraie direction.',
     accent: '#f59e0b',
     paragraphs: [
       "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
@@ -165,18 +164,17 @@ const profiles: Record<Zone, {
   green: {
     zone: 'green', emoji: '🟢',
     label: 'PROFIL D — LE STRATÈGE EN CONSTRUCTION',
-    subLabel: '"Tu es déjà en avance."',
+    subLabel: 'Tu es déjà en avance.',
     accent: '#22c55e',
     paragraphs: [
-      "Tu as compris : que l'argent se pilote, que les décisions comptent, que la structure est clé. Mais il manque encore quelque chose : un système complet.",
-      "Aujourd'hui : tu avances, mais pas encore de manière optimisée, pas encore avec une vraie puissance.",
+      "Tu as compris : que l'argent se pilote, que les décisions comptent, que la structure est clé.",
+      "Mais il manque encore quelque chose. Un système complet.",
+      "Parce qu'aujourd'hui : tu avances, mais pas encore de manière optimisée, pas encore avec une vraie puissance.",
       "Tu es entre deux niveaux : plus dans le chaos, mais pas encore dans la maîtrise.",
-      "Ton profil montre que tu as déjà les bons réflexes. Le système que tu lis maintenant dans Money Reset sera ton accélérateur.",
-      "C'est la différence entre 'gérer' et 'piloter'. Entre progresser et créer.",
-      "Ton prochain niveau : passer de 'je gère' à 'je pilote' — c'est là que commence la vraie création de richesse.",
+      "Ton prochain niveau : passer de 'je gère' à 'je pilote'.",
     ],
     bullets: [],
-    cta: "Tu es l'un des profils qui tire le plus de Money Reset. Le dernier clic pour passer au niveau supérieur.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
 };
 
@@ -539,7 +537,7 @@ function CombinedInfoScreen({
           className="w-full py-4 rounded-xl font-bold text-sm tracking-wider text-white text-left px-5 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           style={{ background: isFormValid ? 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)' : '#d1d5db', boxShadow: isFormValid ? '0 8px 32px rgba(207,171,74,0.3)' : 'none' }}
         >
-          ✅ Oui, je veux participer à Money Reset le 10 mai à Casablanca
+          ✅ Oui, je veux participer à la conférence Money Reset le 10 mai à Casablanca
         </button>
         <button
           onClick={() => onDecide('more')}
@@ -575,7 +573,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         </span>
       </div>
 
-      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-2">
+      <h2 className="text-gray-700 text-sm leading-relaxed mb-2">
         {profile.subLabel}
       </h2>
 
@@ -588,7 +586,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
       </div>
 
       {profile.bullets.length > 0 && (
-        <div className="mb-2 pl-3 border-l-4" style={{ borderColor: profile.accent }}>
+        <div className="mb-2 ">
           <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-1">Chaque semaine qui passe te coûte :</p>
           <ul className="space-y-1">
             {profile.bullets.map((b) => (
@@ -613,7 +611,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
       {/* VERSION COURTE FINALE - TRANSITION & CTA */}
       <div className="py-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
         {/* TRANSITION */}
-        <div className="space-y-1">
+        {/* <div className="space-y-1">
           <p className="text-gray-700 text-sm leading-relaxed">
             <span className="font-semibold">Ce que tu viens de lire n'est pas un hasard.</span>
           </p>
@@ -623,18 +621,8 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           <p className="text-gray-700 text-sm leading-relaxed">
             Et sans cadre, il va continuer.
           </p>
-        </div>
-
-        {/* CTA */}
-        <div className="space-y-1">
-          <p className="text-gray-700 text-sm leading-relaxed font-semibold">
-            Tu veux comprendre comment changer ça concrètement ?
-          </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-             J'ai ouvert un groupe WhatsApp privé.
-          </p>
-        </div>
-
+        </div> */}
+       
         {/* ACTION STEPS */}
         {/* <div className="space-y-1 bg-[#cfab4a]/5 rounded-lg p-3">
           <p className="text-gray-700 text-sm leading-relaxed">
@@ -642,20 +630,12 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           </p>
         </div> */}
 
-        {/* TRUST WARNING */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-          <p className="text-yellow-800 text-sm font-semibold">
-            ⚠️ Important :
-          </p>
-          <p className="text-yellow-700 text-sm mt-0.5">
-            Enregistre le numéro pour être sûr de recevoir les messages.
-          </p>
-        </div>
-
         {/* FOMO */}
-        <p className="text-red-700 font-semibold text-sm">
-          🔥 Accès limité jusqu'à 3 jours.
-        </p>
+        {choice !== 'no' && (
+          <p className="text-red-700 font-semibold text-sm">
+            {choice === 'yes' ? '🔥 Accès pour inscription limité' : '🔥 Accès limité jusqu\'à 3 jours.'}
+          </p>
+        )}
       </div>
 
       {/* CONDITIONAL BUTTON - RESERVATION or WHATSAPP */}
