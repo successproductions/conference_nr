@@ -122,12 +122,12 @@ const profiles: Record<Zone, {
     paragraphs: [
       "Mais en réalité… tu es en mode survie amélioré.",
       "Tu fais face. Tu trouves des solutions. Tu t'en sors toujours. Mais au prix de ton énergie.",
-      "Ton système repose sur : l'effort, l'adaptation, la réaction.",
-      "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais 'sécuriser'.",
+      "Ton système repose sur l'effort, l'adaptation, la réaction.",
+      "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais te sécuriser.",
       "Tu n'as pas un problème d'argent. Tu n'as pas de système. Et sans système : tu compenses, tu recommences, tu t'épuises.",
       "Ta situation est claire. Ce que tu viens de lire, tu ne peux plus l'ignorer.",
     ],
-    bullets: ["l'effort", "l'adaptation", "la réaction"],
+    bullets: [],
     cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   orange: {
@@ -137,7 +137,7 @@ const profiles: Record<Zone, {
     accent: '#f97316',
     paragraphs: [
       "Tu n'es pas inconscient(e). Tu comprends que quelque chose ne va pas. Mais tu évites. Pas par faiblesse. Par protection.",
-      "L'argent est associé à : la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
+      "L'argent est associé à la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
       "Résultat : flou, anxiété silencieuse, perte de contrôle progressive.",
       "Ton problème n'est pas l'argent. C'est la relation que tu as avec lui.",
       "Tu comprends ton profil. Mais comprendre ne suffit pas.",
@@ -147,19 +147,18 @@ const profiles: Record<Zone, {
   },
   yellow: {
     zone: 'yellow', emoji: '🟡',
-    label: 'COMBATTANT DÉSORGANISÉ ',
-    subLabel: 'Tu essaies beaucoup. Mais sans vraie direction.',
+    label: 'PROFIL C — LE COMBATTANT DÉSORGANISÉ',
+    subLabel: 'Tu essaies. Beaucoup. Mais sans structure.',
     accent: '#f59e0b',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
-      "Tu n'es pas passif(ve). Loin de là. Tu testes. Tu lis. Tu essaies différentes approches. Tu fais preuve d'initiative.",
-      "Mais voilà : tu as beaucoup d'actions, pas assez de système. Tu avanças, puis tu recules. Tu fais des progrès qui ne tiennent pas.",
-      "Et surtout, tu es épuisé(e). Pas par le manque d'effort — tu en fais assez — mais parce que tu cours dans tous les sens sans vraie direction.",
-      "C'est comme conduire une moto puissante sans système de freinage. Tu vas vite, mais tu ne contrôles pas vraiment où tu vas.",
-      "Money Reset va te montrer comment transformer ton énergie — que tu as en abondance — en résultats durables. L'enjeu n'est pas plus d'action. C'est une meilleure organisation.",
+      "Tu fais des efforts. Tu t'informes. Tu testes. Mais sans structure.",
+      "Tu avances, puis tu reviens en arrière. Tu changes de stratégie. Tu recommences. Tu ajustes. Mais sans cadre global : rien ne tient.",
+      "Résultat : fatigue, frustration, impression de stagner malgré les efforts.",
+      "Tu n'es pas perdu(e). Tu es désorganisé(e). Ton problème : trop d'actions, pas assez de système.",
+      "Ton prochain niveau : transformer ton énergie en stratégie.",
     ],
     bullets: [],
-    cta: "Tu as le moteur. Il te manque la boussole. Money Reset c'est ta boussole.",
+    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   green: {
     zone: 'green', emoji: '🟢',
@@ -321,16 +320,16 @@ function IntroScreen({
         Quel est ton profil Money Reset ?
       </h1>
 
-      <p className="text-gray-500 text-sm md:text-base mb-4 font-light">
+      <p className="text-gray-700 text-sm md:text-base mb-4 font-light">
         En 7 minutes, découvre ton profil financier caché et pourquoi tu répètes toujours les mêmes schémas avec l&apos;argent.
       </p>
-      <div className="mb-6 space-y-2 text-gray-500 text-sm md:text-base mb-4 font-light">
+      <div className="mb-6 space-y-2 text-gray-700 text-sm md:text-base mb-4 font-light">
         <p>Ce quiz ne parle pas de chiffres.</p>
         <p>Il parle de tes réflexes avec l&apos;argent.</p>
         <p>Réponds honnêtement, sans te juger.</p>
       </div>
 
-      <div className="mb-4 space-y-2 text-gray-500 text-sm md:text-base mb-4 font-light">
+      <div className="mb-4 space-y-2 text-gray-700 text-sm md:text-base mb-4 font-light">
         <p className="font-medium text-gray-500">À la fin, tu découvriras :</p>
         <ul className="space-y-1.5 pl-2">
           <li>• Ton profil réel</li>
