@@ -552,9 +552,10 @@ function CombinedInfoScreen({
 }
 
 /* ─── RESULT SCREEN ─────────────────────────────────────────────── */
-function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; onRestart: () => void }) {
+function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: number; choice: string; onRestart: () => void }) {
   const profile = profiles[zone];
   
+  // For all choices ('yes', 'more', 'no'), show full profile with conditional button
   return (
     <div className="flex flex-col w-full px-4 py-5 md:px-6 md:py-6 lg:px-10 lg:py-8">
       <div className="inline-flex mb-6">
@@ -624,17 +625,11 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </div>
 
         {/* ACTION STEPS */}
-        <div className="space-y-1">
+        {/* <div className="space-y-1"> 
           <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="font-semibold">📲 Action :</span>
+            <span className="font-semibold">Clique ici pour rejoindre 👇</span>
           </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="font-semibold">1. Enregistre ce numéro : 👇</span> 
-          </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="font-semibold">2. Clique ici pour rejoindre 👇</span>
-          </p>
-        </div>
+        </div> */}
 
         {/* TRUST WARNING */}
         <div className="">
@@ -652,17 +647,29 @@ function ResultScreen({ zone, score, onRestart }: { zone: Zone; score: number; o
         </p>
       </div>
 
-      {/* WHATSAPP CONTACT BUTTONS */}
+      {/* CONDITIONAL BUTTON - RESERVATION or WHATSAPP */}
       <div className="space-y-2 lg:max-w-md lg:mx-auto">
-        <a
-          href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
-          style={{ background: '#25d366', boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)' }}
-        >
-          💬 Rejoindre le groupe WhatsApp
-        </a>
+        {choice === 'yes' ? (
+          <a
+            href="https://guichet.com/ma-fr/event/salon-formation/money-reset-transformez-votre-futur-financier-le-10-mai-5792"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+            style={{ background: 'linear-gradient(135deg, #cfab4a 0%, #b8922e 100%)', boxShadow: '0 8px 32px rgba(207,171,74,0.3)' }}
+          >
+            🎟️ RÉSERVE ICI
+          </a>
+        ) : choice === 'no' ? null : (
+          <a
+            href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
+            style={{ background: '#25d366', boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)' }}
+          >
+            💬 Rejoindre le groupe WhatsApp
+          </a>
+        )}
       </div>
     </div>
   );
@@ -675,6 +682,7 @@ export default function Quiz2Page() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [zone, setZone] = useState<Zone | null>(null);
   const [score, setScore] = useState(0);
+  const [choice, setChoice] = useState<string>('no');
   const [userData, setUserData] = useState({ prenom: '', email: '', phone: '', countryCode: '+212' });
 
   const currentQuestion = questions[currentIndex];
@@ -704,27 +712,28 @@ export default function Quiz2Page() {
     // This is no longer used - decisions happen directly in the combined screen
   }
 
-  function handleDecide(choice: string) {
+  function handleDecide(choiceValue: string) {
     const { score: s, zone: z } = computeScore(answers);
     setScore(s);
     setZone(z);
+    setChoice(choiceValue);
     setPhase('result');
 
     // Only send data for 'yes' and 'no' choices, not for 'more'
-    if (choice === 'more') return;
+    if (choiceValue === 'more') return;
 
     const SCRIPT_URL = process.env.NEXT_PUBLIC_APP_SCRIPT_URL;
     if (SCRIPT_URL) {
       try {
         const data = new URLSearchParams();
         // Use 'quiz2' for yes, 'quiz2_brevo' for no
-        data.append('formType', choice === 'yes' ? 'quiz2' : 'quiz2_brevo');
+        data.append('formType', choiceValue === 'yes' ? 'quiz2' : 'quiz2_brevo');
         data.append('prenom', userData.prenom);
         data.append('email', userData.email);
         data.append('phone', `${userData.countryCode} ${userData.phone}`);
         data.append('profil', z);
         data.append('score', String(s));
-        data.append('choix', choice);
+        data.append('choix', choiceValue);
         fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() });
       } catch (error) {
         console.error('Failed to submit quiz data:', error);
@@ -740,6 +749,7 @@ export default function Quiz2Page() {
     setPhase('intro');
     setCurrentIndex(0);
     setAnswers({});
+    setChoice('no');
     setZone(null);
     setScore(0);
     setUserData({ prenom: '', email: '', phone: '', countryCode: '+212' });
@@ -767,7 +777,7 @@ export default function Quiz2Page() {
         onDecide={handleDecide}
       />
     );
-    if (phase === 'result' && zone) return <ResultScreen zone={zone} score={score} onRestart={handleRestart} />;
+    if (phase === 'result' && zone) return <ResultScreen zone={zone} score={score} choice={choice} onRestart={handleRestart} />;
     return null;
   };
 
