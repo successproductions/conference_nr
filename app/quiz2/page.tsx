@@ -100,10 +100,10 @@ const questions = [
     id: 10,
     text: "Quelle phrase décrit le mieux ta situation en ce moment ?",
     options: [
-      { key: 'A', label: '"Je survis financièrement. Chaque mois est une bataille."', points: 1 },
-      { key: 'B', label: '"Je m\'en sors mais rien n\'est stable. Je suis épuisé(e)."', points: 2 },
-      { key: 'C', label: '"Je veux vraiment changer mais je ne sais pas comment."', points: 3 },
-      { key: 'D', label: '"Je suis en mouvement. Il me manque juste un cadre solide."', points: 4 },
+      { key: 'A', label: 'Je survis financièrement. Chaque mois est une bataille.', points: 1 },
+      { key: 'B', label: 'Je m\'en sors mais rien n\'est stable. Je suis épuisé(e).', points: 2 },
+      { key: 'C', label: 'Je veux vraiment changer mais je ne sais pas comment.', points: 3 },
+      { key: 'D', label: 'Je suis en mouvement. Il me manque juste un cadre solide.', points: 4 },
     ],
   },
 ];
@@ -117,31 +117,33 @@ const profiles: Record<Zone, {
 }> = {
   red: {
     zone: 'red', emoji: '🔴',
-    label: 'PROFIL A — LE SURVIVANT HAUT DE GAMME',
-    subLabel: 'Tu gères. Tu avances. Tu tiens.',
+    label: '10–20 — ZONE ROUGE',
+    subLabel: 'Tu es en urgence financière.',
     accent: '#ef4444',
     paragraphs: [
-      "Mais en réalité… tu es en mode survie amélioré.",
-      "Tu fais face. Tu trouves des solutions. Tu t'en sors toujours. Mais au prix de ton énergie.",
-      "Ton système repose sur : l'effort, l'adaptation, la réaction.",
-      "Résultat : fatigue constante, instabilité déguisée, impression de ne jamais 'sécuriser'.",
-      "Tu n'as pas un problème d'argent. Tu n'as pas de système. Et sans système : tu compenses, tu recommences, tu t'épuises.",
-      "Ta situation est claire. Ce que tu viens de lire, tu ne peux plus l'ignorer.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Soyons directs. Tu n'as pas un problème de revenu. Tu as un problème de système.",
+      "Depuis des mois — peut-être des années — tu attends que ça change tout seul. Ça n'arrivera pas.",
+      "Chaque semaine qui passe sans décision te coûte : de l'argent, de l'énergie, et de la confiance en toi.",
+      "Tu n'es pas en train de stagner. Tu es en train de t'enfoncer lentement.",
+      "Money Reset n'est pas une formation de plus. C'est l'événement où tu vas poser, pour la première fois, un système réel, fait pour toi, qui tient dans la durée.",
+      "La question n'est pas : 'est-ce que j'en ai besoin ?' La vraie question est : 'combien de temps encore je vais attendre ?'",
     ],
-    bullets: ["l'effort", "l'adaptation", "la réaction"],
+    bullets: [],
     cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
   },
   orange: {
     zone: 'orange', emoji: '🟠',
-    label: 'PROFIL B — L\'ÉVITANT LUCIDE',
-    subLabel: 'Tu sais… mais tu préfères ne pas voir.',
+    label: '21–30 — ZONE ORANGE',
+    subLabel: 'Tu travailles dur… mais tu tournes en rond.',
     accent: '#f97316',
     paragraphs: [
-      "Tu n'es pas inconscient(e). Tu comprends que quelque chose ne va pas. Mais tu évites. Pas par faiblesse. Par protection.",
-      "L'argent est associé à : la peur, la pression, le jugement. Alors tu fais ce que beaucoup font : tu regardes le moins possible.",
-      "Résultat : flou, anxiété silencieuse, perte de contrôle progressive.",
-      "Ton problème n'est pas l'argent. C'est la relation que tu as avec lui.",
-      "Tu comprends ton profil. Mais comprendre ne suffit pas.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Tu n'es pas nul(le) avec l'argent. Tu es épuisé(e) par un système qui ne fonctionne pas.",
+      "Tu fais des efforts. Tu essaies. Tu recommences. Mais sans structure claire, tu dépenses ton énergie… sans construire.",
+      "Résultat : fatigue, frustration, stagnation déguisée.",
+      "Ce profil est celui qui transforme le plus vite… quand il a le bon cadre.",
+      "Money Reset n'est pas là pour t'apprendre plus. Il est là pour te donner un plan clair, applicable immédiatement.",
     ],
     bullets: [],
     cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
@@ -164,15 +166,15 @@ const profiles: Record<Zone, {
   },
   green: {
     zone: 'green', emoji: '🟢',
-    label: 'PROFIL D — LE STRATÈGE EN CONSTRUCTION',
-    subLabel: 'Tu es déjà en avance.',
+    label: '31–40 — ZONE VERTE',
+    subLabel: 'Tu as les bases. Maintenant il faut accélérer.',
     accent: '#22c55e',
     paragraphs: [
-      "Tu as compris : que l'argent se pilote, que les décisions comptent, que la structure est clé.",
-      "Mais il manque encore quelque chose. Un système complet.",
-      "Parce qu'aujourd'hui : tu avances, mais pas encore de manière optimisée, pas encore avec une vraie puissance.",
-      "Tu es entre deux niveaux : plus dans le chaos, mais pas encore dans la maîtrise.",
-      "Ton prochain niveau : passer de 'je gère' à 'je pilote'.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Tu n'es plus dans la survie. C'est réel.",
+      "Mais attention : la zone verte est un piège silencieux. Beaucoup s'y installent. Et 3 ans plus tard… rien n'a vraiment changé.",
+      "Tu as fait le plus dur. Maintenant, l'enjeu est de structurer, systématiser et décider avec précision.",
+      "Money Reset va t'aider à transformer une gestion 'correcte' en système puissant.",
     ],
     bullets: [],
     cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
@@ -562,14 +564,14 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         </span>
       </div>
 
-      <h2 className="playfair-display-regular text-2xl md:text-3xl xl:text-4xl font-bold text-[#0a0a0f] leading-tight mb-2">
+      <h2 className="text-gray-700 text-sm md:text-lg leading-relaxed mb-2">
         {profile.subLabel}
       </h2>
       <div className="h-px bg-linear-to-r from-gray-200 to-transparent mb-6" />
 
       <div className="space-y-4 mb-6">
         {profile.paragraphs.map((p, i) => (
-          <p key={i} className="text-gray-700 text-sm md:text-base leading-relaxed">{p}</p>
+          <p key={i} className="text-gray-700 text-sm md:text-lg leading-relaxed">{p}</p>
         ))}
       </div>
 
@@ -578,7 +580,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-3">Chaque semaine qui passe te coûte :</p>
           <ul className="space-y-1.5">
             {profile.bullets.map((b) => (
-              <li key={b} className="flex items-center gap-2 text-gray-700 text-sm">
+              <li key={b} className="flex items-center gap-2 text-gray-700 text-sm md:text-lg">
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: profile.accent }} />
                 {b}
               </li>
@@ -587,48 +589,18 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         </div>
       )}
 
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-2 " >
+      <p className="text-gray-700 text-sm md:text-lg leading-relaxed mb-2 " >
         {profile.cta}
       </p>
 
-      <div className="mb-6 text-sm text-gray-700 space-y-2">
-        <p className="font-semibold text-[#0a0a0f]">🔥 Tu peux continuer comme ça encore 1 an…</p>
+      <div className="mb-6  space-y-2 text-gray-700 text-sm md:text-lg leading-relaxe">
+        <p className="text-gray-700 text-sm md:text-lg leading-relaxe">Tu peux continuer comme ça encore 1 an…</p>
         <p>ou décider maintenant.</p>
-        <p className="font-semibold">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
+        <p className="">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
       {/* VERSION COURTE FINALE - TRANSITION & CTA */}
       <div className="pb-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
-        {/* TRANSITION */}
-        <div className="space-y-1">
-          <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="font-semibold">Ce que tu viens de lire n'est pas un hasard.</span>
-          </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            C'est un schéma.
-          </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            Et sans cadre, il va continuer.
-          </p>
-        </div>
-
-        {/* CTA */}
-        <div className="space-y-1">
-          <p className="text-gray-700 text-sm leading-relaxed font-semibold">
-            Tu veux comprendre comment changer ça concrètement ?
-          </p>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            J'ai ouvert un groupe WhatsApp privé.
-          </p>
-        </div>
-
-        {/* ACTION STEPS */}
-        {/* <div className="space-y-1"> 
-          <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="font-semibold">Clique ici pour rejoindre 👇</span>
-          </p>
-        </div> */}
-
         {/* FOMO */}
         {choice !== 'no' && (
           <p className="text-red-700 font-semibold text-sm">

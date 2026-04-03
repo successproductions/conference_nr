@@ -19,10 +19,10 @@ const questions = [
     id: 2,
     text: 'Quand tu penses à ton avenir financier, quelle phrase te ressemble le plus ?',
     options: [
-      { key: 'A', label: '"On verra bien, de toute façon je me débrouille toujours."' },
-      { key: 'B', label: '"J\'ai peur, je préfère ne pas y penser."' },
-      { key: 'C', label: '"J\'ai envie de m\'en sortir, mais je tourne en rond."' },
-      { key: 'D', label: '"J\'ai des objectifs clairs, il me manque surtout de la discipline."' },
+      { key: 'A', label: 'On verra bien, de toute façon je me débrouille toujours.' },
+      { key: 'B', label: 'J\'ai peur, je préfère ne pas y penser.' },
+      { key: 'C', label: 'J\'ai envie de m\'en sortir, mais je tourne en rond.' },
+      { key: 'D', label: 'J\'ai des objectifs clairs, il me manque surtout de la discipline.' },
     ],
   },
   {
@@ -49,8 +49,8 @@ const questions = [
     id: 5,
     text: 'Quand on te parle d\'investir :',
     options: [
-      { key: 'A', label: '"J\'aimerais bien"… mais je ne passe jamais à l\'action.' },
-      { key: 'B', label: '"Ce n\'est pas pour moi."' },
+      { key: 'A', label: 'J\'aimerais bien… mais je ne passe jamais à l\'action.' },
+      { key: 'B', label: 'Ce n\'est pas pour moi.' },
       { key: 'C', label: 'J\'ai déjà essayé → mauvaises expériences.' },
       { key: 'D', label: 'Je me renseigne et je décide.' },
     ],
@@ -69,7 +69,7 @@ const questions = [
     id: 7,
     text: 'Quand tu fais une erreur financière :',
     options: [
-      { key: 'A', label: '"Je suis nul(le) avec l\'argent."' },
+      { key: 'A', label: 'Je suis nul(le) avec l\'argent.' },
       { key: 'B', label: 'Je blâme quelque chose / quelqu\'un.' },
       { key: 'C', label: 'J\'évite d\'y penser.' },
       { key: 'D', label: 'J\'analyse pour corriger.' },
@@ -79,10 +79,10 @@ const questions = [
     id: 8,
     text: 'La phrase qui te parle le plus :',
     options: [
-      { key: 'A', label: '"Dès que j\'ai un peu d\'air, ça replonge."' },
-      { key: 'B', label: '"Je préfère ne pas regarder."' },
-      { key: 'C', label: '"Je ne comprends pas où part mon argent."' },
-      { key: 'D', label: '"Je veux reprendre le contrôle sainement."' },
+      { key: 'A', label: 'Dès que j\'ai un peu d\'air, ça replonge.' },
+      { key: 'B', label: 'Je préfère ne pas regarder.' },
+      { key: 'C', label: 'Je ne comprends pas où part mon argent.' },
+      { key: 'D', label: 'Je veux reprendre le contrôle sainement.' },
     ],
   },
   {
@@ -573,7 +573,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         </span>
       </div>
 
-      <h2 className="text-gray-700 text-sm leading-relaxed mb-2">
+      <h2 className="text-gray-700 text-sm md:text-lg leading-relaxed mb-2">
         {profile.subLabel}
       </h2>
 
@@ -581,7 +581,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
 
       <div className="space-y-3 mb-4">
         {profile.paragraphs.map((p, i) => (
-          <p key={i} className="text-gray-700 text-sm leading-relaxed">{p}</p>
+          <p key={i} className="text-gray-700 text-sm md:text-lg leading-relaxed">{p}</p>
         ))}
       </div>
 
@@ -590,7 +590,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           <p className="text-gray-500 text-xs uppercase tracking-widest font-semibold mb-1">Chaque semaine qui passe te coûte :</p>
           <ul className="space-y-1">
             {profile.bullets.map((b) => (
-              <li key={b} className="flex items-center gap-2 text-gray-700 text-sm">
+              <li key={b} className="flex items-center gap-2 text-gray-700 text-sm md:text-lg">
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: profile.accent }} />
                 {b}
               </li>
@@ -599,12 +599,12 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
         </div>
       )}
 
-      <p className="text-gray-700 text-sm leading-relaxed mb-2 ">
+      <p className="text-gray-700 text-sm md:text-lg leading-relaxed mb-2 ">
         {profile.cta}
       </p>
 
-      <div className="py-2 mb-2 text-sm text-gray-700 space-y-0.5">
-        <p className=" text-[#0a0a0f]">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
+      <div className="py-2 mb-2 text-sm md:text-lg text-gray-700 space-y-0.5">
+        <p className="  text-gray-700">Tu peux continuer comme ça encore 1 an… ou décider maintenant.</p>
         <p>L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
       </div>
 
@@ -632,7 +632,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
 
         {/* FOMO */}
         {choice !== 'no' && (
-          <p className="text-red-700 font-semibold text-sm">
+          <p className="text-red-700 font-semibold text-sm md:text-lg">
             {choice === 'yes' ? '🔥 Accès pour inscription limité' : '🔥 Accès limité jusqu\'à 3 jours.'}
           </p>
         )}
