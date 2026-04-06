@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Swal from 'sweetalert2';
 
 type Category = 'Balcon' | 'Standard' | 'VIP' | 'Online';
 
@@ -56,7 +55,6 @@ export default function ConferenceForm() {
     e.preventDefault();
     if (!SCRIPT_URL) {
       console.error('NEXT_PUBLIC_APP_SCRIPT_URL is not configured');
-      setStatus('idle');
       return;
     }
 
@@ -79,42 +77,12 @@ export default function ConferenceForm() {
       });
 
       setStatus('idle');
-      setForm({ prenom: '', nom: '', email: '', telNumber: '', countryCode: form.countryCode });
-      setConsent(false);
-
-      await Swal.fire({
-        icon: 'success',
-        title: 'Place réservée ! 🎉',
-        html: `<p style="color:#ffffff99">Catégorie <strong style="color:#cfab4a">${category}</strong> — vous serez dirigé vers le paiement.</p>`,
-        confirmButtonText: 'Parfait !',
-        background: '#111118',
-        color: '#ffffff',
-        confirmButtonColor: '#cfab4a',
-        customClass: {
-          popup:         'rounded-xl',
-          confirmButton: 'font-bold tracking-wide rounded-sm px-8',
-        },
-      });
-
-      // Redirect after 1 second
-      setTimeout(() => {
-        window.location.href = 'https://guichet.com/ma-fr/event/salon-formation/money-reset-transformez-votre-futur-financier-le-10-mai-5792';
-      }, 1000);
-    } catch {
+      
+      // Redirect to Guichet
+      window.location.href = 'https://guichet.com/ma-fr/event/salon-formation/money-reset-transformez-votre-futur-financier-le-10-mai-5792';
+    } catch (error) {
+      console.error('Form submission error:', error);
       setStatus('idle');
-      await Swal.fire({
-        icon: 'error',
-        title: 'Oups !',
-        text: 'Une erreur est survenue. Réessaie dans quelques instants.',
-        confirmButtonText: 'Réessayer',
-        background: '#111118',
-        color: '#ffffff',
-        confirmButtonColor: '#d4a853',
-        customClass: {
-          popup:         'rounded-2xl',
-          confirmButton: 'font-bold tracking-wide rounded-sm px-8',
-        },
-      });
     }
   };
 
