@@ -51,6 +51,28 @@ const CTA = ({ href = '#register', label = 'RÉSERVER MA PLACE' }) => (
     👉 {label}
   </a>
 );
+const CTA2 = ({ href = '#register', label = 'JE PRENDS MA PLACE' }) => (
+  <a
+    href={href}
+    className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-[#cfab4a] text-white
+               font-bold text-sm md:text-base tracking-widest uppercase
+               shadow-xl shadow-[#cfab4a]/30 hover:shadow-[#cfab4a]/50
+               hover:scale-[1.03] active:scale-95 transition-all"
+  >
+    👉 {label}
+  </a>
+);
+const CTA3 = ({ href = '#register', label = 'RÉSERVER MON TICKET' }) => (
+  <a
+    href={href}
+    className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-[#cfab4a] text-white
+               font-bold text-sm md:text-base tracking-widest uppercase
+               shadow-xl shadow-[#cfab4a]/30 hover:shadow-[#cfab4a]/50
+               hover:scale-[1.03] active:scale-95 transition-all"
+  >
+    👉 {label}
+  </a>
+);
 
 export default function HomePage() {
   return (
@@ -194,7 +216,7 @@ ce travail est présenté en direct, en présentiel.<br/>
 Vous pouvez continuer à faire comme avant. <br/>Ou comprendre enfin ce qui bloque vos résultats.
           </p>
 
-          <CTA />
+          <CTA3 />
         </div>
       </section>
 
@@ -256,7 +278,7 @@ Vous pouvez continuer à faire comme avant. <br/>Ou comprendre enfin ce qui bloq
             
           </div>
 
-          <CTA />
+          <CTA2 />
         </div>
       </section>
 
