@@ -109,7 +109,7 @@ const questions = [
 ];
 
 /* ─── ZONE TYPE & PROFILES ──────────────────────────────────────── */
-type Zone = 'red' | 'orange' | 'yellow' | 'green';
+type Zone = 'red' | 'orange' | 'green';
 
 const profiles: Record<Zone, {
   zone: Zone; emoji: string; label: string; subLabel: string;
@@ -121,7 +121,7 @@ const profiles: Record<Zone, {
     subLabel: 'Tu es en urgence financière.',
     accent: '#ef4444',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
       "Soyons directs. Tu n'as pas un problème de revenu. Tu as un problème de système.",
       "Depuis des mois — peut-être des années — tu attends que ça change tout seul. Ça n'arrivera pas.",
       "Chaque semaine qui passe sans décision te coûte : de l'argent, de l'énergie, et de la confiance en toi.",
@@ -138,28 +138,12 @@ const profiles: Record<Zone, {
     subLabel: 'Tu travailles dur… mais tu tournes en rond.',
     accent: '#f97316',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
       "Tu n'es pas nul(le) avec l'argent. Tu es épuisé(e) par un système qui ne fonctionne pas.",
       "Tu fais des efforts. Tu essaies. Tu recommences. Mais sans structure claire, tu dépenses ton énergie… sans construire.",
       "Résultat : fatigue, frustration, stagnation déguisée.",
       "Ce profil est celui qui transforme le plus vite… quand il a le bon cadre.",
       "Money Reset n'est pas là pour t'apprendre plus. Il est là pour te donner un plan clair, applicable immédiatement.",
-    ],
-    bullets: [],
-    cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
-  },
-  yellow: {
-    zone: 'yellow', emoji: '🟡',
-    label: 'PROFIL C — LE COMBATTANT DÉSORGANISÉ',
-    subLabel: 'Tu essaies. Beaucoup.',
-    accent: '#f59e0b',
-    paragraphs: [
-      "Tu fais des efforts. Tu t'informes. Tu testes. Mais sans structure.",
-      "Tu avances… puis tu reviens en arrière. Tu changes de stratégie. Tu recommences. Tu ajustes.",
-      "Mais sans cadre global : rien ne tient.",
-      "Résultat : fatigue, frustration, impression de stagner malgré les efforts.",
-      "Tu n'es pas perdu(e). Tu es désorganisé(e).",
-      "Ton problème : trop d'actions, pas assez de système. Ton prochain niveau : transformer ton énergie en stratégie.",
     ],
     bullets: [],
     cta: "Tu peux continuer comme ça… ou décider que ça s'arrête maintenant. C'est exactement ce que je démonte en détail pendant Money Reset.",
@@ -170,7 +154,7 @@ const profiles: Record<Zone, {
     subLabel: 'Tu as les bases. Maintenant il faut accélérer.',
     accent: '#22c55e',
     paragraphs: [
-      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'on met des mots précis sur ta situation.",
+      "Lis bien ce qui suit. C'est probablement la première fois que quelqu'un met des mots précis sur ta situation.",
       "Tu n'es plus dans la survie. C'est réel.",
       "Mais attention : la zone verte est un piège silencieux. Beaucoup s'y installent. Et 3 ans plus tard… rien n'a vraiment changé.",
       "Tu as fait le plus dur. Maintenant, l'enjeu est de structurer, systématiser et décider avec précision.",
@@ -211,7 +195,7 @@ function computeScore(answers: Record<number, string>): { score: number; zone: Z
       if (opt) total += opt.points;
     }
   });
-  const zone: Zone = total <= 19 ? 'red' : total <= 26 ? 'orange' : total <= 33 ? 'yellow' : 'green';
+  const zone: Zone = total <= 20 ? 'red' : total <= 30 ? 'orange' : 'green';
   return { score: total, zone };
 }
 
@@ -588,16 +572,6 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           </ul>
         </div>
       )}
-
-      <p className="text-gray-700 text-sm md:text-lg leading-relaxed mb-2 " >
-        {profile.cta}
-      </p>
-
-      <div className="mb-6  space-y-2 text-gray-700 text-sm md:text-lg leading-relaxe">
-        <p className="text-gray-700 text-sm md:text-lg leading-relaxe">Tu peux continuer comme ça encore 1 an…</p>
-        <p>ou décider maintenant.</p>
-        <p className="">L&apos;argent ne ment jamais. Il révèle ton niveau de structure.</p>
-      </div>
 
       {/* VERSION COURTE FINALE - TRANSITION & CTA */}
       <div className="pb-3 mb-4 space-y-2 border-t border-gray-200 pt-3">
