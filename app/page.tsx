@@ -3,6 +3,8 @@ import Image from 'next/image';
 import PageAnimations from './components/PageAnimations';
 import FaqAccordion from './components/FaqAccordion';
 import ConferenceForm from './components/ConferenceForm';
+import NotificationWidget from './components/NotificationWidget';
+
 
 export const metadata: Metadata = {
   title: 'MONEY RESET — Conférence avec Nahed Rachad · Casablanca 10 Mai',
@@ -402,6 +404,46 @@ essaient encore…sans jamais basculer.
       </section>
 
       {/* ══════════════════════════════════════════════════════
+          TRUSTPILOT REVIEWS
+      ══════════════════════════════════════════════════════ */}
+      <section id="reviews" className="relative py-10 md:py-12 px-5 overflow-hidden">
+        <div className="max-w-6xl mx-auto space-y-16">
+          
+          {/* Header: Stars & Badge */}
+          <div className="flex flex-col items-center md:space-y-4 gsap-fade-up">
+            <div className="relative w-[200px] md:w-[240px] aspect-[5/1]">
+              <Image 
+                src="/conference/images/trustpilot/Trustpilot.png" 
+                alt="Trustpilot Stars" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Grid of Reviews - Masonry layout using columns */}
+          <div className="columns-1 md:columns-2 gap-10 space-y-10">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div 
+                key={i} 
+                className="break-inside-avoid relative group rounded-[4px] overflow-hidden shadow-2xl shadow-black/50 gsap-fade-up"
+              >
+                <Image 
+                  src={`/conference/images/trustpilot/${i + 1}.png`} 
+                  alt={`Review ${i + 1}`} 
+                  width={800} 
+                  height={500} 
+                  className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* ══════════════════════════════════════════════════════
           9 · FAQ
       ══════════════════════════════════════════════════════ */}
       <section id="faq" className="py-5 md:py-24 px-5">
@@ -478,6 +520,8 @@ essaient encore…sans jamais basculer.
           })
         }}
       />
+      <NotificationWidget />
     </main>
+
   );
 }
