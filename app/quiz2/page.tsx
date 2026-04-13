@@ -597,7 +597,7 @@ function ResultScreen({ zone, score, choice, onRestart }: { zone: Zone; score: n
           </a>
         ) : choice === 'no' ? null : (
           <a
-            href="https://chat.whatsapp.com/FWj0OJ755eTIrPNLawn2oj?mode=gi_t"
+            href="https://chat.whatsapp.com/G4KJMQhXW5o0kvkpsBT6y3?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full py-4 lg:p-6 rounded-xl font-bold text-sm tracking-widest uppercase text-white text-center transition-all hover:scale-[1.02] active:scale-95"
