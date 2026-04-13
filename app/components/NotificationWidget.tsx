@@ -87,15 +87,15 @@ export default function NotificationWidget() {
 
 
         <div className="space-y-1 text-left">
-          <p className="font-bold text-[15px] md:text-base leading-snug">
+          <p className="font-bold text-[14px] md:text-base leading-snug">
             <span className="text-[#cfab4a]">{current.name}</span>{' '}
           </p>
-          <p className="text-gray-900 text-[14px] md:text-[15px] leading-relaxed">
+          <p className="text-gray-900 text-[13px] md:text-[15px] leading-relaxed">
             a réservé sa place pour la conférence <span className="font-extrabold">Money Reset.</span>
           </p>
           <a 
             href="#register" 
-            className="inline-flex items-center gap-1.5 text-[#cfab4a] font-bold text-sm mt-2 hover:underline tracking-tight"
+            className="inline-flex items-center gap-1.5 text-[#cfab4a] font-light text-sm hover:underline tracking-tight"
           >
             Cliquez ici <span className="text-lg leading-none mt-[-2px]">›</span>
           </a>
