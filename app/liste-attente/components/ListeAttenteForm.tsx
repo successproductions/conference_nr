@@ -18,6 +18,11 @@ function getFbp(): string {
   return match ? match.split('=')[1] : '';
 }
 
+function getUtmParam(key: string): string {
+  if (typeof window === 'undefined') return '';
+  return new URLSearchParams(window.location.search).get(key) || '';
+}
+
 export default function ListeAttenteForm() {
   const router = useRouter();
   const [state, setState] = useState<'idle' | 'loading'>('idle');
@@ -51,10 +56,14 @@ export default function ListeAttenteForm() {
       formData.append('phone', fullPhone);
 
       // ── Meta tracking params (for CAPI) ──
-      const fbclid = getFbclid();
-      const fbp    = getFbp();
-      if (fbclid) formData.append('fbclid', fbclid);
-      if (fbp)    formData.append('fbp', fbp);
+      const fbclid     = getFbclid();
+      const fbp        = getFbp();
+      const utmSource  = getUtmParam('utm_source');
+      const utmCampaign = getUtmParam('utm_campaign');
+      if (fbclid)      formData.append('fbclid', fbclid);
+      if (fbp)         formData.append('fbp', fbp);
+      if (utmSource)   formData.append('utm_source', utmSource);
+      if (utmCampaign) formData.append('utm_campaign', utmCampaign);
 
       await fetch(SCRIPT_URL, {
         method: 'POST',

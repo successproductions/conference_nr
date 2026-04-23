@@ -16,6 +16,11 @@ function getFbp(): string {
   return match ? match.split('=')[1] : '';
 }
 
+function getUtmParam(key: string): string {
+  if (typeof window === 'undefined') return '';
+  return new URLSearchParams(window.location.search).get(key) || '';
+}
+
 type Category = 'Balcon' | 'Standard' | 'VIP' | 'Online';
 
 const CATEGORIES: { label: Category; price: string; }[] = [
@@ -84,10 +89,14 @@ export default function ConferenceForm() {
       data.append('categorie', category);
 
       // ── Meta tracking params (for CAPI) ──
-      const fbclid = getFbclid();
-      const fbp    = getFbp();
-      if (fbclid) data.append('fbclid', fbclid);
-      if (fbp)    data.append('fbp', fbp);
+      const fbclid      = getFbclid();
+      const fbp         = getFbp();
+      const utmSource   = getUtmParam('utm_source');
+      const utmCampaign = getUtmParam('utm_campaign');
+      if (fbclid)      data.append('fbclid', fbclid);
+      if (fbp)         data.append('fbp', fbp);
+      if (utmSource)   data.append('utm_source', utmSource);
+      if (utmCampaign) data.append('utm_campaign', utmCampaign);
 
       await fetch(SCRIPT_URL, {
         method: 'POST',
