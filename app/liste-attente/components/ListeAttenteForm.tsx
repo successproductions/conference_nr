@@ -56,14 +56,11 @@ export default function ListeAttenteForm() {
       formData.append('phone', fullPhone);
 
       // ── Meta tracking params (for CAPI) ──
-      const fbclid     = getFbclid();
-      const fbp        = getFbp();
-      const utmSource  = getUtmParam('utm_source');
-      const utmCampaign = getUtmParam('utm_campaign');
-      if (fbclid)      formData.append('fbclid', fbclid);
-      if (fbp)         formData.append('fbp', fbp);
-      if (utmSource)   formData.append('utm_source', utmSource);
-      if (utmCampaign) formData.append('utm_campaign', utmCampaign);
+      // Always append (even if empty) so GAS always writes all columns correctly
+      formData.append('fbclid',       getFbclid());
+      formData.append('fbp',          getFbp());
+      formData.append('utm_source',   getUtmParam('utm_source'));
+      formData.append('utm_campaign', getUtmParam('utm_campaign'));
 
       await fetch(SCRIPT_URL, {
         method: 'POST',
