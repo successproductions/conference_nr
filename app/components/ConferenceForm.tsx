@@ -2,6 +2,20 @@
 
 import { useState } from 'react';
 
+// ── Meta tracking helpers ────────────────────────────────
+function getFbclid(): string {
+  if (typeof window === 'undefined') return '';
+  return new URLSearchParams(window.location.search).get('fbclid') || '';
+}
+
+function getFbp(): string {
+  if (typeof document === 'undefined') return '';
+  const match = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('_fbp='));
+  return match ? match.split('=')[1] : '';
+}
+
 type Category = 'Balcon' | 'Standard' | 'VIP' | 'Online';
 
 const CATEGORIES: { label: Category; price: string; }[] = [
@@ -68,6 +82,12 @@ export default function ConferenceForm() {
       data.append('email',    form.email);
       data.append('phone',    fullPhone);
       data.append('categorie', category);
+
+      // ── Meta tracking params (for CAPI) ──
+      const fbclid = getFbclid();
+      const fbp    = getFbp();
+      if (fbclid) data.append('fbclid', fbclid);
+      if (fbp)    data.append('fbp', fbp);
 
       await fetch(SCRIPT_URL, {
         method: 'POST',

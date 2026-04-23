@@ -4,6 +4,20 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
 
+// ── Meta tracking helpers ────────────────────────────────
+function getFbclid(): string {
+  if (typeof window === 'undefined') return '';
+  return new URLSearchParams(window.location.search).get('fbclid') || '';
+}
+
+function getFbp(): string {
+  if (typeof document === 'undefined') return '';
+  const match = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('_fbp='));
+  return match ? match.split('=')[1] : '';
+}
+
 export default function ListeAttenteForm() {
   const router = useRouter();
   const [state, setState] = useState<'idle' | 'loading'>('idle');
@@ -35,6 +49,12 @@ export default function ListeAttenteForm() {
       formData.append('prenom', form.prenom);
       formData.append('email', form.email);
       formData.append('phone', fullPhone);
+
+      // ── Meta tracking params (for CAPI) ──
+      const fbclid = getFbclid();
+      const fbp    = getFbp();
+      if (fbclid) formData.append('fbclid', fbclid);
+      if (fbp)    formData.append('fbp', fbp);
 
       await fetch(SCRIPT_URL, {
         method: 'POST',
